@@ -234,3 +234,64 @@ form{
     display: flex;
     gap:5px;
 }
+
+
+
+
+/* Popup styles */
+.popup {
+    position: fixed;
+    left: 50%;
+    top:12%;
+    height:50px;
+    width:150px;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background: grey;
+    color: black;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    opacity: 1;
+    animation: fadeOut 4s ease-in-out forwards; 
+  }
+  @keyframes fadeOut {
+    0% {
+      opacity: 1; /* Fully visible at the start */
+    }
+    100% {
+      opacity: 0; /* Completely faded out */
+    }
+  }
+  
+  .hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  /* Loading bar styles */
+  .loading-bar {
+    margin-top: 10px;
+    width: 100%;
+    height: 5px;
+    background: rgba(43, 62, 235, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .progress {
+    height: 100%;
+    background: white;
+    width: 0;
+    animation: loading 3s linear forwards;
+  }
+  
+  @keyframes loading {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }

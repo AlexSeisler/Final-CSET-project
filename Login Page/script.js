@@ -1,3 +1,4 @@
+
 if (!localStorage.getItem('users')) 
 {
   const manager = 
@@ -43,9 +44,13 @@ function validateForm() {
 
   // Save updated users back to localStorage
   localStorage.setItem('users', JSON.stringify(users));
+  const popup = document.getElementById('popup');
+  popup.classList.remove('hidden'); // Show the popup
 
-  alert('Signup successful! You can now log in.');
+  window.location.href = "log.html";
 }
+  // Hide popup after 3 seconds and redirect to login page
+  
 
 function validateFormLog() {
   const users = JSON.parse(localStorage.getItem('users'));

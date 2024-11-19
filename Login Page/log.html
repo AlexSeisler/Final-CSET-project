@@ -6,12 +6,15 @@
     <title>Responsive Form</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <script src="scriptLog.js" defer></script>
     <script src="https://kit.fontawesome.com/69ade3179b.js" crossorigin="anonymous"></script>
     
 </head>
 <body>
     <div class="container">
     <div class="content">
+
+
 
         <div class="right">
             <div class="top">
@@ -71,7 +74,12 @@
     </div>
     <button onclick="showStoredData()">Show Stored Data</button>
     <button onclick="clearData()">Clear Local Storage</button>
-
+    <div id="popup" class="popup hidden">
+      <p>Signup Successful! Redirecting to login...</p>
+      <div class="loading-bar">
+        <div class="progress"></div>
+      </div>
+    </div>
     </div>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
     

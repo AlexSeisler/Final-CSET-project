@@ -12,6 +12,12 @@
 <body>
     <div class="container">
     <div class="content">
+      <div id="popup" class="popup hidden">
+        <p>Signup Successful!</p>
+        <div class="loading-bar">
+          <div class="progress"></div>
+        </div>
+      </div>
         <div class="left">
             <img class="background" src="images/background.jfif" alt="Building">
             <div class="seeThrough">
@@ -28,6 +34,8 @@
                 </p>
                 </div>
             </div>
+
+
 
             <div class="middle">
                 <h1>Sign Up</h1>
@@ -55,7 +63,7 @@
                       </div>
                     </div>
                     <!-- Submit button must also be inside the form -->
-                    <button type="submit">Sign Up</button>
+                    <button id="signUp" type="submit">Sign Up</button>
                   </form>
                 </div>
               </div>
@@ -71,7 +79,6 @@
     </div>
     <button onclick="showStoredData()">Show Stored Data</button>
     <button onclick="clearData()">Clear Local Storage</button>
-
     </div>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
     
