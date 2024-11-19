@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Form</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <script src="https://kit.fontawesome.com/69ade3179b.js" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+    <div class="container">
+    <div class="content">
+        <div class="left">
+            <img class="background" src="images/background.jfif" alt="Building">
+            <div class="seeThrough">
+                <img id="logo" src="images/ACS Results-background.png" alt="Logo">
+                <p id="mainText">ACS Results</p>
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="top">
+                <div class="quote">
+                <p id="text2">
+                    <em>If you believe it enough to tell people and you work towards it every day, it will come.</em>
+                </p>
+                </div>
+            </div>
+
+            <div class="middle">
+                <h1>Sign Up</h1>
+                <div class="Inputs">
+                  <!-- Ensure the form encloses all inputs and the submit button -->
+                  <form onsubmit="validateForm(); reset(); return false;">
+                    <div class="leftInputs">
+                      <div class="form-group">
+                        <div class="iconBox">
+                          <i id="icons" class="fa-solid fa-user"></i>
+                        </div>
+                        <input type="text" id="username" name="username" placeholder="Username" required>
+                      </div>
+                      <div class="form-group">
+                        <div class="iconBox">
+                          <i id="icons" class="fa-solid fa-lock"></i>
+                        </div>
+                        <input type="password" id="password" name="password" placeholder="Password" required>
+                      </div>
+                      <div class="form-group">
+                        <div class="iconBox">
+                          <i id="icons" class="fas fa-envelope-square"></i>
+                        </div>
+                        <input type="email" id="email" name="email" placeholder="Email" required>
+                      </div>
+                    </div>
+                    <!-- Submit button must also be inside the form -->
+                    <button type="submit">Sign Up</button>
+                  </form>
+                </div>
+              </div>
+              
+
+            <div class="bottom">
+                <div class="spot">
+                    <p class="text3">Already have an account?</p>
+                    <a href="log.html"><p class="log">Log in</p></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button onclick="showStoredData()">Show Stored Data</button>
+    <button onclick="clearData()">Clear Local Storage</button>
+
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    
+</body>
+</html>
