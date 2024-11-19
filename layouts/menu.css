@@ -142,4 +142,31 @@
         background-color: antiquewhite;
         width: 50%;
         height: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding-left: 3%;
     }
+        .item-popup .right .title{
+            width: 40%;
+            height: 100px;
+            background-color: rgb(174, 158, 133);
+        }
+        .item-popup .right .details{
+            width: 80%;
+            height: 30%;
+            background-color: rgb(174, 158, 133);
+        }
+        .item-popup .right .button-box{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 40%;
+            width: 95%;
+            background-color: rgb(174, 158, 133);
+        }
+        .item-popup .right .button-box .button{
+            width: 300px;
+            height: 70px;
+            background-color: rgb(87, 75, 61);
+        }
