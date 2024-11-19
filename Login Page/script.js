@@ -1,6 +1,17 @@
-if (!localStorage.getItem('users')) {
-  localStorage.setItem('users', JSON.stringify({}));
+if (!localStorage.getItem('users')) 
+{
+  const manager = 
+  {
+    manager:
+    {
+      name: "manager",
+      email: "manager@manager",
+      password: "manager"
+    }
+  };
+  localStorage.setItem('users', JSON.stringify({manager}));
 }
+
 
 function validateForm() {
   const users = JSON.parse(localStorage.getItem('users'));
@@ -70,7 +81,17 @@ function showStoredData() {
 function clearData() {
   localStorage.removeItem('users');
   alert('All localStorage data has been cleared!');
-  if (!localStorage.getItem('users')) {
-    localStorage.setItem('users', JSON.stringify({}));
-  }
+  if (!localStorage.getItem('users')) 
+    {
+      const manager = 
+      {
+        manager:
+        {
+          name: "manager",
+          email: "manager@manager",
+          password: "manager"
+        }
+      };
+      localStorage.setItem('users', JSON.stringify({manager}));
+    }
 }
