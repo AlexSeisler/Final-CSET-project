@@ -44,9 +44,10 @@ function validateForm() {
 
   // Save updated users back to localStorage
   localStorage.setItem('users', JSON.stringify(users));
-  const popup = document.getElementById('popup');
-  popup.classList.remove('hidden'); // Show the popup
+  
+  sessionStorage.setItem('showPopup', 'true');
 
+  // Redirect to login page (log.html)
   window.location.href = "log.html";
 }
   // Hide popup after 3 seconds and redirect to login page
