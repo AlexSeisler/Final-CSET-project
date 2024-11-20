@@ -1,32 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width initial-scale=1.0">
-        <title>Manager Menu Page</title>
-        <link rel="stylesheet" href="./manager-menu.css">
-    </head>
-    <body>
-        <div class="manager-menu-container">
-            <div class="top">
-                <div class="mm-title"></div>
-                <div class="mm-exit"></div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width initial-scale=1.0">
+    <title>Manager Menu Page</title>
+    <link rel="stylesheet" href="./manager-menu.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="manager-menu-container">
+        <div class="top">
+            <div class="mm-title">Manager Menu</div>
+            <div class="mm-exit">Exit</div>
+        </div>
+        <div class="bot">
+            <div class="left">
+                <div class="menu-items-title">Menu Items</div>
+                <div class="menu-items-box" id="menu-items-box"></div>
             </div>
-            <div class="bot">
-                <div class="left">
-                    <div class="menu-items-title"></div>
-                    <div class="menu-items-box"></div>
-                </div>
-                <div class="right">
-                    <div class="add-new-title"></div>
-                    <div class="add-new-card">
-                        <input type="text" name="" id="">
-                        <textarea name="" id=""></textarea>
-                        <input type="number">
-                        <button>ADD</button>
-                    </div>
+            <div class="right">
+                <div class="add-new-title">Add New Item</div>
+                <div class="add-new-card">
+                    <input type="text" id="item-name" placeholder="Item Name">
+                    <textarea id="item-description" placeholder="Item Description"></textarea>
+                    <input type="number" id="item-price" placeholder="Price">
+                    <input type="text" id="item-image" placeholder="Image URL">
+                    <button id="add-item-button">ADD</button>
                 </div>
             </div>
         </div>
-    </body>
+    </div>
+    <script>
+        // Function to add a new menu item to localStorage
+        document.getElementById('add-item-button').addEventListener('click', function() {
+            // Get the item details from the form
+            const itemName = document.getElementById('item-name').value;
+            const itemDescription = document.getElementById('item-description').value;
+            const itemPrice = document.getElementById('item-price').value;
+            const itemImage = document.getElementById('item-image').value;
+
+            // Create a new item object
+            const newItem = {
+                name: itemName,
+                description: itemDescription,
+                price: itemPrice,
+                image: itemImage
+            };
+
+            // Get current items from localStorage
+            const items = JSON.parse(localStorage.getItem('menuItems')) || [];
+
+            // Add the new item to the items array
+            items.push(newItem);
+
+            // Save the updated array back to localStorage
+            localStorage.setItem('menuItems', JSON.stringify(items));
+
+            // Clear the form fields after adding the item
+            document.getElementById('item-name').value = '';
+            document.getElementById('item-description').value = '';
+            document.getElementById('item-price').value = '';
+            document.getElementById('item-image').value = '';
+
+            // Optionally update the menu view immediately
+            displayMenuItems();
+        });
+
+        // Function to display the menu items (for updating the Manager Page view)
+        function displayMenuItems() {
+            const menuItemsBox = document.getElementById('menu-items-box');
+            menuItemsBox.innerHTML = ''; // Clear existing items
+
+            // Get items from localStorage
+            const items = JSON.parse(localStorage.getItem('menuItems')) || [];
+
+            // Iterate through the items and add them to the UI
+            items.forEach(item => {
+                const itemCard = document.createElement('div');
+                itemCard.classList.add('menu-item-card');
+                itemCard.innerHTML = `
+                    <h3>${item.name}</h3>
+                    <p>${item.description}</p>
+                    <p>Price: $${item.price}</p>
+                    <img src="${item.image}" alt="${item.name}" class="item-image">
+                `;
+                menuItemsBox.appendChild(itemCard);
+            });
+        }
+
+        // Display the current items when the page loads
+        displayMenuItems();
+    </script>
+</body>
 </html>
