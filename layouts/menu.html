@@ -1,41 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width initial-scale=1.0">
-        <title>Menu</title>
-        <link rel="stylesheet" href="./menu.css">
-    </head>
-    <body>
-        <div class="main-container">
-            <div class="categories">
-                <div class="innerbox"></div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" href="./menu.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="main-container">
+        <div class="categories">
+            <div class="innerbox"></div>
+        </div>
+        <div class="main">
+            <div class="cart">
+                <div class="top">Your Cart</div>
+                <div class="items"></div>
             </div>
-            <div class="main">
-                <div class="cart">
-                    <div class="top"></div>
-                    <div class="items"></div>
-                </div>
-                <div class="menu">
-                    <div class="category-title"></div>
-                    <div class="menu-items"></div>
-                </div>
-                <div class="pay-button"></div>
+            <div class="menu">
+                <div class="category-title">Menu</div>
+                <div class="menu-items" id="menu-items"></div>
+            </div>
+            <div class="pay-button">
+                <button>Proceed to Payment</button>
             </div>
         </div>
-        <div class="item-popup" style="display: none;">
-            <div class="left">
-                <div class="img"></div>
-                <div class="info"></div>
-            </div>
-            <div class="right">
-                <div class="title"></div>
-                <div class="details"></div>
-                <div class="button-box">
-                    <div class="button"></div>
-                    <div class="button"></div>
-                </div>
+    </div>
+
+    <div class="item-popup" style="display: none;">
+        <div class="left">
+            <div class="img"></div>
+            <div class="info"></div>
+        </div>
+        <div class="right">
+            <div class="title"></div>
+            <div class="details"></div>
+            <div class="button-box">
+                <div class="button">Add to Cart</div>
+                <div class="button">Cancel</div>
             </div>
         </div>
-    </body>
+    </div>
+    <script>
+        // Function to display all the menu items from localStorage
+        function displayMenuItems() {
+            const menuItemsBox = document.getElementById('menu-items');
+            menuItemsBox.innerHTML = ''; // Clear existing items
+
+            // Get items from localStorage
+            const items = JSON.parse(localStorage.getItem('menuItems')) || [];
+
+            // Display each item as a card
+            items.forEach(item => {
+                const itemCard = document.createElement('div');
+                itemCard.classList.add('menu-item-card');
+                itemCard.innerHTML = `
+                    <h3>${item.name}</h3>
+                    <p>${item.description}</p>
+                    <p>Price: $${item.price}</p>
+                    <img src="${item.image}" alt="${item.name}" class="item-image">
+                    <button class="add-to-cart">Add to Cart</button>
+                `;
+                menuItemsBox.appendChild(itemCard);
+            });
+        }
+
+        // Display the menu items when the page loads
+        window.onload = displayMenuItems;
+    </script>
+</body>
 </html>
