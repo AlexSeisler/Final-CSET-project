@@ -42,31 +42,8 @@
         </div>
     </div>
     <script>
-        // Function to display all the menu items from localStorage
-        function displayMenuItems() {
-            const menuItemsBox = document.getElementById('menu-items');
-            menuItemsBox.innerHTML = ''; // Clear existing items
-
-            // Get items from localStorage
-            const items = JSON.parse(localStorage.getItem('menuItems')) || [];
-
-            // Display each item as a card
-            items.forEach(item => {
-                const itemCard = document.createElement('div');
-                itemCard.classList.add('menu-item-card');
-                itemCard.innerHTML = `
-                    <h3>${item.name}</h3>
-                    <p>${item.description}</p>
-                    <p>Price: $${item.price}</p>
-                    <img src="${item.image}" alt="${item.name}" class="item-image">
-                    <button class="add-to-cart">Add to Cart</button>
-                `;
-                menuItemsBox.appendChild(itemCard);
-            });
-        }
-
         // Display the menu items when the page loads
-        window.onload = displayMenuItems;
+        displayMenuItems1();
     </script>
 </body>
 </html>
