@@ -40,10 +40,12 @@ function displayMenuItems1() {
             </div>
             <div class="menu-item-info">
                 <h3>${item.name}</h3>
-                <p>${item.description}</p>
-                <p><strong>Price:</strong> $${item.price}</p>
+                <p class='description'>${item.description}</p>
+                <p><strong>Price: </strong> $${item.price}</p>
             </div>
-            <button class="add-to-cart-button">Add to Cart</button>
+            <div class="add-to-cart">
+                <button class="add-to-cart-button">Add to Cart</button>
+            </div>
         `;
         itemCard.innerHTML = itemHTML;
 
