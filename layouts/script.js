@@ -11,10 +11,10 @@ function displayMenuItems() {
         const itemCard = document.createElement('div');
         itemCard.classList.add('menu-item-card');
         itemCard.innerHTML = `
-            <h3>${item.name}</h3>
-            <p>${item.description}</p>
-            <p>Price: $${item.price}</p>
-            <img src="${item.image}" alt="${item.name}" class="item-image">
+            <h3 class='grid-item'>${item.name}</h3>
+            <p class='grid-item description'>${item.description}</p>
+            <p class='grid-item'>Price: $${item.price}</p>
+            <img src="${item.image}" alt="${item.name}" class="item-image grid-item">
         `;
         menuItemsBox.appendChild(itemCard);
     });
