@@ -12,6 +12,7 @@ function displayMenuItems() {
         itemCard.classList.add('menu-item-card');
         itemCard.innerHTML = `
             <h3 class='grid-item'>${item.name}</h3>
+            <p class='grid-item description'>${item.category}</p>
             <p class='grid-item description'>${item.description}</p>
             <p class='grid-item'>Price: $${item.price}</p>
             <img src="${item.image}" alt="${item.name}" class="item-image grid-item">
@@ -95,6 +96,7 @@ function managerAdd()
     document.getElementById('add-item-button').addEventListener('click', function() {
         // Get the item details from the form
         const itemName = document.getElementById('item-name').value;
+        const itemCat = document.getElementById('item-cat').value;
         const itemDescription = document.getElementById('item-description').value;
         const itemPrice = document.getElementById('item-price').value;
         const itemImage = document.getElementById('item-image').value;
@@ -102,6 +104,7 @@ function managerAdd()
         // Create a new item object
         const newItem = {
             name: itemName,
+            category: itemCat,
             description: itemDescription,
             price: itemPrice,
             image: itemImage
@@ -118,6 +121,7 @@ function managerAdd()
 
         // Clear the form fields after adding the item
         document.getElementById('item-name').value = '';
+        document.getElementById('item-cat').value = '';
         document.getElementById('item-description').value = '';
         document.getElementById('item-price').value = '';
         document.getElementById('item-image').value = '';
