@@ -132,9 +132,6 @@ function displayMenuItems1() {
                 <p>${item.description}</p>
                 <p><strong>Price:</strong> $${item.price}</p>
             </div>
-            <div class="add-to-cart">
-                <button onclick="addToCart('${item.name}')">Add to Cart</button>
-            </div>
         `;
 
         menuItemsContainer.appendChild(itemCard); // Append each card to the container
@@ -348,5 +345,68 @@ function checkSelection() {
     } else {
         // Redirect to an error or notification page
         alert('Please select a payment method.');
+    }
+}
+//manger remove menu item
+function removeItem() {
+    const removeItemSelect = document.getElementById("remove-item-name");
+    const selectedIndex = removeItemSelect.value;
+
+    // Fetch items from localStorage
+    let items = JSON.parse(localStorage.getItem("menuItems")) || [];
+
+    // Check if there's a valid item to remove
+    if (selectedIndex >= 0 && selectedIndex < items.length) {
+        // Remove the selected item
+        items.splice(selectedIndex, 1);
+
+        // Save updated list back to localStorage
+        localStorage.setItem("menuItems", JSON.stringify(items));
+
+        // Update the dropdown
+        removeItemSelect.innerHTML = ""; // Clear existing options
+        items.forEach((item, index) => {
+            const option = document.createElement("option");
+            option.value = index;
+            option.textContent = item.name;
+            removeItemSelect.appendChild(option);
+        });
+
+        displayMenuItems1();
+    } else {
+        alert("Please select a valid item to remove.");
+    }
+}
+
+// Edit item function
+function editItem() {
+    const editItemSelect = document.getElementById("edit-item-name");
+    const editDescription = document.getElementById("edit-item-description").value;
+    const editPrice = document.getElementById("edit-item-price").value;
+    const editCategory = document.getElementById("edit-item-category").value;
+    const editImage = document.getElementById("edit-item-image").value;
+
+    // Fetch items from localStorage
+    let items = JSON.parse(localStorage.getItem("menuItems")) || [];
+
+    const selectedIndex = editItemSelect.value;
+
+    // Validate selected item
+    if (selectedIndex >= 0 && selectedIndex < items.length) {
+        // Update the selected item's fields
+        items[selectedIndex] = {
+            ...items[selectedIndex], // Keep existing fields
+            description: editDescription || items[selectedIndex].description,
+            price: parseFloat(editPrice) || items[selectedIndex].price,
+            category: editCategory || items[selectedIndex].category,
+            image: editImage || items[selectedIndex].image,
+        };
+
+        // Save updated list back to localStorage
+        localStorage.setItem("menuItems", JSON.stringify(items));
+
+        displayMenuItems1();
+    } else {
+        alert("Please select a valid item to edit.");
     }
 }

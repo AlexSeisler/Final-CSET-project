@@ -37,7 +37,49 @@
                     <input type="text" id="item-image" placeholder="Image URL">
                     <button id="add-item-button">ADD</button>
                 </div>
+                <div class="section" id="edit-item-section"> 
+                    <h2>Edit Item</h2>
+                    <form id="edit-item-form">
+                        <label for="edit-item-name">Select Item to Edit:</label>
+                        <select id="edit-item-name">
+                            <!-- Options will be dynamically populated -->
+                        </select>
+                
+                        <label for="edit-item-description">New Description:</label>
+                        <textarea id="edit-item-description" rows="3" placeholder="Enter new description"></textarea>
+                
+                        <label for="edit-item-price">New Price ($):</label>
+                        <input type="number" id="edit-item-price" placeholder="Enter new price" step="0.01">
+                
+                        <label for="edit-item-category">New Category:</label>
+                        <select id="edit-item-category">
+                            <option value="Entree">Entree</option>
+                            <option value="Appetizer">Appetizer</option>
+                            <option value="Dessert">Dessert</option>
+                            <option value="Drinks">Drinks</option>
+                        </select>
+                
+                        <label for="edit-item-image">New Image URL:</label>
+                        <input type="url" id="edit-item-image" placeholder="Enter new image URL">
+                
+                        <button type="button" onclick="editItem()">Edit Item</button>
+                    </form>
+                </div>
+            
+                <!-- Remove Item Section -->
+                <div class="section" id="remove-item-section">
+                    <h2>Remove Item</h2>
+                    <form id="remove-item-form">
+                        <label for="remove-item-name">Select Item to Remove:</label>
+                        <select id="remove-item-name">
+                            <!-- Options will be dynamically populated -->
+                        </select>
+            
+                        <button type="button" onclick="removeItem()">Remove Item</button>
+                    </form>
+                </div>
             </div>
+
         </div>
     </div>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -47,7 +89,40 @@
         managerAdd();
         // Display the current items when the page loads
         displayMenuItems1();
-        
+
+        // Populate the "Select Item to Remove" dropdown
+        document.addEventListener("DOMContentLoaded", () => {
+            const removeItemSelect = document.getElementById("remove-item-name");
+
+            // Fetch items from localStorage
+            const items = JSON.parse(localStorage.getItem("menuItems")) || [];
+
+            // Populate the select options
+            removeItemSelect.innerHTML = ""; // Clear any existing options
+            items.forEach((item, index) => {
+                const option = document.createElement("option");
+                option.value = index; // Use index as value
+                option.textContent = item.name; // Display item name
+                removeItemSelect.appendChild(option);
+            });
+        });
+
+        // Populate the "Select Item to Edit" dropdown
+        document.addEventListener("DOMContentLoaded", () => {
+            const editItemSelect = document.getElementById("edit-item-name");
+
+            // Fetch items from localStorage
+            const items = JSON.parse(localStorage.getItem("menuItems")) || [];
+
+            // Populate the select options
+            editItemSelect.innerHTML = ""; // Clear any existing options
+            items.forEach((item, index) => {
+                const option = document.createElement("option");
+                option.value = index; // Use index as value
+                option.textContent = item.name; // Display item name
+                editItemSelect.appendChild(option);
+            });
+        });
     </script>
 </body>
 </html>
