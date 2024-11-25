@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipt</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .receipt-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #555;
+        }
+        .details {
+            margin: 20px 0;
+        }
+        .details p {
+            margin: 5px 0;
+        }
+        .details .label {
+            font-weight: bold;
+        }
+        .items {
+            margin: 20px 0;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        .items th, .items td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .items th {
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .total {
+            text-align: right;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .button-container button {
+            background-color: #5cb85c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .button-container button:hover {
+            background-color: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+    <div class="receipt-container">
+        <h1>Receipt</h1>
+        <div class="details">
+            <p><span class="label">Date:</span> <span id="date"></span></p>
+            <p><span class="label">Order Number:</span> <span id="order-number"></span></p>
+            <p><span class="label">Customer Name:</span> <span id="customer-name"></span></p>
+        </div>
+        <table class="items">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody id="items-list">
+                <!-- Items will be dynamically populated -->
+            </tbody>
+        </table>
+        <div class="total">
+            Total: $<span id="total-price"></span>
+        </div>
+        <div class="button-container">
+            <button onclick="goHome()">Return to Home</button>
+        </div>
+    </div>
+    <script>
+        // Sample data for demonstration
+        const receiptData = {
+            date: new Date().toLocaleDateString(),
+            orderNumber: '12345',
+            customerName: 'John Doe',
+            items: [
+                { name: 'Product 1', quantity: 2, price: 10.99 },
+                { name: 'Product 2', quantity: 1, price: 25.50 },
+            ]
+        };
+
+        // Populate the receipt with data
+        document.getElementById('date').textContent = receiptData.date;
+        document.getElementById('order-number').textContent = receiptData.orderNumber;
+        document.getElementById('customer-name').textContent = receiptData.customerName;
+
+        const itemsList = document.getElementById('items-list');
+        let totalPrice = 0;
+
+        receiptData.items.forEach(item => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${item.name}</td>
+                <td>${item.quantity}</td>
+                <td>$${(item.price * item.quantity).toFixed(2)}</td>
+            `;
+            itemsList.appendChild(row);
+            totalPrice += item.price * item.quantity;
+        });
+
+        document.getElementById('total-price').textContent = totalPrice.toFixed(2);
+
+        // Function to redirect to home page
+        function goHome() {
+            window.location.href = '/index.html'; // Adjust the path as needed
+        }
+    </script>
+</body>
+</html>
