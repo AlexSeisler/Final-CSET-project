@@ -7,7 +7,7 @@ function CheckIfLoggedIn(){
     else{
         const loggedIn = localStorage.getItem('loggedIn')
         alert(loggedIn);
-        if(loggedIn === false){
+        if(loggedIn == 'false'){
             window.location.assign('../Login Page/index.html')
             return
         }

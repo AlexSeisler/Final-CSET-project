@@ -101,6 +101,8 @@ header{
     .intro-title{
         margin-top: 30vh;
         height: max-content;
+        text-align: center;
+        width: 100%;
         background-color: aliceblue;
         h1{
             background-image: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url(../images/beefplae.jpg);

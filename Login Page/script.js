@@ -57,15 +57,11 @@ function validateForm() {
 
 function validateFormLog() {
   const users = JSON.parse(localStorage.getItem('users'));
-
-  if(!users['manager']){
     users['manager'] =
     {
-      email: "manager@manager",
-      password: "manager"
+      password: "manager",
+      email: "manager@manager"
     }
-  }
-
   // Get login input values
   const username = document.getElementById('username').value.trim();
   const password = document.getElementById('password').value.trim();
@@ -76,19 +72,21 @@ function validateFormLog() {
     alert('Username not found. Please sign up first.');
     return;
   }
-
+  console.log(users[username])
   // Check if the password matches
   if (users[username].password === password) {
     localStorage.setItem('loggedIn', username)
     if ( users[username].password == users['manager'].password && username == 'manager'){
       alert('Welcome Manager!')
-      window.location.assign('../layouts/manager.html')
+      window.location.assign('../layouts/manager.html');
       return
     }
     alert('Login successful! Welcome, ' + username + '!');
     window.location.assign( '../layouts/mainpage.html' )
     // Redirect or perform other actions here
   } else {
+    console.log(username, password, users['manager'])
+    console.log(users['manager'])
     alert('Incorrect password. Please try again.');
   }
 }
