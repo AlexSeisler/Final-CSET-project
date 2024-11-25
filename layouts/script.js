@@ -1,3 +1,6 @@
+if (!localStorage.getItem('loggedIn')){
+localStorage.setItem('loggedIn', false)
+  }
 // Default menu items
 var defaultItems = [
     {

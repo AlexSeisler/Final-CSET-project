@@ -1,19 +1,20 @@
 
 if (!localStorage.getItem('users')) 
 {
-  const manager = 
+  const users = 
   {
-    manager:
+    'manager':
     {
-      name: "manager",
       email: "manager@manager",
       password: "manager"
     }
   };
-  localStorage.setItem('users', JSON.stringify({manager}));
+  localStorage.setItem('users', JSON.stringify({users}));
 }
 
-
+if (!localStorage.getItem('loggedIn')){
+  localStorage.setItem('loggedIn', false)
+  }
 function validateForm() {
   const users = JSON.parse(localStorage.getItem('users'));
 
@@ -56,19 +57,35 @@ function validateForm() {
 function validateFormLog() {
   const users = JSON.parse(localStorage.getItem('users'));
 
+  if(!users['manager']){
+    users['manager'] =
+    {
+      email: "manager@manager",
+      password: "manager"
+    }
+  }
+
   // Get login input values
   const username = document.getElementById('username').value.trim();
   const password = document.getElementById('password').value.trim();
 
   // Check if the username exists
   if (!users[username]) {
+    console.log(users[username], username, users)
     alert('Username not found. Please sign up first.');
     return;
   }
 
   // Check if the password matches
   if (users[username].password === password) {
+    localStorage.setItem('loggedIn', true)
+    if ( users[username].password == users['manager'].password && username == 'manager'){
+      alert('Welcome Manager!')
+      window.location.assign('../layouts/manager.html')
+      return
+    }
     alert('Login successful! Welcome, ' + username + '!');
+    window.location.assign( '../layouts/mainpage.html' )
     // Redirect or perform other actions here
   } else {
     alert('Incorrect password. Please try again.');
