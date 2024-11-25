@@ -77,7 +77,7 @@ if (!localStorage.getItem('menuItems')) {
     localStorage.setItem('menuItems', JSON.stringify(defaultItems));
 }
 
-// Function to display menu items for customers
+// Function to display menu items for customers(Menu)
 function displayMenuItems() {
     const menuItemsContainer = document.getElementById('menu-items');
     menuItemsContainer.innerHTML = '';
@@ -105,6 +105,94 @@ function displayMenuItems() {
 
     if (items.length === 0) {
         menuItemsContainer.innerHTML = `<p>No menu items available.</p>`;
+    }
+    
+}
+//Manager Menu display
+function displayMenuItems1() {
+    const menuItemsContainer = document.getElementById('menu-items-box'); // Use the correct div
+    menuItemsContainer.innerHTML = ''; // Clear the current content
+
+    const items = JSON.parse(localStorage.getItem('menuItems')) || []; // Get items from localStorage
+
+    // Iterate through the items and create their cards
+    items.forEach(item => {
+        const itemCard = document.createElement('div');
+        itemCard.classList.add('menu-item-card'); // Add styling class
+
+        itemCard.innerHTML = `
+            <div class="menu-item-image">
+                <img src="${item.image}" alt="${item.name}" />
+            </div>
+            <div class="menu-item-info">
+                <h3>${item.name}</h3>
+                <p>${item.description}</p>
+                <p><strong>Price:</strong> $${item.price}</p>
+            </div>
+            <div class="add-to-cart">
+                <button onclick="addToCart('${item.name}')">Add to Cart</button>
+            </div>
+        `;
+
+        menuItemsContainer.appendChild(itemCard); // Append each card to the container
+    });
+
+    // Show a placeholder message if no items are found
+    if (items.length === 0) {
+        menuItemsContainer.innerHTML = `<p>No menu items available.</p>`;
+    }
+}
+//For Payment Page
+function displayMenuItems2() {
+    const cartItemsContainer = document.querySelector('.cart-items'); // Select the cart-items div
+    cartItemsContainer.innerHTML = ''; // Clear existing content
+
+    const cart = JSON.parse(localStorage.getItem('cart')) || {}; // Retrieve the cart items from localStorage
+
+    // Iterate through the cart items
+    for (const [itemId, item] of Object.entries(cart)) {
+        const itemCard = document.createElement('div');
+        itemCard.classList.add('cart-item-card');
+        itemCard.innerHTML = `
+            <div class="cart-item-image">
+                <img src="${item.image}" alt="${item.name}" />
+            </div>
+            <div class="cart-item-info">
+                <h3>${item.name}</h3>
+                <p>${item.description}</p>
+                <p><strong>Price:</strong> $${item.price}</p>
+                <p><strong>Quantity:</strong> ${item.quantity}</p>
+                <p><strong>Total:</strong> $${(item.price * item.quantity).toFixed(2)}</p>
+            </div>
+
+        `;
+        cartItemsContainer.appendChild(itemCard); // Append the item to the cart container
+    }
+
+    // Display a message if the cart is empty
+    if (Object.keys(cart).length === 0) {
+        cartItemsContainer.innerHTML = `<p>Your cart is empty.</p>`;
+    }
+}
+
+// Helper functions
+function removeFromCart(itemId) {
+    const cart = JSON.parse(localStorage.getItem('cart')) || {};
+    delete cart[itemId]; // Remove the item from the cart
+    localStorage.setItem('cart', JSON.stringify(cart)); // Update localStorage
+    updateCartDisplay(); // Refresh the cart display
+}
+
+function updateCartQuantity(itemId, newQuantity) {
+    const cart = JSON.parse(localStorage.getItem('cart')) || {};
+    newQuantity = parseInt(newQuantity, 10);
+
+    if (newQuantity <= 0) {
+        removeFromCart(itemId); // Remove the item if quantity is zero or less
+    } else {
+        cart[itemId].quantity = newQuantity; // Update the quantity
+        localStorage.setItem('cart', JSON.stringify(cart)); // Update localStorage
+        displayMenuItems2(); // Refresh the cart display
     }
 }
 
@@ -140,11 +228,10 @@ function filterItemsByCategory(category) {
     }
 }
 
-// Cart functionality
-let cart = {};
 
 function addToCart(itemName) {
     const items = JSON.parse(localStorage.getItem('menuItems')) || [];
+    const cart = JSON.parse(localStorage.getItem('cart')) || {}; // Load cart from local storage
     const item = items.find(i => i.name === itemName);
 
     if (item) {
@@ -153,11 +240,13 @@ function addToCart(itemName) {
         } else {
             cart[item.name] = { ...item, quantity: 1 };
         }
+        localStorage.setItem('cart', JSON.stringify(cart)); // Save updated cart to local storage
         updateCartDisplay();
     }
 }
 
 function updateCartDisplay() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || {}; // Load cart from local storage
     const cartContainer = document.querySelector('.items');
     cartContainer.innerHTML = '';
 
@@ -176,23 +265,34 @@ function updateCartDisplay() {
         `;
         cartContainer.appendChild(itemDiv);
     });
+
+    // Optionally handle empty cart message
+    if (Object.keys(cart).length === 0) {
+        cartContainer.innerHTML = `<p>Your cart is empty.</p>`;
+    }
 }
 
 function updateCartQuantity(itemName, quantity) {
+    const cart = JSON.parse(localStorage.getItem('cart')) || {}; // Load cart from local storage
+
     if (cart[itemName]) {
         if (quantity <= 0) {
-            delete cart[itemName];
+            delete cart[itemName]; // Remove item if quantity is zero or less
         } else {
             cart[itemName].quantity = parseInt(quantity, 10);
         }
+        localStorage.setItem('cart', JSON.stringify(cart)); // Save updated cart to local storage
         updateCartDisplay();
     }
 }
 
 function removeFromCart(itemName) {
-    delete cart[itemName];
+    const cart = JSON.parse(localStorage.getItem('cart')) || {}; // Load cart from local storage
+    delete cart[itemName]; // Remove item from cart
+    localStorage.setItem('cart', JSON.stringify(cart)); // Save updated cart to local storage
     updateCartDisplay();
 }
+
 
 // Manager functionality to add menu items
 function managerAdd() {
@@ -221,7 +321,7 @@ function managerAdd() {
         document.getElementById('item-price').value = '';
         document.getElementById('item-image').value = '';
 
-        displayMenuItems();
+        displayMenuItems1();
     });
 }
 
@@ -231,9 +331,3 @@ function clearMenuLocal() {
     alert('All menu items have been cleared!');
     displayMenuItems();
 }
-
-// Load menu items on page load
-window.onload = function () {
-    displayMenuItems();
-    managerAdd();
-};
