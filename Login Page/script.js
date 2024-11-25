@@ -40,7 +40,8 @@ function validateForm() {
   // Add new user data
   users[username] = {
     password: password,
-    email: email
+    email: email,
+    cart: null
   };
 
   // Save updated users back to localStorage
@@ -78,7 +79,7 @@ function validateFormLog() {
 
   // Check if the password matches
   if (users[username].password === password) {
-    localStorage.setItem('loggedIn', true)
+    localStorage.setItem('loggedIn', username)
     if ( users[username].password == users['manager'].password && username == 'manager'){
       alert('Welcome Manager!')
       window.location.assign('../layouts/manager.html')

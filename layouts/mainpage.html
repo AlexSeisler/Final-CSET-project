@@ -28,6 +28,7 @@
                     <li><a href="manager.html">Manager</a></li>
                     <li><a href="menu.html">Menu</a></li>
                     <li><a href="payment.html">Payment Page</a></li>
+                    <li><a href="../Login Page/log.html" onclick="logOut()">Log Out</a></li>
                 </ul>
             </div>
         </header>
@@ -61,6 +62,32 @@
             </div>
         </div>
         <footer></footer>
+        <script>
+            function logOut(){
+                //key
+                // loggedIn == username
+                // users == dictionary of users
+                // cart == cart of items
+                alert(localStorage.getItem('cart'))
+                if (!localStorage.getItem('loggedIn')){
+                    localStorage.setItem('loggedIn', false)
+                    return
+                }
+                else if(localStorage.getItem('loggedIn') == false){
+                    localStorage.setItem('loggedIn', false)
+                    return
+                }
+                loggedIn = localStorage.getItem('loggedIn');
+                users = JSON.parse(localStorage.getItem('users'));
+                cart = localStorage.getItem('cart');
+                users[loggedIn].cart = cart;
+                console.log(users[loggedIn], loggedIn, users);
+                localStorage.setItem('loggedIn', false)  
+                console.log(users['a'])
+                alert('')
+                //clear order items
+            }
+        </script>
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     </body>
