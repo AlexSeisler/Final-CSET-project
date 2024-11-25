@@ -411,28 +411,60 @@ function editItem() {
     }
 }
 
-// Function to calculate and display subtotal, taxes, and total
 function calculateTotals() {
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    // Get cart data from localStorage and parse it as an object
+    const cart = JSON.parse(localStorage.getItem("cart")) || {};
 
-    // Constants
-    const taxRate = 0.08; // 8% tax
+    // Ensure cart is an object before proceeding
+    if (typeof cart !== 'object' || Array.isArray(cart)) {
+        console.error("Cart data is not an object:", cart);
+        return; // Exit if the cart is not an object
+    }
 
-    // Calculate subtotal
-    const subtotal = cart.reduce((total, item) => total + item.amount, 0);
+    // Array to hold item prices
+    const itemPrices = [];
+
+    // Loop through each item in the cart and add the price to the itemPrices array
+    for (let itemName in cart) {
+        if (cart.hasOwnProperty(itemName)) {
+            // Ensure the item has a valid price (fallback to 0 if not)
+            var price = Number(cart[itemName].price) || 0;
+            price = price * cart[itemName].quantity;
+            itemPrices.push(price);
+        }
+    }
+
+    // Optionally, log the itemPrices array to verify
+    console.log("Item Prices:", itemPrices);
+
+    // Constants for calculating totals
+    const taxRate = 0.06; // 6% tax
+
+    // Calculate subtotal from item prices
+    let subtotal = 0;
+    itemPrices.forEach(price => {
+        subtotal += price;
+    });
 
     // Calculate taxes and total
     const taxes = subtotal * taxRate;
     const total = subtotal + taxes;
 
-    // Display the values in the HTML
-    document.querySelector(".result.medium").textContent = `$${subtotal.toFixed(2)}`;
-    document.querySelector(".result.small").textContent = `$${taxes.toFixed(2)}`;
-    document.querySelector(".result.large").textContent = `$${total.toFixed(2)}`;
+    // Helper function to format numbers as currency
+    function formatCurrency(value) {
+        return value.toLocaleString("en-US", { style: "currency", currency: "USD" });
+    }
 
-    // Store current total for tip calculations
+    // Display the formatted values in the HTML
+    document.querySelector(".result.medium").textContent = formatCurrency(subtotal);
+    document.querySelector(".result.small").textContent = formatCurrency(taxes);
+    document.querySelector(".result.large").textContent = formatCurrency(total);
+
+    // Store the current total for later tip calculation
     localStorage.setItem("currentTotal", total);
 }
+
+
 
 // Function to add a tip
 function tipPopup() {
