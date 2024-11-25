@@ -5,26 +5,28 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Payment</title>
         <link rel="stylesheet" href="./payment.css">
-        <script src="script.js"></script>
+        <script src="script.js" defer></script> <!-- Ensure script.js loads after the DOM -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Quicksand:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     </head>
-    <body>
+    <body onload="calculateTotals()"> <!-- Call calculateTotals on page load -->
         <div class="payment-container">
             <div class="cart">
-                <div class="cart-title"></div>
+                <div class="cart-title">Your Cart</div>
                 <div class="cart-items"></div>
             </div>
             <div class="totalscreen">
-                <div class="mm-exit"><a href="menu.html"><ion-icon name="close-outline" id="exit"></ion-icon></a></div>
+                <div class="mm-exit">
+                    <a href="menu.html"><ion-icon name="close-outline" id="exit"></ion-icon></a>
+                </div>
                 <div class="total">
                     <div class="left medium">Subtotal</div>
-                    <div class="result medium">$19.99</div>
-                    <div class="left small">taxes</div>
-                    <div class="result small">$2.82</div>
-                    <div class="left large">total</div>
-                    <div class="result large">$122.02</div>
+                    <div class="result medium"></div>
+                    <div class="left small">Taxes</div>
+                    <div class="result small"></div>
+                    <div class="left large">Total</div>
+                    <div class="result large"></div>
                     <div class="bottom">
                         <p>Add a <b id="tip-button" onclick="tipPopup()">Tip?</b></p>
                     </div>
@@ -32,7 +34,7 @@
                 <div class="payment">
                     <div class="payment-title">READY TO PAY?</div>
                     <div class="payment-options">
-                        <!--Radio inputs here-->
+                        <!-- Radio inputs here -->
                         <div>
                             <input type="radio" name="payment-type" id="cash" value="cash">
                             <label for="cash">CASH</label>
@@ -48,9 +50,21 @@
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
         <script>
+            // Example: If needed, display cart items dynamically
+            function displayMenuItems2() {
+                const cart = JSON.parse(localStorage.getItem("cart")) || [];
+                const cartItemsContainer = document.querySelector(".cart-items");
+
+                cartItemsContainer.innerHTML = cart.map(item => `
+                    <div class="cart-item">
+                        <span>${item.name}</span>
+                        <span>$${item.amount.toFixed(2)}</span>
+                    </div>
+                `).join('');
+            }
+
             displayMenuItems2();
         </script>
-        
         <script src="./checkIfLoggedInFirst.js"></script>
     </body>
 </html>

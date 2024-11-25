@@ -410,3 +410,52 @@ function editItem() {
         alert("Please select a valid item to edit.");
     }
 }
+
+// Function to calculate and display subtotal, taxes, and total
+function calculateTotals() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Constants
+    const taxRate = 0.08; // 8% tax
+
+    // Calculate subtotal
+    const subtotal = cart.reduce((total, item) => total + item.amount, 0);
+
+    // Calculate taxes and total
+    const taxes = subtotal * taxRate;
+    const total = subtotal + taxes;
+
+    // Display the values in the HTML
+    document.querySelector(".result.medium").textContent = `$${subtotal.toFixed(2)}`;
+    document.querySelector(".result.small").textContent = `$${taxes.toFixed(2)}`;
+    document.querySelector(".result.large").textContent = `$${total.toFixed(2)}`;
+
+    // Store current total for tip calculations
+    localStorage.setItem("currentTotal", total);
+}
+
+// Function to add a tip
+function tipPopup() {
+    const currentTotal = parseFloat(localStorage.getItem("currentTotal")) || 0;
+
+    // Prompt the user for a tip amount
+    const tip = parseFloat(prompt("Enter a tip amount (e.g., 5 for $5):")) || 0;
+
+    if (tip < 0) {
+        alert("Tip cannot be negative.");
+        return;
+    }
+
+    const newTotal = currentTotal + tip;
+
+    // Display the updated total
+    document.querySelector(".result.large").textContent = `$${newTotal.toFixed(2)}`;
+
+    // Store the new total
+    localStorage.setItem("currentTotal", newTotal);
+
+    alert(`Thank you! Your new total with tip included is $${newTotal.toFixed(2)}`);
+}
+
+// Initialize the totals on page load
+document.addEventListener("DOMContentLoaded", calculateTotals);
