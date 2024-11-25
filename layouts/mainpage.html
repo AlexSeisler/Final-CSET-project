@@ -6,19 +6,22 @@
         <title>Main Page</title>
         <link rel="stylesheet" href="./mainpage.css">
         <script src="script.js" defer></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Quicksand:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     </head>
     <body>
         <header>
             <div class="left">
                 <div class="logo">
-
+                    <img src="../images/CodeCravings.png">
                 </div>
                 <div class="header-title">
-                    
+                    <h1>CODE CRAVINGS</h1>
                 </div>
             </div>
             <div class="right">
-                <ul style="list-style: none;">
+                <ul>
                     <li><a href="mainpage.html">Main</a></li>
                     <li><a href="manager-menu.html">Manager Menu</a></li>
                     <li><a href="manager-order.html">Manager Order</a></li>
@@ -30,10 +33,12 @@
         </header>
         <div class="main">
             <div class="intro">
-                <div class="intro-title"></div>
-                <div class="intro-text"></div>
-                <div class="order-button"></div>
-                <div class="scroll"></div>
+                <div class="intro-title">
+                    <h1>Code Cravings</h1>
+                </div>
+                <div class="intro-text"><p>Content about Code Cravings that is Catchy</p></div>
+                <a href="./menu.html" class="order-button">ORDER</a>
+                <a href="#" class="scroll"><ion-icon name="caret-down-outline" id="scroll-icon"></ion-icon></a>
             </div>
             <div class="content">
                 <div class="img"></div>
@@ -48,5 +53,7 @@
             </div>
         </div>
         <footer></footer>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     </body>
 </html>

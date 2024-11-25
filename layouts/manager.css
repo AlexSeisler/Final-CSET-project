@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'lato';
 }
 header{
     display: flex;
@@ -20,17 +21,16 @@ header{
         background-color: rgb(113, 197, 169);
     }
         header .left .header-title{
-            height: 50%;
             width: 90%;
-            background-color: rgb(207, 227, 244);
+            font-size: 2em;
+            color: white;
         }
     header .right{
         display: flex;
         justify-content: center;
         align-items: center;
         height: 90%;
-        width: 500px;
-        background-color: rgb(113, 197, 169);
+        width: max-content;
         ul{
             list-style: none;
             display: flex;
@@ -38,11 +38,16 @@ header{
             width: 100%;
             gap: 12%;
             justify-content: space-around;
+            a{
+                text-decoration: none;
+            }
             li{
                 display: block;
                 height: 100%;
-                width: 15%;
-                background-color: rgb(207, 227, 244);
+                text-align: center;
+                color: white;
+                background-color: rgb(77, 97, 115);
+                text-decoration: none;
             }
         }
     }
@@ -58,7 +63,12 @@ header{
     .intro .title{
         height: 300px;
         width: 30%;
-        background-color: rgb(207, 227, 244);
+        background-color: rgb(37, 119, 190);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 2em;
     }
 .menu-control{
     height: 40vh;
@@ -72,9 +82,17 @@ header{
     padding-left: 5%;
 }
     .menu-control .menu-title{
-        width: 400px;
-        height: 100px;
+        width: 30vw;
+        height: max-content;
         background-color: rgb(151, 120, 82);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-top-left-radius: 3vw;
+        border-bottom-right-radius: 3vw;
+        color: white;
+        font-size: 2em;
+        font-weight: 300;
     }
     .menu-control .buttons{
         width: 95%;
@@ -87,10 +105,13 @@ header{
         .menu-control .buttons .button{
             width: 400px;
             height: 100px;
-            background-color: rgb(179, 179, 137);
+            background-color: rgb(255, 255, 255);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 .order-control{
-    height: 40vh;
+    height: 60vh;
     width: 100%;
     background-color: rgb(236, 217, 254);
     display: flex;
@@ -112,11 +133,23 @@ header{
             width: 500px;
             height: 100px;
             background-color: rgb(106, 106, 240);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-top-left-radius: 3vw;
+            border-bottom-right-radius: 3vw;
+            color: white;
+            font-size: 2em;
+            font-weight: 300;
         }
         .order-control .left .order-button{
             width: 70%;
             height: 200px;
             background-color: rgb(75, 75, 169);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
         }
     .order-control .right{
         width: 30%;
