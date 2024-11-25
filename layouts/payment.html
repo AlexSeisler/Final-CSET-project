@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Payment</title>
         <link rel="stylesheet" href="./payment.css">
-        <script src="script.js" defer></script>
+        <script src="script.js"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Quicksand:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
@@ -36,18 +36,20 @@
                         <div>
                             <input type="radio" name="payment-type" id="cash" value="cash">
                             <label for="cash">CASH</label>
-                        </div>
-                        <div>
+
                             <input type="radio" name="payment-type" id="card" value="card">
                             <label for="card">CARD</label>
                         </div>
                     </div>
-                    <div class="payment-button" onclick="makePayment()">PAY NOW</div>
+                    <div class="payment-button" onclick="checkSelection()">PAY NOW</div>
                 </div>
             </div>
         </div>
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <script>
+            displayMenuItems2();
+        </script>
         
         <script src="./checkIfLoggedInFirst.js"></script>
     </body>
