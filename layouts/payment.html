@@ -51,6 +51,9 @@
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
         <script>
             displayMenuItems2();
+            // Initialize the totals on page load
+            document.addEventListener("DOMContentLoaded", calculateTotals);
+
         </script>
         <script src="./checkIfLoggedInFirst.js"></script>
     </body>

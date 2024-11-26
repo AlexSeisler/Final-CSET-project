@@ -206,12 +206,12 @@ footer{
 Css for survey
 */
 .rating {
-    font-size: 20px;
-    margin: 10px 0;
+    display:flex;
+    font-size: 100px;
 }
 
 .stars {
-    font-size: 30px;
+    font-size: 100px;
     margin: 10px 0;
 }
 
@@ -245,6 +245,7 @@ textarea {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    font-size: x-large;
 }
 
 #submit-rating{
@@ -275,3 +276,16 @@ textarea {
 .review p {
     margin: 0;
 }
+.formbox{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+}
+.rates{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:40px;
+}
+

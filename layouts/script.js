@@ -489,5 +489,3 @@ function tipPopup() {
     alert(`Thank you! Your new total with tip included is $${newTotal.toFixed(2)}`);
 }
 
-// Initialize the totals on page load
-document.addEventListener("DOMContentLoaded", calculateTotals);
