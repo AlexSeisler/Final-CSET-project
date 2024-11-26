@@ -1,8 +1,0 @@
-Printable receipt
-login is rembember on your system
-progress bar for delivery
-view current and past orders
-Shows average wait time when items added to reciept (Will need linked with menu later instead of how it is now)
-Changes order progress on click of button (will need to be linked to manager page later)
-View Order status (Preparing, On the way and Delivered)
-Shows customer name
