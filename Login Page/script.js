@@ -41,7 +41,6 @@ function validateForm() {
   users[username] = {
     password: password,
     email: email,
-    cart: null
   };
 
   // Save updated users back to localStorage
