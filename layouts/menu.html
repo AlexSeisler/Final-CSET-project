@@ -75,24 +75,19 @@
             localStorage.setItem('cart', null)
         }
         displayMenuItems();
-        updateCartDisplay();
         function setCart(){
-            alert()
             if(!localStorage.getItem('loggedIn')){
                 localStorage.setItem('loggedin', false)
-                alert('failing')
                 return
             }
             loggedIn = localStorage.getItem('loggedIn');
-            alert('in as'+  loggedIn)
             users = JSON.parse(localStorage.getItem('users'));
             userCart = users[loggedIn].cart;
             console.log(users[loggedIn]);
-            alert('cart is '+  userCart)
             localStorage.setItem('cart', userCart);
-            alert('stored as '+ localStorage.getItem('cart'))
         }
         setCart();
+        updateCartDisplay();
     </script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
