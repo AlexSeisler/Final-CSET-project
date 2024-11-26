@@ -153,7 +153,7 @@ header{
     width: auto;
     height: 50vh;
     background-color: blue;
-    display: flex;
+    display:flex;
     overflow: hidden;
 }
     .con{
@@ -211,6 +211,7 @@ Css for survey
 }
 
 .stars {
+    
     font-size: 100px;
     margin: 10px 0;
 }
@@ -247,7 +248,18 @@ textarea {
     border-radius: 4px;
     font-size: x-large;
 }
-
+.rates{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+}
+.setter{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+}
 #submit-rating{
     background-color: #007BFF;
     color: white;
