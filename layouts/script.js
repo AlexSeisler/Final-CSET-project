@@ -175,6 +175,7 @@ function displayMenuItems2() {
     }
 }
 
+
 // Helper functions
 function removeFromCart(itemId) {
     const cart = JSON.parse(localStorage.getItem('cart')) || {};
@@ -269,6 +270,35 @@ function updateCartDisplay() {
     // Optionally handle empty cart message
     if (Object.keys(cart).length === 0) {
         cartContainer.innerHTML = `<p>Your cart is empty.</p>`;
+    }
+}
+function updateCartDisplay1() { 
+    const cart = JSON.parse(localStorage.getItem('cart')) || {}; // Load cart from local storage
+    const cartContainer = document.querySelector('.col-25.cart'); // Correctly target the div
+    cartContainer.innerHTML = '<h3>Your Cart</h3>'; // Reset and include the heading
+
+    // Iterate through cart items and create elements
+    Object.values(cart).forEach(cartItem => {
+        const itemDiv = document.createElement('div');
+        itemDiv.classList.add('cart-item'); // Add a styling class
+
+        itemDiv.innerHTML = `
+            <div class="cart-item-image">
+                <img src="${cartItem.image}" alt="${cartItem.name}">
+            </div>
+            <div class="cart-item-info">
+                <h4>${cartItem.name}</h4>
+                <p>Price: $${(cartItem.price * cartItem.quantity).toFixed(2)}</p>
+                <p>Quantity: ${cartItem.quantity}</p>
+            </div>
+        `;
+
+        cartContainer.appendChild(itemDiv); // Append each cart item to the container
+    });
+
+    // Handle empty cart scenario
+    if (Object.keys(cart).length === 0) {
+        cartContainer.innerHTML += `<p>Your cart is empty.</p>`;
     }
 }
 
