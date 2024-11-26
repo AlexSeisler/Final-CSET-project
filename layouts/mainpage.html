@@ -39,7 +39,7 @@
                 <a href="./menu.html" class="order-button">ORDER</a>
                 <a href="#" class="scroll"><ion-icon name="caret-down-outline" id="scroll-icon"></ion-icon></a>
             </div>
-            <div class="content">
+            <div class="content" id="content1">
                 <div class="img"></div>
                 <div class="con con-right">
                     <div class="header"><h1>header</h1></div>
@@ -47,7 +47,7 @@
                     <a href="./menu.html" class="order-button">BUY</a>
                 </div>
             </div>
-            <div class="content">
+            <div class="content" id='content2'>
                 <div class="con con-left">
                     <div class="header"><h1>header</h1></div>
                     <div class="description"><p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore, in sunt. Sed at earum tempore asperiores! Itaque natus non dignissimos aliquam corporis ut obcaecati aut optio, repellat nisi cum ad?</p></div>
@@ -106,12 +106,48 @@
                 alert('out as ' + loggedIn)
                 users[loggedIn].cart = cart;
                 alert('cart is ' + users[loggedIn].cart)
-                console.log(users[loggedIn], loggedIn, users);
+                localStorage.setItem('users' ,JSON.stringify(users))
                 localStorage.setItem('loggedIn', false)
                 alert('')
                 //clear order items
                 localStorage.setItem('cart', null);
             }
+            function displayFeaturedItemInContainer(itemConID, item){
+                container = document.getElementById(itemConID);
+                // container.innerHTML = `
+                // <img class="img" src='${item.image}'>
+                // <div class="con con-right">
+                //     <div class="header"><h1>${item.name}</h1></div>
+                //     <div class="description"><p>${item.description}</p></div>
+                //     <a href="./menu.html" class="order-button">BUY</a>
+                // </div>
+                // `
+                img = document.createElement('img');
+                img.src = item.image;
+                container.getElementsByClassName('img')[0].appendChild(img);
+                container.getElementsByClassName('header')[0].querySelector('h1').innerHTML = item.name;
+                container.getElementsByClassName('description')[0].querySelector('p').innerHTML = item.description;
+
+            }
+            function displayFeaturedItems(){
+                const items = JSON.parse(localStorage.getItem('menuItems'))
+                itemsLength = Object.keys(items).length;
+                console.log(itemsLength)
+                if (itemsLength > 2){
+                    let rand1 = Math.floor(Math.random() * itemsLength);
+                    let rand2 = rand1+1;
+                    if (rand2 == itemsLength){
+                        rand2 = 0;
+                    }
+                    console.log(rand1,rand2)
+                    let item1 = items[Object.keys(items)[rand1]];
+                    let item2 = items[Object.keys(items)[rand2]];
+                    displayFeaturedItemInContainer('content1', item1);
+                    displayFeaturedItemInContainer('content2', item2);
+                }
+                
+            }
+            displayFeaturedItems();
         </script>
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
