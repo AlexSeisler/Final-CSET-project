@@ -77,7 +77,7 @@ var defaultItems = [
 
 // Initialize default menu items in localStorage if not already set
 if (!localStorage.getItem('menuItems')) {
-    localStorage.setItem('menuItems', JSON.stringify(defaultItems));
+    localStorage.setItem('menuItems', defaultItems);
 }
 
 // Function to display menu items for customers(Menu)
@@ -85,7 +85,7 @@ function displayMenuItems() {
     const menuItemsContainer = document.getElementById('menu-items');
     menuItemsContainer.innerHTML = '';
 
-    const items = JSON.parse(localStorage.getItem('menuItems')) || [];
+    const items = localStorage.getItem('menuItems') || [];
 
     items.forEach(item => {
         const itemCard = document.createElement('div');
@@ -116,7 +116,7 @@ function displayMenuItems1() {
     const menuItemsContainer = document.getElementById('menu-items-box'); // Use the correct div
     menuItemsContainer.innerHTML = ''; // Clear the current content
 
-    const items = JSON.parse(localStorage.getItem('menuItems')) || []; // Get items from localStorage
+    const items = localStorage.getItem('menuItems') || []; // Get items from localStorage
 
     // Iterate through the items and create their cards
     items.forEach(item => {
@@ -147,7 +147,7 @@ function displayMenuItems2() {
     const cartItemsContainer = document.querySelector('.cart-items'); // Select the cart-items div
     cartItemsContainer.innerHTML = ''; // Clear existing content
 
-    const cart = JSON.parse(localStorage.getItem('cart')) || {}; // Retrieve the cart items from localStorage
+    const cart = localStorage.getItem('cart') || {}; // Retrieve the cart items from localStorage
 
     // Iterate through the cart items
     for (const [itemId, item] of Object.entries(cart)) {
@@ -178,28 +178,28 @@ function displayMenuItems2() {
 
 // Helper functions
 function removeFromCart(itemId) {
-    const cart = JSON.parse(localStorage.getItem('cart')) || {};
+    const cart = localStorage.getItem('cart') || {};
     delete cart[itemId]; // Remove the item from the cart
-    localStorage.setItem('cart', JSON.stringify(cart)); // Update localStorage
+    localStorage.setItem('cart', cart); // Update localStorage
     updateCartDisplay(); // Refresh the cart display
 }
 
 function updateCartQuantity(itemId, newQuantity) {
-    const cart = JSON.parse(localStorage.getItem('cart')) || {};
+    const cart = localStorage.getItem('cart') || {};
     newQuantity = parseInt(newQuantity, 10);
 
     if (newQuantity <= 0) {
         removeFromCart(itemId); // Remove the item if quantity is zero or less
     } else {
         cart[itemId].quantity = newQuantity; // Update the quantity
-        localStorage.setItem('cart', JSON.stringify(cart)); // Update localStorage
+        localStorage.setItem('cart', cart); // Update localStorage
         displayMenuItems2(); // Refresh the cart display
     }
 }
 
 // Function to filter menu items by category
 function filterItemsByCategory(category) {
-    const allItems = JSON.parse(localStorage.getItem('menuItems')) || [];
+    const allItems = localStorage.getItem('menuItems') || [];
     const filteredItems = allItems.filter(item => item.categories.includes(category));
 
     const menuItemsContainer = document.getElementById('menu-items');
@@ -231,8 +231,8 @@ function filterItemsByCategory(category) {
 
 
 function addToCart(itemName) {
-    const items = JSON.parse(localStorage.getItem('menuItems')) || [];
-    const cart = JSON.parse(localStorage.getItem('cart')) || {}; // Load cart from local storage
+    const items = localStorage.getItem('menuItems') || [];
+    const cart = localStorage.getItem('cart') || {}; // Load cart from local storage
     const item = items.find(i => i.name === itemName);
 
     if (item) {
@@ -241,13 +241,13 @@ function addToCart(itemName) {
         } else {
             cart[item.name] = { ...item, quantity: 1 };
         }
-        localStorage.setItem('cart', JSON.stringify(cart)); // Save updated cart to local storage
+        localStorage.setItem('cart', cart); // Save updated cart to local storage
         updateCartDisplay();
     }
 }
 
 function updateCartDisplay() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || {}; // Load cart from local storage
+    const cart = localStorage.getItem('cart') || {}; // Load cart from local storage
     const cartContainer = document.querySelector('.items');
     cartContainer.innerHTML = '';
 
@@ -273,7 +273,7 @@ function updateCartDisplay() {
     }
 }
 function updateCartDisplay1() { 
-    const cart = JSON.parse(localStorage.getItem('cart')) || {}; // Load cart from local storage
+    const cart = localStorage.getItem('cart') || {}; // Load cart from local storage
     const cartContainer = document.querySelector('.col-25.cart'); // Correctly target the div
     cartContainer.innerHTML = '<h3>Your Cart</h3>'; // Reset and include the heading
 
@@ -303,7 +303,7 @@ function updateCartDisplay1() {
 }
 
 function updateCartQuantity(itemName, quantity) {
-    const cart = JSON.parse(localStorage.getItem('cart')) || {}; // Load cart from local storage
+    const cart = localStorage.getItem('cart') || {}; // Load cart from local storage
 
     if (cart[itemName]) {
         if (quantity <= 0) {
@@ -311,15 +311,15 @@ function updateCartQuantity(itemName, quantity) {
         } else {
             cart[itemName].quantity = parseInt(quantity, 10);
         }
-        localStorage.setItem('cart', JSON.stringify(cart)); // Save updated cart to local storage
+        localStorage.setItem('cart', cart); // Save updated cart to local storage
         updateCartDisplay();
     }
 }
 
 function removeFromCart(itemName) {
-    const cart = JSON.parse(localStorage.getItem('cart')) || {}; // Load cart from local storage
+    const cart = localStorage.getItem('cart') || {}; // Load cart from local storage
     delete cart[itemName]; // Remove item from cart
-    localStorage.setItem('cart', JSON.stringify(cart)); // Save updated cart to local storage
+    localStorage.setItem('cart', cart); // Save updated cart to local storage
     updateCartDisplay();
 }
 
@@ -341,9 +341,9 @@ function managerAdd() {
             image: itemImage
         };
 
-        const items = JSON.parse(localStorage.getItem('menuItems')) || [];
+        const items = localStorage.getItem('menuItems') || [];
         items.push(newItem);
-        localStorage.setItem('menuItems', JSON.stringify(items));
+        localStorage.setItem('menuItems', items);
 
         document.getElementById('item-name').value = '';
         document.getElementById('item-cat').value = '';
@@ -383,7 +383,7 @@ function removeItem() {
     const selectedIndex = removeItemSelect.value;
 
     // Fetch items from localStorage
-    let items = JSON.parse(localStorage.getItem("menuItems")) || [];
+    let items = localStorage.getItem("menuItems") || [];
 
     // Check if there's a valid item to remove
     if (selectedIndex >= 0 && selectedIndex < items.length) {
@@ -391,7 +391,7 @@ function removeItem() {
         items.splice(selectedIndex, 1);
 
         // Save updated list back to localStorage
-        localStorage.setItem("menuItems", JSON.stringify(items));
+        localStorage.setItem("menuItems", items);
 
         // Update the dropdown
         removeItemSelect.innerHTML = ""; // Clear existing options
@@ -417,7 +417,7 @@ function editItem() {
     const editImage = document.getElementById("edit-item-image").value;
 
     // Fetch items from localStorage
-    let items = JSON.parse(localStorage.getItem("menuItems")) || [];
+    let items = localStorage.getItem("menuItems") || [];
 
     const selectedIndex = editItemSelect.value;
 
@@ -433,7 +433,7 @@ function editItem() {
         };
 
         // Save updated list back to localStorage
-        localStorage.setItem("menuItems", JSON.stringify(items));
+        localStorage.setItem("menuItems", items);
 
         displayMenuItems1();
     } else {
@@ -443,7 +443,7 @@ function editItem() {
 
 function calculateTotals() {
     // Get cart data from localStorage and parse it as an object
-    const cart = JSON.parse(localStorage.getItem("cart")) || {};
+    const cart = localStorage.getItem("cart") || {};
 
     // Ensure cart is an object before proceeding
     if (typeof cart !== 'object' || Array.isArray(cart)) {
