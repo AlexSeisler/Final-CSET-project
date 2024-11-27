@@ -96,7 +96,7 @@
             const removeItemSelect = document.getElementById("remove-item-name");
 
             // Fetch items from localStorage
-            const items = localStorage.getItem("menuItems") || [];
+            const items = JSON.parse(localStorage.getItem("menuItems")) || [];
 
             // Populate the select options
             removeItemSelect.innerHTML = ""; // Clear any existing options
@@ -113,7 +113,7 @@
             const editItemSelect = document.getElementById("edit-item-name");
 
             // Fetch items from localStorage
-            const items = localStorage.getItem("menuItems") || [];
+            const items = JSON.parse(localStorage.getItem("menuItems")) || [];
 
             // Populate the select options
             editItemSelect.innerHTML = ""; // Clear any existing options

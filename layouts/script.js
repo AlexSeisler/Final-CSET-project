@@ -1,6 +1,7 @@
 if (!localStorage.getItem('loggedIn')){
 localStorage.setItem('loggedIn', false)
   }
+  localStorage.clear();
 // Default menu items
 var defaultItems = [
     {
@@ -77,7 +78,7 @@ var defaultItems = [
 
 // Initialize default menu items in localStorage if not already set
 if (!localStorage.getItem('menuItems')) {
-    localStorage.setItem('menuItems', defaultItems);
+    localStorage.setItem('menuItems', JSON.stringify(defaultItems));
 }
 
 // Function to display menu items for customers(Menu)
@@ -85,62 +86,69 @@ function displayMenuItems() {
     const menuItemsContainer = document.getElementById('menu-items');
     menuItemsContainer.innerHTML = '';
 
-    const items = localStorage.getItem('menuItems') || [];
+    const items = localStorage.getItem('menuItems') || [];//JSON
 
-    items.forEach(item => {
-        const itemCard = document.createElement('div');
-        itemCard.classList.add('menu-item-card');
-        itemCard.innerHTML = `
-            <div class="menu-item-image">
-                <img src="${item.image}" alt="${item.name}" />
-            </div>
-            <div class="menu-item-info">
-                <h3>${item.name}</h3>
-                <p>${item.description}</p>
-                <p><strong>Price:</strong> $${item.price}</p>
-            </div>
-            <div class="add-to-cart">
-                <button onclick="addToCart('${item.name}')">Add to Cart</button>
-            </div>
-        `;
-        menuItemsContainer.appendChild(itemCard);
-    });
+    for(let item of items){
+        itemDisplay(item, menuItemsContainer);
+    }
+    
 
     if (items.length === 0) {
         menuItemsContainer.innerHTML = `<p>No menu items available.</p>`;
     }
     
 }
+function itemDisplay(item, menuItemsContainer) {
+    const itemCard = document.createElement('div');
+    itemCard.classList.add('menu-item-card');
+    itemCard.innerHTML = `
+        <div class="menu-item-image">
+            <img src="${item.image}" alt="${item.name}" />
+        </div>
+        <div class="menu-item-info">
+            <h3>${item.name}</h3>
+            <p>${item.description}</p>
+            <p><strong>Price:</strong> $${item.price}</p>
+        </div>
+        <div class="add-to-cart">
+            <button onclick="addToCart('${item.name}')">Add to Cart</button>
+        </div>
+    `;
+    menuItemsContainer.appendChild(itemCard);
+}
 //Manager Menu display
 function displayMenuItems1() {
     const menuItemsContainer = document.getElementById('menu-items-box'); // Use the correct div
     menuItemsContainer.innerHTML = ''; // Clear the current content
 
-    const items = localStorage.getItem('menuItems') || []; // Get items from localStorage
-
+    const items = JSON.parse(localStorage.getItem('menuItems')) || []; // Get items from localStorage
+    console.log();
     // Iterate through the items and create their cards
-    items.forEach(item => {
-        const itemCard = document.createElement('div');
-        itemCard.classList.add('menu-item-card'); // Add styling class
-
-        itemCard.innerHTML = `
-            <div class="menu-item-image">
-                <img src="${item.image}" alt="${item.name}" />
-            </div>
-            <div class="menu-item-info">
-                <h3>${item.name}</h3>
-                <p>${item.description}</p>
-                <p><strong>Price:</strong> $${item.price}</p>
-            </div>
-        `;
-
-        menuItemsContainer.appendChild(itemCard); // Append each card to the container
-    });
+    for (let item of items){
+        itemDisplay1(item, menuItemsContainer)
+    }
 
     // Show a placeholder message if no items are found
     if (items.length === 0) {
         menuItemsContainer.innerHTML = `<p>No menu items available.</p>`;
     }
+}
+function itemDisplay1(item, menuItemsContainer){
+    const itemCard = document.createElement('div');
+    itemCard.classList.add('menu-item-card'); // Add styling class
+
+    itemCard.innerHTML = `
+        <div class="menu-item-image">
+            <img src="${item.image}" alt="${item.name}" />
+        </div>
+        <div class="menu-item-info">
+            <h3>${item.name}</h3>
+            <p>${item.description}</p>
+            <p><strong>Price:</strong> $${item.price}</p>
+        </div>
+    `;
+
+    menuItemsContainer.appendChild(itemCard); // Append each card to the container
 }
 //For Payment Page
 function displayMenuItems2() {
@@ -341,9 +349,10 @@ function managerAdd() {
             image: itemImage
         };
 
-        const items = localStorage.getItem('menuItems') || [];
+        const items = JSON.parse(localStorage.getItem('menuItems')) || [];
+        console.log(items)
         items.push(newItem);
-        localStorage.setItem('menuItems', items);
+        localStorage.setItem('menuItems', JSON.stringify(items));
 
         document.getElementById('item-name').value = '';
         document.getElementById('item-cat').value = '';
@@ -359,7 +368,7 @@ function managerAdd() {
 function clearMenuLocal() {
     localStorage.removeItem('menuItems');
     alert('All menu items have been cleared!');
-    displayMenuItems();
+    displayMenuItems1();
 }
 
 function checkSelection() {
@@ -383,7 +392,7 @@ function removeItem() {
     const selectedIndex = removeItemSelect.value;
 
     // Fetch items from localStorage
-    let items = localStorage.getItem("menuItems") || [];
+    let items = JSON.parse(localStorage.getItem("menuItems")) || [];
 
     // Check if there's a valid item to remove
     if (selectedIndex >= 0 && selectedIndex < items.length) {
@@ -391,7 +400,7 @@ function removeItem() {
         items.splice(selectedIndex, 1);
 
         // Save updated list back to localStorage
-        localStorage.setItem("menuItems", items);
+        localStorage.setItem("menuItems", JSON.stringify(items));
 
         // Update the dropdown
         removeItemSelect.innerHTML = ""; // Clear existing options
@@ -417,7 +426,7 @@ function editItem() {
     const editImage = document.getElementById("edit-item-image").value;
 
     // Fetch items from localStorage
-    let items = localStorage.getItem("menuItems") || [];
+    let items = JSON.parse(localStorage.getItem("menuItems")) || [];
 
     const selectedIndex = editItemSelect.value;
 
@@ -433,7 +442,7 @@ function editItem() {
         };
 
         // Save updated list back to localStorage
-        localStorage.setItem("menuItems", items);
+        localStorage.setItem("menuItems", JSON.stringify(items));
 
         displayMenuItems1();
     } else {

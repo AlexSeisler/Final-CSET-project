@@ -55,7 +55,8 @@ function validateForm() {
   
 
 function validateFormLog() {
-  const users = localStorage.getItem('users');
+  const users = JSON.parse(localStorage.getItem('users'));
+  console.log(users);
     users['manager'] =
     {
       password: "manager",
@@ -105,14 +106,18 @@ function clearData() {
   if (!localStorage.getItem('users')) 
     {
       const manager = 
-      {
-        manager:
+      { 
+        'manager':
         {
-          name: "manager",
-          email: "manager@manager",
-          password: "manager"
+          password: 'manager',
+          email: 'manager@manager'
+        },
+        'a':{
+          password: 'a',
+          email: 'a@a'
         }
       };
-      localStorage.setItem('users', manager);
+      console.log(manager)
+      localStorage.setItem('users', JSON.stringify(manager));
     }
 }
