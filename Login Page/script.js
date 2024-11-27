@@ -9,14 +9,14 @@ if (!localStorage.getItem('users'))
       password: "manager"
     }
   };
-  localStorage.setItem('users', JSON.stringify({users}));
+  localStorage.setItem('users', users);
 }
 
 if (!localStorage.getItem('loggedIn')){
   localStorage.setItem('loggedIn', false)
   }
 function validateForm() {
-  const users = JSON.parse(localStorage.getItem('users'));
+  const users = localStorage.getItem('users');
 
   // Get input values
   const username = document.getElementById('username').value.trim();
@@ -44,7 +44,7 @@ function validateForm() {
   };
 
   // Save updated users back to localStorage
-  localStorage.setItem('users', JSON.stringify(users));
+  localStorage.setItem('users', users);
   
   sessionStorage.setItem('showPopup', 'true');
 
@@ -55,7 +55,7 @@ function validateForm() {
   
 
 function validateFormLog() {
-  const users = JSON.parse(localStorage.getItem('users'));
+  const users = localStorage.getItem('users');
     users['manager'] =
     {
       password: "manager",
@@ -97,7 +97,7 @@ function reset() {
 }
 
 function showStoredData() {
-  console.log(JSON.parse(localStorage.getItem('users')));
+  console.log(localStorage.getItem('users'));
 }
 function clearData() {
   localStorage.removeItem('users');
@@ -113,6 +113,6 @@ function clearData() {
           password: "manager"
         }
       };
-      localStorage.setItem('users', JSON.stringify({manager}));
+      localStorage.setItem('users', manager);
     }
 }
