@@ -9,6 +9,7 @@ function toggleShipping() {
 }
 function validateForm() {
     // Collecting input fields and their validation rules
+    /*
     const fields = [
         { id: "fname", message: "Full Name is required" },
         { id: "email", message: "Valid Email is required", type: "email" },
@@ -59,5 +60,6 @@ function validateForm() {
     }
 
     // All validations passed
+    */
     return true; // Allow form submission
 }

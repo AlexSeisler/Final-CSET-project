@@ -306,6 +306,33 @@ function updateCartDisplay1() {
         cartContainer.innerHTML += `<p>Your cart is empty.</p>`;
     }
 }
+function updateCartDisplay2() { 
+    const cart = JSON.parse(localStorage.getItem('cart')) || {}; // Load cart from local storage
+    let cartContainer = document.getElementById('items-list')
+    // Iterate through cart items and create elements
+    Object.values(cart).forEach(cartItem => {
+        const itemDiv = document.createElement('div');
+        itemDiv.classList.add('cart-item'); // Add a styling class
+
+        itemDiv.innerHTML = `
+            <div class="cart-item-image">
+                <img src="${cartItem.image}" alt="${cartItem.name}">
+            </div>
+            <div class="cart-item-info">
+                <h4>${cartItem.name}</h4>
+                <p>Price: $${(cartItem.price * cartItem.quantity).toFixed(2)}</p>
+                <p>Quantity: ${cartItem.quantity}</p>
+            </div>
+        `;
+
+        cartContainer.appendChild(itemDiv); // Append each cart item to the container
+    });
+
+    // Handle empty cart scenario
+    if (Object.keys(cart).length === 0) {
+        cartContainer.innerHTML += `<p>Your cart is empty.</p>`;
+    }
+}
 
 function updateCartQuantity(itemName, quantity) {
     const cart = JSON.parse(localStorage.getItem('cart')) || {}; // Load cart from local storage
