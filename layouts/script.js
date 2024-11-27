@@ -86,7 +86,7 @@ function displayMenuItems() {
     const menuItemsContainer = document.getElementById('menu-items');
     menuItemsContainer.innerHTML = '';
 
-    const items = localStorage.getItem('menuItems') || [];//JSON
+    const items = JSON.parse(localStorage.getItem('menuItems')) || [];
 
     for(let item of items){
         itemDisplay(item, menuItemsContainer);
@@ -239,8 +239,8 @@ function filterItemsByCategory(category) {
 
 
 function addToCart(itemName) {
-    const items = localStorage.getItem('menuItems') || [];
-    const cart = localStorage.getItem('cart') || {}; // Load cart from local storage
+    const items = JSON.parse(localStorage.getItem('menuItems')) || [];
+    const cart = JSON.parse(localStorage.getItem('cart')) || {}; // Load cart from local storage
     const item = items.find(i => i.name === itemName);
 
     if (item) {
@@ -249,13 +249,13 @@ function addToCart(itemName) {
         } else {
             cart[item.name] = { ...item, quantity: 1 };
         }
-        localStorage.setItem('cart', cart); // Save updated cart to local storage
+        localStorage.setItem('cart', JSON.stringify(cart)); // Save updated cart to local storage
         updateCartDisplay();
     }
 }
 
 function updateCartDisplay() {
-    const cart = localStorage.getItem('cart') || {}; // Load cart from local storage
+    const cart = JSON.parse(localStorage.getItem('cart')) || {}; // Load cart from local storage
     const cartContainer = document.querySelector('.items');
     cartContainer.innerHTML = '';
 
@@ -281,7 +281,7 @@ function updateCartDisplay() {
     }
 }
 function updateCartDisplay1() { 
-    const cart = localStorage.getItem('cart') || {}; // Load cart from local storage
+    const cart = JSON.parse(localStorage.getItem('cart')) || {}; // Load cart from local storage
     const cartContainer = document.querySelector('.col-25.cart'); // Correctly target the div
     cartContainer.innerHTML = '<h3>Your Cart</h3>'; // Reset and include the heading
 
@@ -311,7 +311,7 @@ function updateCartDisplay1() {
 }
 
 function updateCartQuantity(itemName, quantity) {
-    const cart = localStorage.getItem('cart') || {}; // Load cart from local storage
+    const cart = JSON.parse(localStorage.getItem('cart')) || {}; // Load cart from local storage
 
     if (cart[itemName]) {
         if (quantity <= 0) {
@@ -319,15 +319,15 @@ function updateCartQuantity(itemName, quantity) {
         } else {
             cart[itemName].quantity = parseInt(quantity, 10);
         }
-        localStorage.setItem('cart', cart); // Save updated cart to local storage
+        localStorage.setItem('cart', JSON.stringify(cart)); // Save updated cart to local storage
         updateCartDisplay();
     }
 }
 
 function removeFromCart(itemName) {
-    const cart = localStorage.getItem('cart') || {}; // Load cart from local storage
+    const cart = JSON.parse(localStorage.getItem('cart')) || {}; // Load cart from local storage
     delete cart[itemName]; // Remove item from cart
-    localStorage.setItem('cart', cart); // Save updated cart to local storage
+    localStorage.setItem('cart', JSON.stringify(cart)); // Save updated cart to local storage
     updateCartDisplay();
 }
 
