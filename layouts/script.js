@@ -87,29 +87,33 @@ function displayMenuItems() {
 
     const items = JSON.parse(localStorage.getItem('menuItems')) || [];
 
-    items.forEach(item => {
-        const itemCard = document.createElement('div');
-        itemCard.classList.add('menu-item-card');
-        itemCard.innerHTML = `
-            <div class="menu-item-image">
-                <img src="${item.image}" alt="${item.name}" />
-            </div>
-            <div class="menu-item-info">
-                <h3>${item.name}</h3>
-                <p>${item.description}</p>
-                <p><strong>Price:</strong> $${item.price}</p>
-            </div>
-            <div class="add-to-cart">
-                <button onclick="addToCart('${item.name}')">Add to Cart</button>
-            </div>
-        `;
-        menuItemsContainer.appendChild(itemCard);
-    });
+    for(let item of items){
+        itemDisplay(item, menuItemsContainer);
+    }
+    
 
     if (items.length === 0) {
         menuItemsContainer.innerHTML = `<p>No menu items available.</p>`;
     }
     
+}
+function itemDisplay(item, menuItemsContainer) {
+    const itemCard = document.createElement('div');
+    itemCard.classList.add('menu-item-card');
+    itemCard.innerHTML = `
+        <div class="menu-item-image">
+            <img src="${item.image}" alt="${item.name}" />
+        </div>
+        <div class="menu-item-info">
+            <h3>${item.name}</h3>
+            <p>${item.description}</p>
+            <p><strong>Price:</strong> $${item.price}</p>
+        </div>
+        <div class="add-to-cart">
+            <button onclick="addToCart('${item.name}')">Add to Cart</button>
+        </div>
+    `;
+    menuItemsContainer.appendChild(itemCard);
 }
 //Manager Menu display
 function displayMenuItems1() {
@@ -117,37 +121,40 @@ function displayMenuItems1() {
     menuItemsContainer.innerHTML = ''; // Clear the current content
 
     const items = JSON.parse(localStorage.getItem('menuItems')) || []; // Get items from localStorage
-
+    console.log();
     // Iterate through the items and create their cards
-    items.forEach(item => {
-        const itemCard = document.createElement('div');
-        itemCard.classList.add('menu-item-card'); // Add styling class
-
-        itemCard.innerHTML = `
-            <div class="menu-item-image">
-                <img src="${item.image}" alt="${item.name}" />
-            </div>
-            <div class="menu-item-info">
-                <h3>${item.name}</h3>
-                <p>${item.description}</p>
-                <p><strong>Price:</strong> $${item.price}</p>
-            </div>
-        `;
-
-        menuItemsContainer.appendChild(itemCard); // Append each card to the container
-    });
+    for (let item of items){
+        itemDisplay1(item, menuItemsContainer)
+    }
 
     // Show a placeholder message if no items are found
     if (items.length === 0) {
         menuItemsContainer.innerHTML = `<p>No menu items available.</p>`;
     }
 }
+function itemDisplay1(item, menuItemsContainer){
+    const itemCard = document.createElement('div');
+    itemCard.classList.add('menu-item-card'); // Add styling class
+
+    itemCard.innerHTML = `
+        <div class="menu-item-image">
+            <img src="${item.image}" alt="${item.name}" />
+        </div>
+        <div class="menu-item-info">
+            <h3>${item.name}</h3>
+            <p>${item.description}</p>
+            <p><strong>Price:</strong> $${item.price}</p>
+        </div>
+    `;
+
+    menuItemsContainer.appendChild(itemCard); // Append each card to the container
+}
 //For Payment Page
 function displayMenuItems2() {
     const cartItemsContainer = document.querySelector('.cart-items'); // Select the cart-items div
     cartItemsContainer.innerHTML = ''; // Clear existing content
 
-    const cart = JSON.parse(localStorage.getItem('cart')) || {}; // Retrieve the cart items from localStorage
+    const cart = localStorage.getItem('cart') || {}; // Retrieve the cart items from localStorage
 
     // Iterate through the cart items
     for (const [itemId, item] of Object.entries(cart)) {
@@ -178,28 +185,28 @@ function displayMenuItems2() {
 
 // Helper functions
 function removeFromCart(itemId) {
-    const cart = JSON.parse(localStorage.getItem('cart')) || {};
+    const cart = localStorage.getItem('cart') || {};
     delete cart[itemId]; // Remove the item from the cart
-    localStorage.setItem('cart', JSON.stringify(cart)); // Update localStorage
+    localStorage.setItem('cart', cart); // Update localStorage
     updateCartDisplay(); // Refresh the cart display
 }
 
 function updateCartQuantity(itemId, newQuantity) {
-    const cart = JSON.parse(localStorage.getItem('cart')) || {};
+    const cart = localStorage.getItem('cart') || {};
     newQuantity = parseInt(newQuantity, 10);
 
     if (newQuantity <= 0) {
         removeFromCart(itemId); // Remove the item if quantity is zero or less
     } else {
         cart[itemId].quantity = newQuantity; // Update the quantity
-        localStorage.setItem('cart', JSON.stringify(cart)); // Update localStorage
+        localStorage.setItem('cart', cart); // Update localStorage
         displayMenuItems2(); // Refresh the cart display
     }
 }
 
 // Function to filter menu items by category
 function filterItemsByCategory(category) {
-    const allItems = JSON.parse(localStorage.getItem('menuItems')) || [];
+    const allItems = localStorage.getItem('menuItems') || [];
     const filteredItems = allItems.filter(item => item.categories.includes(category));
 
     const menuItemsContainer = document.getElementById('menu-items');
@@ -274,9 +281,7 @@ function updateCartDisplay() {
 }
 function updateCartDisplay1() { 
     const cart = JSON.parse(localStorage.getItem('cart')) || {}; // Load cart from local storage
-    const cartContainer = document.querySelector('.col-25.cart'); // Correctly target the div
-    cartContainer.innerHTML = '<h3>Your Cart</h3>'; // Reset and include the heading
-
+    let cartContainer = document.getElementById('cartContainer')
     // Iterate through cart items and create elements
     Object.values(cart).forEach(cartItem => {
         const itemDiv = document.createElement('div');
@@ -342,6 +347,7 @@ function managerAdd() {
         };
 
         const items = JSON.parse(localStorage.getItem('menuItems')) || [];
+        console.log(items)
         items.push(newItem);
         localStorage.setItem('menuItems', JSON.stringify(items));
 
@@ -359,7 +365,7 @@ function managerAdd() {
 function clearMenuLocal() {
     localStorage.removeItem('menuItems');
     alert('All menu items have been cleared!');
-    displayMenuItems();
+    displayMenuItems1();
 }
 
 function checkSelection() {
@@ -445,11 +451,6 @@ function calculateTotals() {
     // Get cart data from localStorage and parse it as an object
     const cart = JSON.parse(localStorage.getItem("cart")) || {};
 
-    // Ensure cart is an object before proceeding
-    if (typeof cart !== 'object' || Array.isArray(cart)) {
-        console.error("Cart data is not an object:", cart);
-        return; // Exit if the cart is not an object
-    }
 
     // Array to hold item prices
     const itemPrices = [];
