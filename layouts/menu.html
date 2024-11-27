@@ -72,18 +72,20 @@
     <script>
         // Display the menu items when the page loads
         displayMenuItems();
-        // function setCart(){
-        //     if(!localStorage.getItem('loggedIn')){
-        //         localStorage.setItem('loggedin', false)
-        //         return
-        //     }
-        //     loggedIn = localStorage.getItem('loggedIn');
-        //     users = JSON.parse(localStorage.getItem('users'));
-        //     userCart = users[loggedIn].cart;
-        //     console.log(users[loggedIn]);
-        //     localStorage.setItem('cart', userCart);
-        // }
-        // setCart();
+        function setCart(){
+            if(!localStorage.getItem('loggedIn')){
+                localStorage.setItem('loggedin', false)
+                return
+            }
+            loggedIn = localStorage.getItem('loggedIn');
+            users = JSON.parse(localStorage.getItem('users'));
+            console.log(users[loggedIn])
+            if(users[loggedIn].cart != undefined){
+                alert('we have a cart : ' + users[loggedIn].cart)
+                localStorage.setItem('cart', users[loggedIn].cart);
+            }
+        }
+        setCart();
         updateCartDisplay();
         alert(localStorage.getItem('loggedIn'));
     </script>
