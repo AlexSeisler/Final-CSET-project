@@ -480,7 +480,8 @@ function calculateTotals() {
     // Calculate taxes and total
     const taxes = subtotal * taxRate;
     const total = subtotal + taxes;
-
+    localStorage.setItem('subtotal', subtotal);
+    localStorage.setItem('taxes', taxes);
     // Helper function to format numbers as currency
     function formatCurrency(value) {
         return value.toLocaleString("en-US", { style: "currency", currency: "USD" });
@@ -515,6 +516,8 @@ function tipPopup() {
     document.querySelector(".result.large").textContent = `$${newTotal.toFixed(2)}`;
 
     // Store the new total
+    localStorage.setItem('tip', tip);
+
     localStorage.setItem("currentTotal", newTotal);
 
     alert(`Thank you! Your new total with tip included is $${newTotal.toFixed(2)}`);

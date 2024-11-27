@@ -1,3 +1,9 @@
+
+var USDollar = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+});
+// USDollar.format([put number here]);
 document.addEventListener("DOMContentLoaded", () => {
   const loginOverlay = document.getElementById("login-overlay");
   const loginButton = document.getElementById("login-button");
@@ -62,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
       currentStatusIndex = 0;
     }
   });
-
+  
   printReceiptBtn.addEventListener("click", () => {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
@@ -71,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
     i = 1;
     Object.values(cart).forEach( item =>{
 
-      stringOfItems += `\n-  ${i++}.  -\nName: ${item.name}\nPrice: ${item.price}\nQuantity: ${item.quantity}`;
+      stringOfItems += `\n      -  ${i++}.  -\n      Name: ${item.name}\n      Price: ${item.price}\n      Quantity: ${item.quantity}`;
       
     });
     const receiptContent = `
@@ -83,6 +89,13 @@ document.addEventListener("DOMContentLoaded", () => {
       ${waitTimeElement.textContent}  
       --------------------------
       Items: ${stringOfItems}
+      --------------------------
+      Subtotal: ${USDollar.format(localStorage.getItem('subtotal'))}
+      Taxes: ${USDollar.format(localStorage.getItem('taxes'))}
+      Tips: ${USDollar.format(localStorage.getItem('tip'))}
+      _______
+      
+      Total: ${USDollar.format(localStorage.getItem('currentTotal'))}
       --------------------------
       Thank you for your order
     `;
