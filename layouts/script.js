@@ -377,7 +377,7 @@ function checkSelection() {
         window.location.href = '../Payment page/index.html';
     } else if (Cash.checked) {
         // Redirect to cash payment page
-        window.location.href = '../Payment page/reciept page/index.html';
+        window.location.href = '../receipt page/index.html';
     } else {
         // Redirect to an error or notification page
         alert('Please select a payment method.');
