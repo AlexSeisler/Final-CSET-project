@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const savedUsername = localStorage.getItem("loggedIn");
 
+  userNameElement.textContent = savedUsername;
 
   refreshStatusBtn.addEventListener("click", () => {
     // Update wait time logic
@@ -65,14 +66,23 @@ document.addEventListener("DOMContentLoaded", () => {
   printReceiptBtn.addEventListener("click", () => {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
+    const cart = JSON.parse(localStorage.getItem('cart'));
+    stringOfItems ='';
+    i = 1;
+    Object.values(cart).forEach( item =>{
 
+      stringOfItems += `\n-  ${i++}.  -\nName: ${item.name}\nPrice: ${item.price}\nQuantity: ${item.quantity}`;
+      
+    });
     const receiptContent = `
       Order Receipt
       --------------------------
       Customer: ${localStorage.getItem('loggedIn') || 'Guest'}
       Date: ${new Date().toLocaleString()}
       Order Status: ${orderStatus.textContent}
-      ${waitTimeElement.textContent}
+      ${waitTimeElement.textContent}  
+      --------------------------
+      Items: ${stringOfItems}
       --------------------------
       Thank you for your order
     `;
