@@ -71,23 +71,21 @@
     </div>
     <script>
         // Display the menu items when the page loads
-        if(!localStorage.getItem('cart')){
-            localStorage.setItem('cart', null)
-        }
         displayMenuItems();
-        function setCart(){
-            if(!localStorage.getItem('loggedIn')){
-                localStorage.setItem('loggedin', false)
-                return
-            }
-            loggedIn = localStorage.getItem('loggedIn');
-            users = localStorage.getItem('users');
-            userCart = users[loggedIn].cart;
-            console.log(users[loggedIn]);
-            localStorage.setItem('cart', userCart);
-        }
-        setCart();
+        // function setCart(){
+        //     if(!localStorage.getItem('loggedIn')){
+        //         localStorage.setItem('loggedin', false)
+        //         return
+        //     }
+        //     loggedIn = localStorage.getItem('loggedIn');
+        //     users = JSON.parse(localStorage.getItem('users'));
+        //     userCart = users[loggedIn].cart;
+        //     console.log(users[loggedIn]);
+        //     localStorage.setItem('cart', userCart);
+        // }
+        // setCart();
         updateCartDisplay();
+        alert(localStorage.getItem('loggedIn'));
     </script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

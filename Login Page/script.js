@@ -9,14 +9,14 @@ if (!localStorage.getItem('users'))
       password: "manager"
     }
   };
-  localStorage.setItem('users', users);
+  localStorage.setItem('users', JSON.stringify(users));
 }
 
 if (!localStorage.getItem('loggedIn')){
   localStorage.setItem('loggedIn', false)
   }
 function validateForm() {
-  const users = localStorage.getItem('users');
+  const users = JSON.parse(localStorage.getItem('users'));
 
   // Get input values
   const username = document.getElementById('username').value.trim();
@@ -44,7 +44,7 @@ function validateForm() {
   };
 
   // Save updated users back to localStorage
-  localStorage.setItem('users', users);
+  localStorage.setItem('users', JSON.stringify(users));
   
   sessionStorage.setItem('showPopup', 'true');
 
@@ -75,7 +75,9 @@ function validateFormLog() {
   console.log(users[username])
   // Check if the password matches
   if (users[username].password === password) {
+    alert(username)
     localStorage.setItem('loggedIn', username)
+    alert(localStorage.getItem('loggedIn'));
     if ( users[username].password == users['manager'].password && username == 'manager'){
       alert('Welcome Manager!')
       window.location.assign('../layouts/manager.html');

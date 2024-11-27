@@ -1,7 +1,6 @@
 if (!localStorage.getItem('loggedIn')){
 localStorage.setItem('loggedIn', false)
   }
-  localStorage.clear();
 // Default menu items
 var defaultItems = [
     {
@@ -282,9 +281,7 @@ function updateCartDisplay() {
 }
 function updateCartDisplay1() { 
     const cart = JSON.parse(localStorage.getItem('cart')) || {}; // Load cart from local storage
-    const cartContainer = document.querySelector('.col-25.cart'); // Correctly target the div
-    cartContainer.innerHTML = '<h3>Your Cart</h3>'; // Reset and include the heading
-
+    let cartContainer = document.getElementById('cartContainer')
     // Iterate through cart items and create elements
     Object.values(cart).forEach(cartItem => {
         const itemDiv = document.createElement('div');
@@ -452,13 +449,8 @@ function editItem() {
 
 function calculateTotals() {
     // Get cart data from localStorage and parse it as an object
-    const cart = localStorage.getItem("cart") || {};
+    const cart = JSON.parse(localStorage.getItem("cart")) || {};
 
-    // Ensure cart is an object before proceeding
-    if (typeof cart !== 'object' || Array.isArray(cart)) {
-        console.error("Cart data is not an object:", cart);
-        return; // Exit if the cart is not an object
-    }
 
     // Array to hold item prices
     const itemPrices = [];

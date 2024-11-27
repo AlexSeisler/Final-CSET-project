@@ -104,16 +104,15 @@
                     return
                 }
                 loggedIn = localStorage.getItem('loggedIn');
-                users = localStorage.getItem('users');
-                cart = localStorage.getItem('cart');
+                users = JSON.parse(localStorage.getItem('users'));
+                cart = JSON.parse(localStorage.getItem('cart'));
                 alert('out as ' + loggedIn)
-                users[loggedIn].cart = cart;
+                users[loggedIn].cart = JSON.stringify(cart);
                 alert('cart is ' + users[loggedIn].cart)
-                localStorage.setItem('users' ,users)
+                localStorage.setItem('users' , JSON.stringify(users))
                 localStorage.setItem('loggedIn', false)
                 alert('')
                 //clear order items
-                localStorage.setItem('cart', null);
             }
             function displayFeaturedItemInContainer(itemConID, item){
                 container = document.getElementById(itemConID);
@@ -134,7 +133,7 @@
 
             }
             function displayFeaturedItems(){
-                const items = localStorage.getItem('menuItems')
+                const items = JSON.parse(localStorage.getItem('menuItems'))
                 itemsLength = Object.keys(items).length;
                 console.log(itemsLength)
                 if (itemsLength > 2){

@@ -1,7 +1,9 @@
 function CheckIfLoggedIn(){
+    alert('Check')
     if (!localStorage.getItem('loggedIn')){
         localStorage.setItem('loggedIn', false)
         window.location.assign('../Login Page/index.html')
+        alert('false')
         return
         }
     else{
