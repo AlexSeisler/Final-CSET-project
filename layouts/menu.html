@@ -81,7 +81,7 @@
                 return
             }
             loggedIn = localStorage.getItem('loggedIn');
-            users = JSON.parse(localStorage.getItem('users'));
+            users = localStorage.getItem('users');
             userCart = users[loggedIn].cart;
             console.log(users[loggedIn]);
             localStorage.setItem('cart', userCart);

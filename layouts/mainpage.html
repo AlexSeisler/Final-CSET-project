@@ -104,12 +104,12 @@
                     return
                 }
                 loggedIn = localStorage.getItem('loggedIn');
-                users = JSON.parse(localStorage.getItem('users'));
+                users = localStorage.getItem('users');
                 cart = localStorage.getItem('cart');
                 alert('out as ' + loggedIn)
                 users[loggedIn].cart = cart;
                 alert('cart is ' + users[loggedIn].cart)
-                localStorage.setItem('users' ,JSON.stringify(users))
+                localStorage.setItem('users' ,users)
                 localStorage.setItem('loggedIn', false)
                 alert('')
                 //clear order items
@@ -134,7 +134,7 @@
 
             }
             function displayFeaturedItems(){
-                const items = JSON.parse(localStorage.getItem('menuItems'))
+                const items = localStorage.getItem('menuItems')
                 itemsLength = Object.keys(items).length;
                 console.log(itemsLength)
                 if (itemsLength > 2){
