@@ -1,3 +1,9 @@
+
+var USDollar = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+});
+// USDollar.format([put number here]);
 document.addEventListener("DOMContentLoaded", () => {
   const loginOverlay = document.getElementById("login-overlay");
   const loginButton = document.getElementById("login-button");
@@ -7,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const currentOrderBtn = document.getElementById("current-order-btn");
   const pastOrdersBtn = document.getElementById("past-orders-btn");
-  const signOutBtn = document.getElementById("sign-out-btn");
+  const backToMain = document.getElementById("back-to-main");
 
   const currentOrderSection = document.getElementById("current-order-section");
   const pastOrdersSection = document.getElementById("past-orders-section");
@@ -21,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let currentWaitTime = 25;
 
+  container.style.display = "block";
   const statuses = [
     { status: "Preparing", progress: 25 },
     { status: "On the way", progress: 75 },
@@ -28,24 +35,9 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
   let currentStatusIndex = 0;
 
-  const savedUsername = localStorage.getItem("username");
-  if (savedUsername) {
-    userNameElement.textContent = savedUsername;
-    loginOverlay.style.display = "none";
-    container.style.display = "block";
-  }
+  const savedUsername = localStorage.getItem("loggedIn");
 
-  loginButton.addEventListener("click", () => {
-    const username = usernameInput.value.trim();
-    if (username) {
-      localStorage.setItem("username", username);
-      userNameElement.textContent = username;
-      loginOverlay.style.display = "none";
-      container.style.display = "block";
-    } else {
-      alert("Please enter your name to continue.");
-    }
-  });
+  userNameElement.textContent = savedUsername;
 
   refreshStatusBtn.addEventListener("click", () => {
     waitTimeElement.textContent = `Wait time: ${currentWaitTime} minutes`;
@@ -74,18 +66,34 @@ document.addEventListener("DOMContentLoaded", () => {
       currentStatusIndex = 0;
     }
   });
-
+  
   printReceiptBtn.addEventListener("click", () => {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
+    const cart = JSON.parse(localStorage.getItem('cart'));
+    stringOfItems ='';
+    i = 1;
+    Object.values(cart).forEach( item =>{
 
+      stringOfItems += `\n      -  ${i++}.  -\n      Name: ${item.name}\n      Price: ${item.price}\n      Quantity: ${item.quantity}`;
+      
+    });
     const receiptContent = `
       Order Receipt
       --------------------------
-      Customer: ${localStorage.getItem('username') || 'Guest'}
+      Customer: ${localStorage.getItem('loggedIn') || 'Guest'}
       Date: ${new Date().toLocaleString()}
       Order Status: ${orderStatus.textContent}
-      ${waitTimeElement.textContent}
+      ${waitTimeElement.textContent}  
+      --------------------------
+      Items: ${stringOfItems}
+      --------------------------
+      Subtotal: ${USDollar.format(localStorage.getItem('subtotal'))}
+      Taxes: ${USDollar.format(localStorage.getItem('taxes'))}
+      Tips: ${USDollar.format(localStorage.getItem('tip'))}
+      _______
+      
+      Total: ${USDollar.format(localStorage.getItem('currentTotal'))}
       --------------------------
       Thank you for your order
     `;
@@ -105,8 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
     pastOrdersSection.style.display = "block";
   });
 
-  signOutBtn.addEventListener("click", () => {
-    localStorage.removeItem("username");
-    window.location.reload();
+  backToMain.addEventListener("click", () => {
+    window.location.href = "../layouts/mainpage.html";
   });
 });

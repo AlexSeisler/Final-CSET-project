@@ -6,14 +6,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="login-overlay" class="overlay">
-    <div class="login-modal">
-      <h2>Welcome</h2>
-      <p>Please login to continue:</p>
-      <input type="text" id="username-input" placeholder="Your name" />
-      <button id="login-button">Login</button>
-    </div>
-  </div>
+  
 
   <div class="container" style="display: none;">
     <header>
@@ -21,8 +14,8 @@
     </header>
     <nav>
       <button id="current-order-btn">Current Order</button>
-      <button id="past-orders-btn">Past Orders</button>
-      <button id="sign-out-btn">Sign Out</button>
+      <button id="past-orders-btn" style="display: none;">Past Orders</button>
+      <button id="back-to-main">Back to Main</button>
     </nav>
 
       <section id="current-order-section">
@@ -36,7 +29,9 @@
           <span id="order-status"></span>
           <span id="wait-time" style="margin-left: 10px; font-weight: bold;">Wait time: 0 minutes</span>
         </div>
-        
+        <div class="items" id="cartContainer">
+          This is the items
+        </div>
         <h3>Receipt</h3>
         <table>
           <thead>
@@ -67,7 +62,12 @@
     </main>
   </div>
 
-  <script src="script.js"></script>
+  
+  <script src="../layouts/script.js"></script>
+  <script>
+    updateCartDisplay1();
+  </script>
+<script src="script.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.72/pdfmake.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.72/vfs_fonts.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>

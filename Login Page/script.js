@@ -9,7 +9,7 @@ if (!localStorage.getItem('users'))
       password: "manager"
     }
   };
-  localStorage.setItem('users', JSON.stringify({users}));
+  localStorage.setItem('users', JSON.stringify(users));
 }
 
 if (!localStorage.getItem('loggedIn')){
@@ -56,6 +56,7 @@ function validateForm() {
 
 function validateFormLog() {
   const users = JSON.parse(localStorage.getItem('users'));
+  console.log(users);
     users['manager'] =
     {
       password: "manager",
@@ -74,7 +75,9 @@ function validateFormLog() {
   console.log(users[username])
   // Check if the password matches
   if (users[username].password === password) {
+    alert(username)
     localStorage.setItem('loggedIn', username)
+    alert(localStorage.getItem('loggedIn'));
     if ( users[username].password == users['manager'].password && username == 'manager'){
       alert('Welcome Manager!')
       window.location.assign('../layouts/manager.html');
@@ -97,7 +100,7 @@ function reset() {
 }
 
 function showStoredData() {
-  console.log(JSON.parse(localStorage.getItem('users')));
+  console.log(localStorage.getItem('users'));
 }
 function clearData() {
   localStorage.removeItem('users');
@@ -105,14 +108,18 @@ function clearData() {
   if (!localStorage.getItem('users')) 
     {
       const manager = 
-      {
-        manager:
+      { 
+        'manager':
         {
-          name: "manager",
-          email: "manager@manager",
-          password: "manager"
+          password: 'manager',
+          email: 'manager@manager'
+        },
+        'a':{
+          password: 'a',
+          email: 'a@a'
         }
       };
-      localStorage.setItem('users', JSON.stringify({manager}));
+      console.log(manager)
+      localStorage.setItem('users', JSON.stringify(manager));
     }
 }

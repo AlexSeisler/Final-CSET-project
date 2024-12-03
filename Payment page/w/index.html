@@ -99,43 +99,8 @@
             <button onclick="goHome()">Return to Home</button>
         </div>
     </div>
-    <script>
-        // Sample data for demonstration
-        const receiptData = {
-            date: new Date().toLocaleDateString(),
-            orderNumber: '12345',
-            customerName: 'John Doe',
-            items: [
-                { name: 'Product 1', quantity: 2, price: 10.99 },
-                { name: 'Product 2', quantity: 1, price: 25.50 },
-            ]
-        };
-
-        // Populate the receipt with data
-        document.getElementById('date').textContent = receiptData.date;
-        document.getElementById('order-number').textContent = receiptData.orderNumber;
-        document.getElementById('customer-name').textContent = receiptData.customerName;
-
-        const itemsList = document.getElementById('items-list');
-        let totalPrice = 0;
-
-        receiptData.items.forEach(item => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${item.name}</td>
-                <td>${item.quantity}</td>
-                <td>$${(item.price * item.quantity).toFixed(2)}</td>
-            `;
-            itemsList.appendChild(row);
-            totalPrice += item.price * item.quantity;
-        });
-
-        document.getElementById('total-price').textContent = totalPrice.toFixed(2);
-
-        // Function to redirect to home page
-        function goHome() {
-            window.location.href = '/index.html'; // Adjust the path as needed
-        }
+    <script src="../../layouts/script.js">
+        updateCartDisplay2();
     </script>
 </body>
 </html>

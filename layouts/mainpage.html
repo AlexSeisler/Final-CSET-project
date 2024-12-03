@@ -9,6 +9,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Quicksand:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+        <script src="survey.js" defer></script>
     </head>
     <body>
         <header>
@@ -39,7 +40,7 @@
                 <a href="./menu.html" class="order-button">ORDER</a>
                 <a href="#" class="scroll"><ion-icon name="caret-down-outline" id="scroll-icon"></ion-icon></a>
             </div>
-            <div class="content">
+            <div class="content" id="content1">
                 <div class="img"></div>
                 <div class="con con-right">
                     <div class="header"><h1>header</h1></div>
@@ -47,7 +48,7 @@
                     <a href="./menu.html" class="order-button">BUY</a>
                 </div>
             </div>
-            <div class="content">
+            <div class="content" id='content2'>
                 <div class="con con-left">
                     <div class="header"><h1>header</h1></div>
                     <div class="description"><p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore, in sunt. Sed at earum tempore asperiores! Itaque natus non dignissimos aliquam corporis ut obcaecati aut optio, repellat nisi cum ad?</p></div>
@@ -60,27 +61,29 @@
                     <div class="container">
                         <h1>Code Cravings Review</h1>
                         <div class="rates">
+                            <div class="setter">
+
+                            
                             <div class="rating">
                                 <span id="rating">0</span>/5
                             </div>
-                            <div class="stars" id="stars">
-                                <span class="star" data-value="1">★</span>
-                                <span class="star" data-value="2">★</span>
-                                <span class="star" data-value="3">★</span>
-                                <span class="star" data-value="4">★</span>
-                                <span class="star" data-value="5">★</span>
+                            <div id="stars">
+                                <span class="star" data-value="1" onclick="handleStarClick(1)">★</span>
+                                <span class="star" data-value="2" onclick="handleStarClick(2)">★</span>
+                                <span class="star" data-value="3" onclick="handleStarClick(3)">★</span>
+                                <span class="star" data-value="4" onclick="handleStarClick(4)">★</span>
+                                <span class="star" data-value="5" onclick="handleStarClick(5)">★</span>
                             </div>
-                        </div>
-                        
-                        <p>Share your review:</p>
-                        <textarea id="review"
-                                placeholder="Write your review here">
-                        </textarea>
-                        <button id="submit-rating">Submit</button>
-                        <div class="reviews" id="reviews">
+                            </div>
+                            <div>
+
+                                <textarea id="review" placeholder="Write your review here..."></textarea>
+                                <button id="submit" onclick="handleSubmit()">Submit Review</button>
+                            </div>
+                            <div id="reviews"></div>
                         </div>
                     </div>
-                    <script src="survey.js"></script>
+                    
                 </div>
             </div>
         </div>
@@ -102,16 +105,45 @@
                 }
                 loggedIn = localStorage.getItem('loggedIn');
                 users = JSON.parse(localStorage.getItem('users'));
-                cart = localStorage.getItem('cart');
+                cart = JSON.parse(localStorage.getItem('cart'));
                 alert('out as ' + loggedIn)
-                users[loggedIn].cart = cart;
+                users[loggedIn].cart = JSON.stringify(cart);
                 alert('cart is ' + users[loggedIn].cart)
-                console.log(users[loggedIn], loggedIn, users);
+                localStorage.setItem('users' , JSON.stringify(users))
                 localStorage.setItem('loggedIn', false)
                 alert('')
                 //clear order items
-                localStorage.setItem('cart', null);
+                localStorage.setItem('cart', JSON.stringify({}))
             }
+            function displayFeaturedItemInContainer(itemConID, item){
+                container = document.getElementById(itemConID);
+                
+                img = document.createElement('img');
+                img.src = item.image;
+                img.alt = item.name;
+                container.getElementsByClassName('img')[0].appendChild(img);
+                container.getElementsByClassName('header')[0].querySelector('h1').innerHTML = item.name;
+                container.getElementsByClassName('description')[0].querySelector('p').innerHTML = item.description;
+
+            }
+            function displayFeaturedItems(){
+                const items = JSON.parse(localStorage.getItem('menuItems'))
+                itemsLength = Object.keys(items).length;
+                console.log(itemsLength)
+                if (itemsLength > 2){
+                    let rand1 = Math.floor(Math.random() * itemsLength);
+                    let rand2 = rand1+1;
+                    if (rand2 == itemsLength){
+                        rand2 = 0;
+                    }
+                    console.log(rand1,rand2)
+                    let item1 = items[Object.keys(items)[rand1]];
+                    let item2 = items[Object.keys(items)[rand2]];
+                    displayFeaturedItemInContainer('content1', item1);
+                    displayFeaturedItemInContainer('content2', item2);
+                }
+            }
+            displayFeaturedItems();
         </script>
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
