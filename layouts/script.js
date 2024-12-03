@@ -8,7 +8,7 @@ var defaultItems = [
         categories: ["Entree", "Appetizer", "Vegan"],
         description: "Juicy grilled chicken served with vegetables.",
         price: "12.99",
-        image: "grilled_chicken.jpg"
+        image: "../images/grilled_chicken.jpg"
     },
     {
         name: "Spaghetti Bolognese",
@@ -139,11 +139,11 @@ function itemDisplay1(item, menuItemsContainer){
     itemCard.classList.add('menu-item-card'); // Add styling class
 
     itemCard.innerHTML = `
-        <div class="menu-item-image">
-            <img src="${item.image}" alt="${item.name}" />
-        </div>
         <div class="menu-item-info">
             <h3>${item.name}</h3>
+        </div>
+        <div class="menu-item-image">
+            <img src="${item.image}" height="300px" alt="${item.name}" />
             <p>${item.description}</p>
             <p><strong>Price:</strong> $${item.price}</p>
         </div>
