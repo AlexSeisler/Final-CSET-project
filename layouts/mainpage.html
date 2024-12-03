@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initialScale=1.0">
         <title>Main Page</title>
         <link rel="stylesheet" href="./mainpage.css">
+        <link rel="stylesheet" href="../font.css">
         <script src="script.js" defer></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +16,7 @@
         <header>
             <div class="left">
                 <div class="logo">
-                    <img src="../images/CodeCravings.png">
+                    <img src="../assets/Logos/logo-black.png">
                 </div>
                 <div class="header-title">
                     <h1>CODE CRAVINGS</h1>
@@ -34,9 +35,9 @@
         <div class="main">
             <div class="intro">
                 <div class="intro-title">
-                    <h1>Code Cravings</h1>
+                    <img src="../assets/Logos/Wordmark-white.png" alt="">
                 </div>
-                <div class="intro-text"><p>Content about Code Cravings that is Catchy</p></div>
+                <div class="intro-text"><p>fresh pours. good grub.</p></div>
                 <a href="./menu.html" class="order-button">ORDER</a>
                 <a href="#" class="scroll"><ion-icon name="caret-down-outline" id="scroll-icon"></ion-icon></a>
             </div>
@@ -62,19 +63,17 @@
                         <h1>Code Cravings Review</h1>
                         <div class="rates">
                             <div class="setter">
-
-                            
-                            <div class="rating">
-                                <span id="rating">0</span>/5
-                            </div>
-                            <div id="stars">
-                                <span class="star" data-value="1" onclick="handleStarClick(1)">★</span>
-                                <span class="star" data-value="2" onclick="handleStarClick(2)">★</span>
-                                <span class="star" data-value="3" onclick="handleStarClick(3)">★</span>
-                                <span class="star" data-value="4" onclick="handleStarClick(4)">★</span>
-                                <span class="star" data-value="5" onclick="handleStarClick(5)">★</span>
-                            </div>
-                            </div>
+                                <div class="rating">
+                                    <span id="rating">0</span>/5
+                                </div>
+                                    <div id="stars">
+                                        <span class="star" data-value="1" onclick="handleStarClick(1)">★</span>
+                                        <span class="star" data-value="2" onclick="handleStarClick(2)">★</span>
+                                        <span class="star" data-value="3" onclick="handleStarClick(3)">★</span>
+                                        <span class="star" data-value="4" onclick="handleStarClick(4)">★</span>
+                                        <span class="star" data-value="5" onclick="handleStarClick(5)">★</span>
+                                    </div>
+                                </div>
                             <div>
 
                                 <textarea id="review" placeholder="Write your review here..."></textarea>
@@ -106,12 +105,9 @@
                 loggedIn = localStorage.getItem('loggedIn');
                 users = JSON.parse(localStorage.getItem('users'));
                 cart = JSON.parse(localStorage.getItem('cart'));
-                alert('out as ' + loggedIn)
                 users[loggedIn].cart = JSON.stringify(cart);
-                alert('cart is ' + users[loggedIn].cart)
                 localStorage.setItem('users' , JSON.stringify(users))
                 localStorage.setItem('loggedIn', false)
-                alert('')
                 //clear order items
                 localStorage.setItem('cart', JSON.stringify({}))
             }
@@ -119,6 +115,7 @@
                 container = document.getElementById(itemConID);
                 
                 img = document.createElement('img');
+                img.style = 'object-fit: cover; width: 100%; height: 100%'
                 img.src = item.image;
                 img.alt = item.name;
                 container.getElementsByClassName('img')[0].appendChild(img);
