@@ -8,72 +8,72 @@ var defaultItems = [
         categories: ["Entree", "Appetizer", "Vegan"],
         description: "Juicy grilled chicken served with vegetables.",
         price: "12.99",
-        image: "../images/grilled_chicken.jpg"
+        image: "https://www.simplyrecipes.com/thmb/mZq-tAKO98F0KUZOsohbXlo37s8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Grilled-Chicken-LEAD-SEO-Vertical-3c66b6ae87184189920ad84f3f1db6bb.jpg"
     },
     {
         name: "Spaghetti Bolognese",
         categories: ["Entree", "Vegan"],
         description: "Classic spaghetti with a rich meat sauce.",
         price: "10.99",
-        image: ""
+        image: "https://plantnspice.com/wp-content/uploads/2023/05/vegan-bolognese-featured.jpg"
     },
     {
         name: "Caesar Salad",
         categories: ["Appetizer", "Entree", "Vegan"],
         description: "Crispy romaine lettuce with Caesar dressing.",
         price: "6.99",
-        image: "caesar_salad.jpg"
+        image: "https://media.istockphoto.com/id/534139231/photo/healthy-grilled-chicken-caesar-salad.jpg?s=612x612&w=0&k=20&c=TR_sE5S5ChmjFywg3dh_J5V_ha-BcwgTU26BvsgbsjY="
     },
     {
         name: "Mozzarella Sticks",
         categories: ["Appetizer"],
         description: "Golden-fried mozzarella sticks with marinara sauce.",
         price: "7.99",
-        image: "mozzarella_sticks.jpg"
+        image: "https://glutenfreebaking.com/wp-content/uploads/2024/01/Gluten-Free-Mozzarella-Sticks-on-a-Plate-with-a-bowl-of-sauce-500x500.jpg"
     },
     {
         name: "Cheesecake",
         categories: ["Dessert"],
         description: "Creamy cheesecake with a graham cracker crust.",
         price: "5.99",
-        image: "cheesecake.jpg"
+        image: "https://sugarspunrun.com/wp-content/uploads/2019/01/Best-Cheesecake-Recipe-2-1-of-1-4.jpg"
     },
     {
         name: "Chocolate Lava Cake",
         categories: ["Dessert", "Vegan"],
         description: "Warm chocolate cake with a gooey center.",
         price: "6.99",
-        image: "lava_cake.jpg"
+        image: "https://www.foodandwine.com/thmb/XdFd-DvTtouryLCjeCqwhfmmK-A=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/molten-chocolate-cake-FT-RECIPE0220-0a33d7d0ab0c45588f7bfe742d33a9bc.jpg"
     },
     {
         name: "Coffee",
         categories: ["Drinks", "Dessert"],
         description: "Freshly brewed coffee.",
         price: "2.99",
-        image: "coffee.jpg"
+        image: "https://www.oregondairy.com/wp-content/uploads/2016/05/coffee-1.jpg"
     },
     {
         name: "Iced Tea",
         categories: ["Drinks"],
         description: "Refreshing iced tea with lemon.",
         price: "2.49",
-        const image = document.createElement('img');
-image.src = './images/icedtea.jpg';
-image.alt = 'Image Description';
+
+        image: "https://bakingmehungry.com/wp-content/uploads/2024/05/lipton-iced-tea-recipe-8.jpg"
+        
     },
     {
         name: "Steak Dinner",
         categories: ["Entree"],
         description: "Tender steak with mashed potatoes and gravy.",
         price: "15.99",
-        image: "steak.jpg"
+        image: "https://thebigmansworld.com/wp-content/uploads/2023/07/sirloin-steak-recipe.jpg"
     },
     {
         name: "Fruit Tart",
         categories: ["Dessert", "Appetizer"],
         description: "Sweet tart topped with fresh fruits.",
         price: "4.99",
-        image: "fruit_tart.jpg"
+        image: "https://hips.hearstapps.com/hmg-prod/images/fruit-tart-index-65ef54d972bb1.jpg?crop=0.502xw:1.00xh;0.463xw,0&resize=1200:*"
     }
 ];
 
