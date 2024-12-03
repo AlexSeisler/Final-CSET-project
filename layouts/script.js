@@ -57,7 +57,9 @@ var defaultItems = [
         categories: ["Drinks"],
         description: "Refreshing iced tea with lemon.",
         price: "2.49",
-        image: "iced_tea.jpg"
+        const image = document.createElement('img');
+image.src = './images/icedtea.jpg';
+image.alt = 'Image Description';
     },
     {
         name: "Steak Dinner",
