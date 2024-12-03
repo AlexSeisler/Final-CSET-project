@@ -15,7 +15,7 @@ var defaultItems = [
         categories: ["Entree", "Vegan"],
         description: "Classic spaghetti with a rich meat sauce.",
         price: "10.99",
-        image: "spaghetti.jpg"
+        image: ""
     },
     {
         name: "Caesar Salad",
@@ -138,13 +138,19 @@ function itemDisplay1(item, menuItemsContainer){
 
     itemCard.innerHTML = `
         <div class="menu-item-info">
-            <h3>${item.name}</h3>
+            <h3 id="item-name">${item.name}</h3>
         </div>
         <div class="menu-item-image">
+            
+            <div class="text-price">
+                <h3><strong>Price:</strong> $${item.price}</h3>
+                <hr>
+                <p id="item-description">${item.description}</p>
+            </div>
+            
             <img src="${item.image}" height="300px" alt="${item.name}" />
-            <p>${item.description}</p>
-            <p><strong>Price:</strong> $${item.price}</p>
         </div>
+        
     `;
 
     menuItemsContainer.appendChild(itemCard); // Append each card to the container
