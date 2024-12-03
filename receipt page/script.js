@@ -45,7 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     // Update wait time logic
     waitTimeElement.textContent = `Wait time: ${currentWaitTime} minutes`;
-
     const interval = setInterval(() => {
       if (currentWaitTime === 30) {
         currentWaitTime = 25; // Change to 25 minutes
@@ -84,6 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
       waitTimeElement.textContent = `Wait time: ${currentWaitTime} minutes`;
 
     }, 300000);//waits for literally 5 minutes
+    console.log(interval)
 
     
   });

@@ -322,13 +322,13 @@ function updateCartDisplay2() {
         itemDiv.innerHTML = `
                 <td>${cartItem.name}</td>
                 <td>${cartItem.quantity}</td>
-                <td>$${(cartItem.price * cartItem.quantity).toFixed(2)}</td>
+                <td>${USDollar.format((cartItem.price * cartItem.quantity))}</td>
         `;
 
         cartContainer.appendChild(itemDiv); // Append each cart item to the container
     });
     let subtotalCon = document.getElementById('subtotal-price');
-    subtotalCon.innerHTML = `${USDollar.format(localStorage.getItem('subtotal'))}`
+    subtotalCon.innerHTML = `<h3>${USDollar.format(localStorage.getItem('subtotal'))}</h3>`
     let taxesCon = document.getElementById('taxes-price');
     taxesCon.innerHTML = `${USDollar.format(localStorage.getItem('taxes'))}`
     if (localStorage.getItem('tip') != null){
@@ -336,7 +336,7 @@ function updateCartDisplay2() {
         tipsCon.innerHTML = `${USDollar.format(localStorage.getItem('tip'))}`
     }
     let totalCon = document.getElementById('total-price');
-    totalCon.innerHTML = `${USDollar.format(localStorage.getItem('currentTotal'))}`
+    totalCon.innerHTML = `<h2>${USDollar.format(localStorage.getItem('currentTotal'))}</h2>`
     // Handle empty cart scenario
     if (Object.keys(cart).length === 0) {
         cartContainer.innerHTML += `<p>Your cart is empty.</p>`;
