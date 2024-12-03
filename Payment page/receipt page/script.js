@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const printReceiptBtn = document.getElementById("print-receipt-btn");
   const waitTimeElement = document.getElementById("wait-time");
 
-  let currentWaitTime = 25;
+  let currentWaitTime = 30;
 
   container.style.display = "block";
   const statuses = [
@@ -34,37 +34,58 @@ document.addEventListener("DOMContentLoaded", () => {
     { status: "Delivered", progress: 100 },
   ];
   let currentStatusIndex = 0;
-
+  let currentStatus = statuses[currentStatusIndex];
   const savedUsername = localStorage.getItem("loggedIn");
 
   userNameElement.textContent = savedUsername;
-
+  updated = false;
   refreshStatusBtn.addEventListener("click", () => {
-    waitTimeElement.textContent = `Wait time: ${currentWaitTime} minutes`;
-
-    const interval = setInterval(() => {
-      if (currentWaitTime === 25) {
-        currentWaitTime = 10;
-      } else if (currentWaitTime === 10) {
-        currentWaitTime = 0;
+      if (currentWaitTime === 0 && updated == true) {
+        return
       }
+    // Update wait time logic
+    waitTimeElement.textContent = `Wait time: ${currentWaitTime} minutes`;
+    const interval = setInterval(() => {
+      if (currentWaitTime === 30) {
+        currentWaitTime = 25; // Change to 25 minutes
+      }
+      else if (currentWaitTime === 25) {
+        currentWaitTime = 20; 
+        progressBar.style.width = '20%'
+      }
+      else if (currentWaitTime === 20) {
+        currentWaitTime = 15; 
+        progressBar.style.width = '40%'
+      }
+      else if (currentWaitTime === 15) {
+        currentWaitTime = 10; 
+        progressBar.style.width = '60%'
+        currentStatusIndex++
+      }
+      else if (currentWaitTime === 10) {
+        currentWaitTime = 5; 
+        progressBar.style.width = '80%'
+      }
+       else if (currentWaitTime === 5) {
+        currentWaitTime = 0; // Change to 0 minutes
+        progressBar.style.width = '100%'
+        currentStatusIndex++
+        updated = true;
+      }
+      // Update order status logic
+      if (currentStatusIndex < statuses.length) {
+        currentStatus = statuses[currentStatusIndex];
+        orderStatus.textContent = currentStatus.status;
+      }
+      
+      progressBar.style.backgroundColor = currentStatus.progress === 100 ? "#007bff" : "#28a745";
 
       waitTimeElement.textContent = `Wait time: ${currentWaitTime} minutes`;
 
-      if (currentWaitTime === 0) {
-        clearInterval(interval);
-      }
-    }, 1000);
+    }, 300000);//waits for literally 5 minutes
+    console.log(interval)
 
-    if (currentStatusIndex < statuses.length) {
-      const currentStatus = statuses[currentStatusIndex];
-      orderStatus.textContent = currentStatus.status;
-      progressBar.style.width = `${currentStatus.progress}%`;
-      progressBar.style.backgroundColor = currentStatus.progress === 100 ? "#007bff" : "#28a745";
-      currentStatusIndex++;
-    } else {
-      currentStatusIndex = 0;
-    }
+    
   });
   
   printReceiptBtn.addEventListener("click", () => {

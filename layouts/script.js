@@ -314,28 +314,37 @@ function updateCartDisplay1() {
         cartContainer.innerHTML += `<p>Your cart is empty.</p>`;
     }
 }
+
+var USDollar = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  });
 function updateCartDisplay2() { 
     const cart = JSON.parse(localStorage.getItem('cart')) || {}; // Load cart from local storage
-    let cartContainer = document.getElementById('items-list')
+    let cartContainer = document.getElementById('receipt-table')
     // Iterate through cart items and create elements
     Object.values(cart).forEach(cartItem => {
-        const itemDiv = document.createElement('div');
+        const itemDiv = document.createElement('tr');
         itemDiv.classList.add('cart-item'); // Add a styling class
 
         itemDiv.innerHTML = `
-            <div class="cart-item-image">
-                <img src="${cartItem.image}" alt="${cartItem.name}">
-            </div>
-            <div class="cart-item-info">
-                <h4>${cartItem.name}</h4>
-                <p>Price: $${(cartItem.price * cartItem.quantity).toFixed(2)}</p>
-                <p>Quantity: ${cartItem.quantity}</p>
-            </div>
+                <td>${cartItem.name}</td>
+                <td>${cartItem.quantity}</td>
+                <td>${USDollar.format((cartItem.price * cartItem.quantity))}</td>
         `;
 
         cartContainer.appendChild(itemDiv); // Append each cart item to the container
     });
-
+    let subtotalCon = document.getElementById('subtotal-price');
+    subtotalCon.innerHTML = `<h3>${USDollar.format(localStorage.getItem('subtotal'))}</h3>`
+    let taxesCon = document.getElementById('taxes-price');
+    taxesCon.innerHTML = `${USDollar.format(localStorage.getItem('taxes'))}`
+    if (localStorage.getItem('tip') != null){
+        let tipsCon = document.getElementById('tips-price');
+        tipsCon.innerHTML = `${USDollar.format(localStorage.getItem('tip'))}`
+    }
+    let totalCon = document.getElementById('total-price');
+    totalCon.innerHTML = `<h2>${USDollar.format(localStorage.getItem('currentTotal'))}</h2>`
     // Handle empty cart scenario
     if (Object.keys(cart).length === 0) {
         cartContainer.innerHTML += `<p>Your cart is empty.</p>`;
