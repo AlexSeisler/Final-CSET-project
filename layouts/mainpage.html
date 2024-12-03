@@ -59,8 +59,9 @@
             </div>
             <div class="survey">
                 <div class="formbox">
+                    <img src="../assets/building/outside.jpg" alt="">
                     <div class="container">
-                        <h1>Code Cravings Review</h1>
+                        <h1 id="survey-header">Code Cravings Review</h1>
                         <div class="rates">
                             <div class="setter">
                                 <div class="rating">
@@ -74,10 +75,10 @@
                                         <span class="star" data-value="5" onclick="handleStarClick(5)">★</span>
                                     </div>
                                 </div>
-                            <div>
+                            <div class="form-inputs">
 
                                 <textarea id="review" placeholder="Write your review here..."></textarea>
-                                <button id="submit" onclick="handleSubmit()">Submit Review</button>
+                                <button id="submit" onclick="handleSubmit()" class="order-button">Submit Review</button>
                             </div>
                             <div id="reviews"></div>
                         </div>
