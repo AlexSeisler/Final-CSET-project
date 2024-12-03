@@ -3,78 +3,428 @@ localStorage.setItem('loggedIn', false)
   }
 // Default menu items
 var defaultItems = [
-    {
-        name: "Grilled Chicken",
-        categories: ["Entree", "Appetizer", "Vegan"],
-        description: "Juicy grilled chicken served with vegetables.",
-        price: "12.99",
-        image: "https://www.simplyrecipes.com/thmb/mZq-tAKO98F0KUZOsohbXlo37s8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Grilled-Chicken-LEAD-SEO-Vertical-3c66b6ae87184189920ad84f3f1db6bb.jpg"
-    },
-    {
-        name: "Spaghetti Bolognese",
-        categories: ["Entree", "Vegan"],
-        description: "Classic spaghetti with a rich meat sauce.",
-        price: "10.99",
-        image: "https://plantnspice.com/wp-content/uploads/2023/05/vegan-bolognese-featured.jpg"
-    },
-    {
-        name: "Caesar Salad",
-        categories: ["Appetizer", "Entree", "Vegan"],
-        description: "Crispy romaine lettuce with Caesar dressing.",
-        price: "6.99",
-        image: "https://media.istockphoto.com/id/534139231/photo/healthy-grilled-chicken-caesar-salad.jpg?s=612x612&w=0&k=20&c=TR_sE5S5ChmjFywg3dh_J5V_ha-BcwgTU26BvsgbsjY="
-    },
-    {
-        name: "Mozzarella Sticks",
-        categories: ["Appetizer"],
-        description: "Golden-fried mozzarella sticks with marinara sauce.",
-        price: "7.99",
-        image: "https://glutenfreebaking.com/wp-content/uploads/2024/01/Gluten-Free-Mozzarella-Sticks-on-a-Plate-with-a-bowl-of-sauce-500x500.jpg"
-    },
-    {
-        name: "Cheesecake",
-        categories: ["Dessert"],
-        description: "Creamy cheesecake with a graham cracker crust.",
-        price: "5.99",
-        image: "https://sugarspunrun.com/wp-content/uploads/2019/01/Best-Cheesecake-Recipe-2-1-of-1-4.jpg"
-    },
-    {
-        name: "Chocolate Lava Cake",
-        categories: ["Dessert", "Vegan"],
-        description: "Warm chocolate cake with a gooey center.",
-        price: "6.99",
-        image: "https://www.foodandwine.com/thmb/XdFd-DvTtouryLCjeCqwhfmmK-A=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/molten-chocolate-cake-FT-RECIPE0220-0a33d7d0ab0c45588f7bfe742d33a9bc.jpg"
-    },
-    {
-        name: "Coffee",
-        categories: ["Drinks", "Dessert"],
-        description: "Freshly brewed coffee.",
-        price: "2.99",
-        image: "https://www.oregondairy.com/wp-content/uploads/2016/05/coffee-1.jpg"
-    },
-    {
-        name: "Iced Tea",
-        categories: ["Drinks"],
-        description: "Refreshing iced tea with lemon.",
-        price: "2.49",
+ // WOOD FIRED PIZZAS
+ {
+    name: "#1 Pizza - Plain Cheese",
+    categories: ["Wood Fired Pizzas"],
+    description: "Red sauce, mozzarella.",
+    price: "15.00",
+    image: "https://example.com/pizza-plain-cheese.jpg"
+},
+{
+    name: "#2 Pizza",
+    categories: ["Wood Fired Pizzas"],
+    description: "Red sauce, fresh mozzarella, sliced tomato, balsamic, basil.",
+    price: "16.00",
+    image: "https://example.com/pizza-2.jpg"
+},
+{
+    name: "#3 Pizza",
+    categories: ["Wood Fired Pizzas"],
+    description: "Red sauce, mozzarella, bacon, pepperoni, hot honey drizzle, grated parmesan.",
+    price: "17.00",
+    image: "https://example.com/pizza-3.jpg"
+},
+{
+    name: "#4 Pizza",
+    categories: ["Wood Fired Pizzas", "Vegetarian"],
+    description: "Ricotta, mozzarella, mushroom, spinach, fire-roasted tomatoes, grated parmesan, pesto drizzle.",
+    price: "17.00",
+    image: "https://example.com/pizza-4.jpg"
+},
+{
+    name: "#5 Pizza",
+    categories: ["Wood Fired Pizzas"],
+    description: "Garlic oil, fresh mozzarella, prosciutto, caramelized onion, arugula, balsamic drizzle, grated parmesan.",
+    price: "18.00",
+    image: "https://example.com/pizza-5.jpg"
+},
+{
+    name: "#6 Pizza",
+    categories: ["Wood Fired Pizzas"],
+    description: "Red sauce, mozzarella, sausage, green pepper, red onion.",
+    price: "17.00",
+    image: "https://example.com/pizza-6.jpg"
+},
+{
+    name: "#7 Pizza",
+    categories: ["Wood Fired Pizzas"],
+    description: "Dill ranch, mozzarella, dill pickle, bacon.",
+    price: "16.00",
+    image: "https://example.com/pizza-7.jpg"
+},
+{
+    name: "Calzone",
+    categories: ["Wood Fired Pizzas"],
+    description: "Ricotta, mozzarella, ham, garlic butter crust, side red sauce.",
+    price: "18.00",
+    image: "https://example.com/calzone.jpg"
+},
+// FOR THE TABLE
+{
+    name: "Bavarian Pretzel",
+    categories: ["Appetizer", "For the Table"],
+    description: "White cheddar sauce, grain mustard, honey mustard.",
+    price: "11.00",
+    image: "https://example.com/bavarian-pretzel.jpg"
+},
+{
+    name: "Loaded Fries",
+    categories: ["Appetizer", "For the Table"],
+    description: "French fries, brisket, colby jack, white cheddar cheese sauce, traditional BBQ, scallions.",
+    price: "17.00",
+    image: "https://example.com/loaded-fries.jpg"
+},
+{
+    name: "Crispy Pork Belly",
+    categories: ["Appetizer", "For the Table"],
+    description: "Teriyaki glaze, fresh jalapeño, pineapple, pickled red onion, sesame seed, cilantro.",
+    price: "17.00",
+    image: "https://example.com/crispy-pork-belly.jpg"
+},
+{
+    name: "Sprouts",
+    categories: ["Appetizer", "For the Table"],
+    description: "Crispy fried brussels sprouts, Thai chili sauce, bacon, onion frizzles.",
+    price: "17.00",
+    image: "https://example.com/brussels-sprouts.jpg"
+},
+{
+    name: "Fried Bao Buns",
+    categories: ["Appetizer", "For the Table"],
+    description: "Crispy fried bao buns with unique fillings.",
+    price: "15.00",
+    image: "https://example.com/bao-buns.jpg"
+},
+{
+    name: "Pickle Cheese Curds",
+    categories: ["Appetizer", "For the Table"],
+    description: "Fried pickle cheddar cheese curds, dill ranch.",
+    price: "13.00",
+    image: "https://example.com/pickle-cheese-curds.jpg"
+},
+{
+    name: "Nachos",
+    categories: ["Appetizer", "For the Table"],
+    description: "Tri-color tortilla chips, colby jack, white cheddar sauce, jalapeno, pico, sour cream, scallions.",
+    price: "14.00",
+    image: "https://example.com/nachos.jpg"
+},
+{
+    name: "Sweet Potato Fries",
+    categories: ["Appetizer", "Dessert", "For the Table"],
+    description: "Cinnamon sugar coated, served with maple bacon aioli.",
+    price: "9.00",
+    image: "https://example.com/sweet-potato-fries.jpg"
+},
 
-        image: "https://bakingmehungry.com/wp-content/uploads/2024/05/lipton-iced-tea-recipe-8.jpg"
-        
-    },
-    {
-        name: "Steak Dinner",
-        categories: ["Entree"],
-        description: "Tender steak with mashed potatoes and gravy.",
-        price: "15.99",
-        image: "https://thebigmansworld.com/wp-content/uploads/2023/07/sirloin-steak-recipe.jpg"
-    },
-    {
-        name: "Fruit Tart",
-        categories: ["Dessert", "Appetizer"],
-        description: "Sweet tart topped with fresh fruits.",
-        price: "4.99",
-        image: "https://hips.hearstapps.com/hmg-prod/images/fruit-tart-index-65ef54d972bb1.jpg?crop=0.502xw:1.00xh;0.463xw,0&resize=1200:*"
-    }
+// SALADS
+{
+    name: "House Salad",
+    categories: ["Salad", "Entree", "Vegetarian"],
+    description: "Mixed greens, cherry tomatoes, cucumber, onion, mozzarella, crouton.",
+    price: "13.00",
+    image: "https://example.com/house-salad.jpg"
+},
+{
+    name: "Caesar Salad",
+    categories: ["Salad", "Entree", "Vegetarian"],
+    description: "Romaine, parmesan, crouton, Caesar dressing.",
+    price: "14.00",
+    image: "https://example.com/caesar-salad.jpg"
+},
+{
+    name: "Winter Salad",
+    categories: ["Salad", "Entree", "Vegetarian"],
+    description: "Mixed greens, granny smith apples, candied pecans, bleu cheese, dried cranberries.",
+    price: "15.00",
+    image: "https://example.com/winter-salad.jpg"
+},
+
+// SOUP
+{
+    name: "Soup of the Day",
+    categories: ["Soup", "Appetizer"],
+    description: "Chef's choice daily soup selection.",
+    price: "Market Price",
+    image: "https://example.com/soup-of-the-day.jpg"
+},
+{
+    name: "Tomato Bisque",
+    categories: ["Soup", "Appetizer", "Vegetarian"],
+    description: "Herbed tomato cream, parmesan crisp, basil.",
+    price: "6.00 (cup) / 11.00 (bowl)",
+    image: "https://example.com/tomato-bisque.jpg"
+},
+// MAINS
+{
+    name: "Tortellini",
+    categories: ["Entree", "Mains", "Vegetarian"],
+    description: "Three-cheese tortellini, asiago sage cream sauce, crispy kale.",
+    price: "21.00",
+    image: "https://example.com/tortellini.jpg"
+},
+{
+    name: "Fish & Chips",
+    categories: ["Entree", "Mains"],
+    description: "Beer-battered haddock, fries, slaw, tartar, lemon wheels.",
+    price: "23.00",
+    image: "https://example.com/fish-and-chips.jpg"
+},
+{
+    name: "Steak Frites",
+    categories: ["Entree", "Mains"],
+    description: "10oz stockyard sirloin, compound butter, demi-glace, garlic parmesan fries.",
+    price: "25.00",
+    image: "https://example.com/steak-frites.jpg"
+},
+{
+    name: "Butchery Platter",
+    categories: ["Entree", "Mains"],
+    description: "Beer-braised pulled pork, smoked brisket, mac & cheese, southern green beans, chow chow, slider rolls, choice of BBQ sauce: traditional, Korean, or blackberry stout.",
+    price: "24.00",
+    image: "https://example.com/butchery-platter.jpg"
+},
+
+// HANDHELDS
+{
+    name: "Smashburger",
+    categories: ["Handhelds", "Entree"],
+    description: "Blend of ribeye, chuck & brisket 4oz smashed patty, American cheese, butter lettuce, tomato, onion, smash sauce, brioche bun. Add-ons: extra patty +4, fried egg +2, bacon +2, jalapeño +1, pickle +1, onion frizzles +2, veg patty +3.",
+    price: "13.00",
+    image: "https://example.com/smashburger.jpg"
+},
+{
+    name: "Cheesesteak",
+    categories: ["Handhelds", "Entree"],
+    description: "Shaved ribeye, caramelized onion, hoagie roll, choice of cheese: cheese sauce, American, cheddar, Swiss, provolone, pepperjack.",
+    price: "17.00",
+    image: "https://example.com/cheesesteak.jpg"
+},
+{
+    name: "Monte Cristo",
+    categories: ["Handhelds", "Entree"],
+    description: "Ham, turkey, Swiss, blackberry dijon, maple bacon aioli, brioche French toast, powdered sugar dust, maple syrup.",
+    price: "18.00",
+    image: "https://example.com/monte-cristo.jpg"
+},
+{
+    name: "Jerk Chicken Sandwich",
+    categories: ["Handhelds", "Entree"],
+    description: "Hand-breaded fried chicken breast, Jamaican jerk sauce, fried plantain, scallions.",
+    price: "18.00",
+    image: "https://example.com/jerk-chicken-sandwich.jpg"
+},
+{
+    name: "Pulled Pork Sandwich",
+    categories: ["Handhelds", "Entree"],
+    description: "BBQ-tossed beer-braised pork, pickles, onion frizzles, brioche bun.",
+    price: "17.00",
+    image: "https://example.com/pulled-pork.jpg"
+},
+{
+    name: "French Dip",
+    categories: ["Handhelds", "Entree"],
+    description: "Smoked brisket, provolone, caramelized onion, horseradish aioli, pressed roll, stout au jus.",
+    price: "18.00",
+    image: "https://example.com/french-dip.jpg"
+},
+{
+    name: "Fig & Brie Sandwich",
+    categories: ["Handhelds", "Entree", "Vegetarian"],
+    description: "Fig jam, creamy brie cheese, sliced granny smith apples, caramelized red onions, arugula, rustic sourdough.",
+    price: "16.00",
+    image: "https://example.com/fig-and-brie.jpg"
+},
+
+// WINGS
+{
+    name: "6 Bone-In Wings",
+    categories: ["Appetizer", "Wings"],
+    description: "Choice of sauce: Old Bay Dry Rub, Garlic Parmesan, BBQ, Blackberry Stout BBQ, Korean BBQ, Mild, Hot, Thai Chili, Spicy Garlic Parmesan, Hot Honey, Jamaican Jerk, Mango Habanero, Five Finger Death.",
+    price: "10.00",
+    image: "https://example.com/6-bone-in-wings.jpg"
+},
+{
+    name: "12 Bone-In Wings",
+    categories: ["Appetizer", "Wings"],
+    description: "Choice of sauce: Old Bay Dry Rub, Garlic Parmesan, BBQ, Blackberry Stout BBQ, Korean BBQ, Mild, Hot, Thai Chili, Spicy Garlic Parmesan, Hot Honey, Jamaican Jerk, Mango Habanero, Five Finger Death.",
+    price: "18.00",
+    image: "https://example.com/12-bone-in-wings.jpg"
+},
+{
+    name: "Boneless Wings",
+    categories: ["Appetizer", "Wings"],
+    description: "Choice of sauce: Old Bay Dry Rub, Garlic Parmesan, BBQ, Blackberry Stout BBQ, Korean BBQ, Mild, Hot, Thai Chili, Spicy Garlic Parmesan, Hot Honey, Jamaican Jerk, Mango Habanero, Five Finger Death.",
+    price: "10.00",
+    image: "https://example.com/boneless-wings.jpg"
+},
+{
+    name: "Veggie Wings",
+    categories: ["Appetizer", "Wings", "Vegetarian"],
+    description: "Cauliflower bites tossed in your choice of sauce.",
+    price: "9.00",
+    image: "https://example.com/veggie-wings.jpg"
+},
+// FRESH SHUCKED OYSTERS
+{
+    name: "Fresh Shucked Oyster (1 Piece)",
+    categories: ["Oysters", "Appetizer", "Seafood"],
+    description: "Freshly shucked oyster served with your choice of condiments.",
+    price: "3.00",
+    image: "https://example.com/fresh-oysters.jpg"
+},
+{
+    name: "Half Dozen Fresh Shucked Oysters",
+    categories: ["Oysters", "Appetizer", "Seafood"],
+    description: "Half a dozen freshly shucked oysters served with your choice of condiments.",
+    price: "16.00",
+    image: "https://example.com/half-dozen-oysters.jpg"
+},
+{
+    name: "Dozen Fresh Shucked Oysters",
+    categories: ["Oysters", "Appetizer", "Seafood"],
+    description: "A dozen freshly shucked oysters served with your choice of condiments.",
+    price: "32.00",
+    image: "https://example.com/dozen-oysters.jpg"
+},
+
+// KIDS
+{
+    name: "Kids' Burger",
+    categories: ["Kids", "Entree"],
+    description: "Simple burger served with applesauce. Substitute fries for +2.",
+    price: "9.00",
+    image: "https://example.com/kids-burger.jpg"
+},
+{
+    name: "Chicken Nuggets",
+    categories: ["Kids", "Entree"],
+    description: "Crispy chicken nuggets served with applesauce. Substitute fries for +2.",
+    price: "9.00",
+    image: "https://example.com/chicken-nuggets.jpg"
+},
+{
+    name: "Mac & Cheese",
+    categories: ["Kids", "Entree", "Vegetarian"],
+    description: "Classic creamy mac and cheese served with applesauce. Substitute fries for +2.",
+    price: "7.00",
+    image: "https://example.com/mac-and-cheese.jpg"
+},
+
+// DESSERT
+{
+    name: "Rotating Dessert Selection",
+    categories: ["Dessert"],
+    description: "Chef's choice rotating dessert selection. Ask your server for today's special.",
+    price: "Market Price",
+    image: "https://example.com/rotating-dessert.jpg"
+},
+{
+    name: "Adult Slushie",
+    categories: ["Drinks"],
+    description: "Rotating flavor slushie for adults.",
+    price: "11.00",
+    image: "https://example.com/adult-slushie.jpg"
+},
+{
+    name: "Citywide",
+    categories: ["Drinks"],
+    description: "Sprenger’s famous Red Rose Ale with a shot of Burley Bourbon.",
+    price: "7.00",
+    image: "https://example.com/citywide.jpg"
+},
+{
+    name: "Crush - Orange",
+    categories: ["Drinks"],
+    description: "Orange vodka, triple sec, fresh orange juice, simple syrup, lemon-lime soda, club soda.",
+    price: "12.00",
+    image: "https://example.com/orange-crush.jpg"
+},
+{
+    name: "Crush - Blood Orange",
+    categories: ["Drinks"],
+    description: "Orange vodka, triple sec, blood orange juice, simple syrup, lemon-lime soda, club soda.",
+    price: "13.00",
+    image: "https://example.com/blood-orange-crush.jpg"
+},
+{
+    name: "Crush - Grapefruit",
+    categories: ["Drinks"],
+    description: "Grapefruit vodka, triple sec, grapefruit juice, simple syrup, lemon-lime soda, club soda.",
+    price: "12.00",
+    image: "https://example.com/grapefruit-crush.jpg"
+},
+{
+    name: "Crush - Creamsicle",
+    categories: ["Drinks"],
+    description: "Orange vodka, vanilla vodka, cream, fresh orange juice, simple syrup, lemon-lime soda, club soda.",
+    price: "13.00",
+    image: "https://example.com/creamsicle-crush.jpg"
+},
+{
+    name: "Joel's Mule",
+    categories: ["Drinks"],
+    description: "Barrel-aged Bluecoat gin, lime, ginger beer, Peychaud’s bitters.",
+    price: "14.00",
+    image: "https://example.com/joels-mule.jpg"
+},
+{
+    name: "Captain Prick",
+    categories: ["Drinks"],
+    description: "Jalapeno-infused tequila, triple sec, prickly pear, lime, lemon, chili threads.",
+    price: "13.00",
+    image: "https://example.com/captain-prick.jpg"
+},
+{
+    name: "Churnt",
+    categories: ["Drinks"],
+    description: "Hidden Still bourbon, apple brandy, apple butter, demerara syrup, apple cider, orange bitters, smoked rosemary.",
+    price: "13.00",
+    image: "https://example.com/churnt.jpg"
+},
+{
+    name: "Punkin",
+    categories: ["Drinks"],
+    description: "Maggie’s Farm pumpkin spice coffee liqueur, Holla vanilla vodka, cream, pumpkin syrup, pumpkin spice vodka boba.",
+    price: "14.00",
+    image: "https://example.com/punkin.jpg"
+},
+{
+    name: "Smashberry",
+    categories: ["Drinks"],
+    description: "Stoll & Wolfe blended whiskey, blackberry, honey, lemon, muddled mint, club soda.",
+    price: "14.00",
+    image: "https://example.com/smashberry.jpg"
+},
+{
+    name: "Bluetini",
+    categories: ["Drinks"],
+    description: "Blueberry vodka, triple sec, blueberry syrup, yuzu.",
+    price: "14.00",
+    image: "https://example.com/bluetini.jpg"
+},
+{
+    name: "Espresso Martini",
+    categories: ["Drinks"],
+    description: "A rich and indulgent espresso martini.",
+    price: "14.00",
+    image: "https://example.com/espresso-martini.jpg"
+},
+{
+    name: "Spiced Rum Hot Apple Cider",
+    categories: ["Drinks"],
+    description: "Warm spiced rum with hot apple cider.",
+    price: "11.00",
+    image: "https://example.com/spiced-rum-cider.jpg"
+},
+{
+    name: "Bourbon Irish Cream Hot Cocoa",
+    categories: ["Drinks"],
+    description: "Rich bourbon and Irish cream blended with hot cocoa.",
+    price: "12.00",
+    image: "https://example.com/bourbon-irish-cocoa.jpg"
+}
 ];
 
 // Initialize default menu items in localStorage if not already set
@@ -214,11 +564,13 @@ function updateCartQuantity(itemId, newQuantity) {
 
 // Function to filter menu items by category
 function filterItemsByCategory(category) {
-    const allItems = localStorage.getItem('menuItems') || [];
+    const allItemsString = localStorage.getItem('menuItems'); // Get the items as a string
+    const allItems = allItemsString ? JSON.parse(allItemsString) : []; // Parse or initialize an empty array
+
     const filteredItems = allItems.filter(item => item.categories.includes(category));
 
     const menuItemsContainer = document.getElementById('menu-items');
-    menuItemsContainer.innerHTML = '';
+    menuItemsContainer.innerHTML = ''; // Clear the container
 
     if (filteredItems.length > 0) {
         filteredItems.forEach(item => {
@@ -243,6 +595,7 @@ function filterItemsByCategory(category) {
         menuItemsContainer.innerHTML = `<p>No items found for the category "${category}".</p>`;
     }
 }
+
 
 
 function addToCart(itemName) {
