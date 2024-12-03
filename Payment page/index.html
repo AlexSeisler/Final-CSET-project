@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-75">
         <div class="container">
-            <form action="../receipt page/index.html" onsubmit="return validateForm()">
+            <form action="/action_page.php">
                 <link rel="stylesheet" href="style.css">
                 <script src="../layouts/script.js"></script>
                 <script src="script.js"></script>
@@ -85,7 +85,14 @@
                     </div>
                 </div>
 
-                <input type="submit" value="Continue to checkout" class="btn">
+                <button type="button" onclick="goToReceipt()" class="btn">Continue to Checkout</button>
+
+<script>
+  function goToReceipt() {
+    window.location.href = './receipt page/receipt.html';
+  }
+</script>
+
             </form>
         </div>
     </div>
@@ -95,6 +102,4 @@
     </div>
 </div>
 
-<script>
-    updateCartDisplay1();
-</script>
+<script src="script.js"></script>
