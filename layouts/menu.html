@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width initial-scale=1.0">
     <title>Menu</title>
     <link rel="stylesheet" href="./menu.css">
+    <link rel="stylesheet" href="../font.css">
     <script src="script.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,13 +54,13 @@
         <div class="main">
             <div class="cart">
                 <div class="top">
-                    Your Cart
+                    <h1>your cart</h1>
                     <div class="mm-exit"><a href="mainpage.html"><ion-icon name="close-outline" id="exit"></ion-icon></a>
                     </div>
             </div>
                 
                 <div class="items">
-                    
+                    your cart is empty
                 </div>
             </div>
             <div class="menu">
@@ -90,19 +91,8 @@
     </div>
     <script>
         // Display the menu items when the page loads
+        localStorage.setItem('tempCart', false);
         displayMenuItems();
-        function setCart(){
-            if(!localStorage.getItem('loggedIn')){
-                localStorage.setItem('loggedin', false)
-                return
-            }
-            loggedIn = localStorage.getItem('loggedIn');
-            users = JSON.parse(localStorage.getItem('users'));
-            console.log(users[loggedIn])
-            if(users[loggedIn].cart != undefined){
-                localStorage.setItem('cart', users[loggedIn].cart);
-            }
-        }
         setCart();
         updateCartDisplay();
     </script>

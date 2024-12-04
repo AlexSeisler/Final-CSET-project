@@ -1,3 +1,4 @@
+
 if (!localStorage.getItem('loggedIn')){
 localStorage.setItem('loggedIn', false)
   }
@@ -618,13 +619,13 @@ function updateCartDisplay() {
     const cart = JSON.parse(localStorage.getItem('cart')) || {}; // Load cart from local storage
     const cartContainer = document.querySelector('.items');
     cartContainer.innerHTML = '';
-
+    
     Object.values(cart).forEach(cartItem => {
         const itemDiv = document.createElement('div');
         itemDiv.classList.add('cart-item');
         itemDiv.innerHTML = `
             <img src="${cartItem.image}" alt="${cartItem.name}">
-            <h4>${cartItem.name}</h4>
+            <h2 class="cart-item-title">${cartItem.name}</h2>
             <p>Price: $<span>${(cartItem.price * cartItem.quantity).toFixed(2)}</span></p>
             <label>
                 Quantity:
@@ -634,7 +635,6 @@ function updateCartDisplay() {
         `;
         cartContainer.appendChild(itemDiv);
     });
-
     // Optionally handle empty cart message
     if (Object.keys(cart).length === 0) {
         cartContainer.innerHTML = `<p>Your cart is empty.</p>`;
@@ -653,7 +653,7 @@ function updateCartDisplay1() {
                 <img src="${cartItem.image}" alt="${cartItem.name}">
             </div>
             <div class="cart-item-info">
-                <h4>${cartItem.name}</h4>
+                <h4 >${cartItem.name}</h4>
                 <p>Price: $${(cartItem.price * cartItem.quantity).toFixed(2)}</p>
                 <p>Quantity: ${cartItem.quantity}</p>
             </div>
@@ -920,3 +920,20 @@ function tipPopup() {
     alert(`Thank you! Your new total with tip included is $${newTotal.toFixed(2)}`);
 }
 
+
+function setCart(){
+    if(!localStorage.getItem('loggedIn')){
+        localStorage.setItem('loggedin', false)
+        return
+    }
+    let loggedIn = localStorage.getItem('loggedIn');
+    let users = JSON.parse(localStorage.getItem('users'));
+    console.log(users[loggedIn])
+    if(users[loggedIn].cart != undefined){
+        localStorage.setItem('cart', users[loggedIn].cart);
+    }
+    if (localStorage.getItem('tempCart') != null){
+        let tempCart = localStorage.getItem('tempCart');
+        localStorage.setItem('cart', tempCart);
+    }
+}
