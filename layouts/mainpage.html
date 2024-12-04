@@ -110,6 +110,7 @@
                 localStorage.setItem('loggedIn', false)
                 //clear order items
                 localStorage.setItem('cart', JSON.stringify({}))
+                localStorage.setItem('loginSend', false);
             }
             function displayFeaturedItemInContainer(itemConID, item){
                 container = document.getElementById(itemConID);

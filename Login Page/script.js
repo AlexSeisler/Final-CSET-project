@@ -84,6 +84,7 @@ function validateFormLog() {
     alert('Login successful! Welcome, ' + username + '!');
     if (localStorage.getItem('loginSend') != null){
       if (localStorage.getItem('loginSend') == 'payment'){
+        localStorage.setItem('loginSend', false);
         window.location.assign('../layouts/payment.html');
         return;
       }
