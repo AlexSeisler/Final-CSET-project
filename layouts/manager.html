@@ -36,10 +36,39 @@
         <div class="order-control">
             <div class="left">
                 <div class="order-title">ORDERS</div>
-                <a href="./manager-order.html"  class="order-button">TO ORDER MANAGEMENT</a>
-                <a href="./manager-order.html"  class="order-button">EDIT ORDERS</a>
+                <div  id="reviews-button">Reivews</div>
             </div>
             <div class="order-list right"></div>
         </div>
+    <script>
+        function reviewInit(){
+            
+        printReviewButton = document.getElementById('reviews-button');
+        printReviewButton.addEventListener("click", () => {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            const reviews = JSON.parse(localStorage.getItem('reviews'));
+            stringOfItems ='';
+            i = 1;
+            reviews.forEach( item =>{
+
+            stringOfItems += `\n      -  ${i++}.  -\n      Account Name: ${item.name}\n      Rating: ${item.rating}\n      Message: ${item.message}`;
+            
+            });
+            const receiptContent = `
+            Review Data
+            ___________
+
+            ${stringOfItems}
+            
+            `;
+
+            doc.text(receiptContent, 10, 10);
+
+            doc.save('receipt.pdf');
+        });
+        }
+        reviewInit();
+    </script>
     </body>
 </html>
