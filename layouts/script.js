@@ -146,8 +146,8 @@ var defaultItems = [
 {
     name: "Soup of the Day",
     categories: ["Soup", "Appetizer"],
-    description: "Chef's choice daily soup selection.",
-    price: "Market Price",
+    description: "Chef's choice daily soup selection. *<em>Estimated Price Shown</em>",
+    price: "10.00",
     image: "https://example.com/soup-of-the-day.jpg"
 },
 {
@@ -317,8 +317,8 @@ var defaultItems = [
 {
     name: "Rotating Dessert Selection",
     categories: ["Dessert"],
-    description: "Chef's choice rotating dessert selection. Ask your server for today's special.",
-    price: "Market Price",
+    description: "Chef's choice rotating dessert selection. Ask your server for today's special. *<em>Estimated Price Shown</em>",
+    price: "15.00",
     image: "https://example.com/rotating-dessert.jpg"
 },
 {
