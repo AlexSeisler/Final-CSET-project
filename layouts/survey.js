@@ -21,24 +21,41 @@ function handleStarClick(value) {
 }
 
 function handleSubmit() {
+    if (!localStorage.getItem('reviews')){
+        let reviews = []
+        localStorage.setItem('reviews', JSON.stringify(reviews));
+    }
     const reviewText = document.getElementById("review");
     const rating = document.getElementById("rating");
     const reviewsContainer = document.getElementById("reviews");
 
     const review = reviewText.value;
     const userRating = parseInt(rating.innerText);
+    loggedIn = localStorage.getItem('loggedIn');
 
     if (!userRating || !review) {
+        if(loggedIn == null || loggedIn == false){
+            alert('Please log in before writing a review.')
+            return
+        }
         alert("Please select a rating and provide a review before submitting.");
         return;
     }
 
     if (userRating > 0) {
-        const reviewElement = document.createElement("div");
-        reviewElement.classList.add("review");
-        reviewElement.innerHTML = `<p><strong>Rating: ${userRating}/5</strong></p><p>${review}</p>`;
-        reviewsContainer.appendChild(reviewElement);
-
+        if(loggedIn == null || loggedIn == false){
+            alert('Please log in before writing a review.')
+            return
+        }
+        let reviews = JSON.parse(localStorage.getItem('reviews'));
+        let review = {
+            name : loggedIn,
+            rating : rating,
+            message : reviewText
+        }
+        reviews.push(review);
+        localStorage.setItem('reviews', JSON.stringify(reviews));
+        alert(reviews)
         // Reset styles after submitting
         reviewText.value = "";
         rating.innerText = "0";
