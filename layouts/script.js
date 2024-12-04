@@ -674,6 +674,7 @@ var USDollar = new Intl.NumberFormat('en-US', {
   });
 function updateCartDisplay2() { 
     const cart = JSON.parse(localStorage.getItem('cart')) || {}; // Load cart from local storage
+    alert(localStorage.getItem('tempCart'))
     let cartContainer = document.getElementById('receipt-table')
     // Iterate through cart items and create elements
     Object.values(cart).forEach(cartItem => {
@@ -932,8 +933,13 @@ function setCart(){
     if(users[loggedIn].cart != undefined){
         localStorage.setItem('cart', users[loggedIn].cart);
     }
-    if (localStorage.getItem('tempCart') != null){
-        let tempCart = localStorage.getItem('tempCart');
-        localStorage.setItem('cart', tempCart);
+    if (localStorage.getItem('tempCart')!= null){
+        tempCart = localStorage.getItem('tempCart')
+        if (tempCart == 'false'){
+            return
+        }
+        else{
+            localStorage.setItem('cart', tempCart);
+        }
     }
 }

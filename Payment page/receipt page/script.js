@@ -135,6 +135,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   backToMain.addEventListener("click", () => {
-    window.location.href = "../layouts/mainpage.html";
+    window.location.assign('../../layouts/mainpage.html')
   });
 });
