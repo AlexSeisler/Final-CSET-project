@@ -100,13 +100,11 @@
             users = JSON.parse(localStorage.getItem('users'));
             console.log(users[loggedIn])
             if(users[loggedIn].cart != undefined){
-                alert('we have a cart : ' + users[loggedIn].cart)
                 localStorage.setItem('cart', users[loggedIn].cart);
             }
         }
         setCart();
         updateCartDisplay();
-        alert(localStorage.getItem('loggedIn'));
     </script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
