@@ -174,12 +174,12 @@ header{
     }
     .con .header h1{
         text-transform: lowercase;
-        font-size: 2em;
+        font-size: 5vw;
         font-weight: 200;
     }
     .con .description{
         width: 60%;
-        font-size: 1em;
+        font-size: 2vw;
     }
     .img{
         width: 50%;
