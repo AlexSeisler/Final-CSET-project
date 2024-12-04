@@ -128,3 +128,12 @@ function clearData() {
       localStorage.setItem('users', JSON.stringify(manager));
     }
 }
+
+
+function showForgotPasswordModal() {
+  document.getElementById('forgotPasswordModal').style.display = 'block';
+}
+
+function closeForgotPasswordModal() {
+  document.getElementById('forgotPasswordModal').style.display = 'none';
+}
