@@ -75,15 +75,19 @@ function validateFormLog() {
   console.log(users[username])
   // Check if the password matches
   if (users[username].password === password) {
-    alert(username)
     localStorage.setItem('loggedIn', username)
-    alert(localStorage.getItem('loggedIn'));
     if ( users[username].password == users['manager'].password && username == 'manager'){
       alert('Welcome Manager!')
       window.location.assign('../layouts/manager.html');
       return
     }
     alert('Login successful! Welcome, ' + username + '!');
+    if (localStorage.getItem('loginSend') != null){
+      if (localStorage.getItem('loginSend') == 'payment'){
+        window.location.assign('../layouts/payment.html');
+        return;
+      }
+    }
     window.location.assign( '../layouts/mainpage.html' )
     // Redirect or perform other actions here
   } else {
