@@ -10,7 +10,7 @@ var defaultItems = [
     categories: ["Wood Fired Pizzas"],
     description: "Red sauce, mozzarella.",
     price: "15.00",
-    image: "https://example.com/pizza-plain-cheese.jpg"
+    image: "https://kitchenatics.com/wp-content/uploads/2020/09/Cheese-pizza-1-500x375.jpg"
 },
 {
     name: "#2 Pizza",
