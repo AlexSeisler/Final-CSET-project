@@ -126,7 +126,7 @@ header{
         margin: 20px 0;
         color: aliceblue;
         text-align: center;
-        font-size: 3em;
+        font-size: 1.1em;
         font-family: 'Langdon';
         text-transform: uppercase;
         color: white;
@@ -174,12 +174,12 @@ header{
     }
     .con .header h1{
         text-transform: lowercase;
-        font-size: 900%;
+        font-size: 2em;
         font-weight: 200;
     }
     .con .description{
         width: 60%;
-        font-size: 4em;
+        font-size: 1em;
     }
     .img{
         width: 50%;
@@ -238,7 +238,7 @@ Css for survey
 }
 .rating {
     display:flex;
-    font-size: 100px;
+    font-size: 50px;
 }
 
 .stars {
@@ -270,14 +270,13 @@ textarea {
     justify-content: center;
     align-items: center;
     flex-direction:column;
-    width: 100%;
+    width: 70%;
+    height: 70%;
 }
 .setter{
     display:flex;
     justify-content: center;
     align-items: center;
-    gap:10px;
-    width: 100%;
 }
 #submit-rating{
     background-color: #007BFF;
@@ -306,12 +305,6 @@ textarea {
 
 .review p {
     margin: 0;
-}
-.rates{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap:40px;
 }
 
 .form-inputs{

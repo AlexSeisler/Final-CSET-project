@@ -673,8 +673,7 @@ var USDollar = new Intl.NumberFormat('en-US', {
     currency: 'USD',
   });
 function updateCartDisplay2() { 
-    const cart = JSON.parse(localStorage.getItem('cart')) || {}; // Load cart from local storage
-    alert(localStorage.getItem('tempCart'))
+    const cart = JSON.parse(localStorage.getItem('cart')) || {}; // Load cart from local storages
     let cartContainer = document.getElementById('receipt-table')
     // Iterate through cart items and create elements
     Object.values(cart).forEach(cartItem => {
