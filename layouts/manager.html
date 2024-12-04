@@ -36,15 +36,12 @@
         <div class="order-control">
             <div class="left">
                 <div class="order-title">ORDERS</div>
-                <div  id="reviews-button">Reivews</div>
+                <button onclick="printReviews()" class="order-button">Reviews</button>
             </div>
             <div class="order-list right"></div>
         </div>
     <script>
-        function reviewInit(){
-            
-        printReviewButton = document.getElementById('reviews-button');
-        printReviewButton.addEventListener("click", () => {
+        function printReviews(){
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
             const reviews = JSON.parse(localStorage.getItem('reviews'));
@@ -62,13 +59,13 @@
             ${stringOfItems}
             
             `;
+            alert(receiptContent)
 
             doc.text(receiptContent, 10, 10);
 
             doc.save('receipt.pdf');
-        });
         }
-        reviewInit();
+        
     </script>
     </body>
 </html>

@@ -19,7 +19,6 @@ function handleStarClick(value) {
     // Add "selected" class to the clicked star
     stars[value - 1].classList.add("selected");
 }
-
 function handleSubmit() {
     if (!localStorage.getItem('reviews')){
         let reviews = []
@@ -32,7 +31,6 @@ function handleSubmit() {
     const review = reviewText.value;
     const userRating = parseInt(rating.innerText);
     loggedIn = localStorage.getItem('loggedIn');
-
     if (!userRating || !review) {
         if(loggedIn == null || loggedIn == false){
             alert('Please log in before writing a review.')
@@ -48,14 +46,16 @@ function handleSubmit() {
             return
         }
         let reviews = JSON.parse(localStorage.getItem('reviews'));
-        let review = {
+        let review1 = {
             name : loggedIn,
-            rating : rating,
-            message : reviewText
+            rating : userRating,
+            message : review
         }
-        reviews.push(review);
+        alert('Review' + review1.name + review1.rating + review1.message)
+        reviews.push(review1);
+        alert('Reviews' + reviews)
         localStorage.setItem('reviews', JSON.stringify(reviews));
-        alert(reviews)
+
         // Reset styles after submitting
         reviewText.value = "";
         rating.innerText = "0";
