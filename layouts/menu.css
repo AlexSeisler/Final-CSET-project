@@ -15,8 +15,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 2;
 }
 button{
+    
     font-family: 'langdon';
     font-weight: 100;
     text-transform: uppercase;
@@ -26,6 +28,9 @@ button{
     letter-spacing: 4px;
     border: none;
     border-radius: 10px;
+    &:hover{
+        cursor: pointer;
+    }
 }
 
     .innerbox{
@@ -49,7 +54,7 @@ button{
     .innerbox a {
         transition: all 0.3s ease;
         width:100%;
-        height: 20vh;
+        height: 17vh;
         display: block; /* Ensures each anchor tag takes up the full width of its container */
     }
     .innerbox a:hover {
@@ -78,6 +83,9 @@ button{
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
+        z-index: 1;
+        box-shadow: 0 0px 20px black;
+        position: relative;
     }
         .cart .top{
             width: 90%;
@@ -174,6 +182,7 @@ button{
         justify-content: space-around;
         align-items: center;
         padding: 50px 0;
+        z-index: -2;
         
     }
     /* Hide scrollbar for Chrome, Safari and Opera */
@@ -229,9 +238,9 @@ button{
                 height: 100%;
                 object-fit: cover;    
             }
-            &:hover{
+            /* &:hover{
                 cursor: pointer;
-            }
+            } */
         }
         .menu-item-card .menu-item-info{
             display: flex;
@@ -281,13 +290,15 @@ button{
         bottom: 10vh;
         margin-left:35vw;
         cursor: pointer;
+        scale: 1.4;
     }
     .pay-button button{
         width: 10vw;
         height: 50px;
         display: block;
+        color: rgb(0, 0, 0);
         background-color: aliceblue;
-        box-shadow: 0 0 10px aliceblue;
+        border: 3px solid black;
     }
 
 .item-popup{
