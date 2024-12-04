@@ -136,7 +136,7 @@
             background-color: rgb(104, 77, 77);
         }
         .cart-item label{
-            width: 30%;
+            width: 50%;
             display: flex;
             justify-content: space-around;
         }
@@ -144,10 +144,21 @@
             height: 100%;
             font-family: 'langdon';
             text-transform: uppercase;
+            font-size: 1em;
             width: 30%;
         }
         .cart-item button{
             margin-bottom: 2%;
+            font-family: 'langdon';
+            font-weight: 100;
+            text-transform: uppercase;
+            padding: 10px;
+            background-color: #df3b30;
+            color: white;
+            letter-spacing: 4px;
+            font-size: 60%;
+            border: none;
+            border-radius: 10px;
         }
     .menu{
         height: 60vh;
@@ -168,18 +179,26 @@
     /* Hide scrollbar for IE, Edge and Firefox */
     .menu {
         -ms-overflow-style: none;  /* IE and Edge */
+        background-color: aliceblue;
         scrollbar-width: none;  /* Firefox */
     }
         .menu .category-title{
-            width: 60%;
-            height: 120px;
-            background-color: rgb(167, 132, 85);
+            width: 80%;
+            display: block;
+            height: max-content;
+            padding: 20px;
+            background-color: #df3b30;
             margin-bottom: 50px;
+            font-family: 'langdon';
+            text-transform: lowercase;
+            font-weight: 100;
+            font-size: 5em;
+            color: white;
         }
         .menu-items{
             width: 80%;
             height: max-content;
-            background-color: rgb(167, 132, 85);
+            background-color: #1f1f1f;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
@@ -195,7 +214,7 @@
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
-            background-color: rgb(254, 239, 212);
+            background-color: rgb(254, 227, 212);
             border-radius: 50px;
         }
         .menu-item-card .menu-item-image{
