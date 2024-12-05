@@ -4,6 +4,19 @@ padding: 0;
 box-sizing: border-box;
 }
 
+button {
+    font-family: 'langdon';
+    font-weight: 100;
+    text-transform: uppercase;
+    padding: 10px;
+    background-color: #df3b30;
+    color: white;
+    letter-spacing: 4px;
+    border: none;
+    border-radius: 10px;
+    &:hover{cursor: pointer;}
+}
+    
 .main-container {
 display: flex;
 width: 100%;
@@ -17,6 +30,7 @@ height: 100vh;
 display: flex;
 flex-direction: column;
 align-items: center;
+z-index: 10;
 }
 
 .innerbox {
@@ -96,46 +110,48 @@ height: 100vh;
 }
 
 .cart {
-background-color: #1f1f1f;
-width: 100%;
-height: 40vh;
-display: flex;
-flex-direction: column;
-justify-content: space-around;
-align-items: center;
+    background-color: #1f1f1f;
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 0 20px black;
 }
 
-.cart .top {
-width: 90%;
-height: 20%;
-background-color: #df3b30;
-display: flex;
-align-items: center;
-border-top-left-radius: 100px;
-border-bottom-right-radius: 100px;
-}
+    .cart .top {
+        width: 90%;
+        height: 20%;
+        background-color: #df3b30;
+        display: flex;
+        align-items: center;
+        border-top-left-radius: 100px;
+        border-bottom-right-radius: 100px;
+    }
 
-.top h1 {
-font-family: 'langdon';
-color: white;
-font-size: 4em;
-font-weight: 200;
-margin-left: 200px;
-}
+        .top h1 {
+        font-family: 'langdon';
+        color: white;
+        font-size: 4em;
+        font-weight: 200;
+        margin-left: 5%;
+        }
 
-.mm-exit {
-width: 3vw;
-height: 3vw;
-background-color: rgb(0, 0, 0);
-position: sticky;
-left: 90%;
-}
+        .mm-exit {
+        width: 3vw;
+        height: 3vw;
+        background-color: rgb(0, 0, 0);
+        position: sticky;
+        left: 90%;
+        }
 
-#exit {
-width: 100%;
-height: 100%;
-color: white;
-}
+        #exit {
+        width: 100%;
+        height: 100%;
+        color: white;
+        }
 
 .cart .items {
 width: 90%;
@@ -144,6 +160,7 @@ display: flex;
 font-size: 1.8em;
 padding: 10px;
 gap: 30px;
+flex-wrap: nowrap;
 background-color: #df3b30;
 overflow-x: scroll;
 color: white;
@@ -160,7 +177,8 @@ flex-direction: column;
 justify-content: space-between;
 align-items: center;
 height: 90%;
-width: 20vw;
+min-width: 300px;
+font-size: 0.6em;
 overflow: hidden;
 font-family: 'Langdon';
 text-transform: uppercase;
@@ -195,20 +213,11 @@ font-size: 1em;
 width: 30%;
 }
 
-.cart-item button {
-margin-bottom: 2%;
-font-family: 'langdon';
-font-weight: 100;
-text-transform: uppercase;
-padding: 10px;
-background-color: #df3b30;
-color: white;
-letter-spacing: 4px;
-font-size: 60%;
-border: none;
-border-radius: 10px;
-}
+.cart-item button{
 
+    font-size: 60%;
+margin-bottom: 2%;
+}
 .menu {
 height: 60vh;
 width: 100%;
@@ -295,14 +304,27 @@ font-family: 'Edu AU VIC WA NT Pre';
 .menu-item-info h3 {
 display: block;
 background-color: rgba(31, 21, 1, 0.7);
+min-height: 70px;
+max-height: 70px;
 width: 100%;
 text-align: center;
 color: white;
 font-family: 'Ubuntu';
 font-weight: 300;
-font-size: 270%;
+font-size: 50px;
+overflow-y:scroll;
 }
-
+    /* Hide scrollbar for Chrome, Safari, and Opera */
+    .menu-item-info h3::-webkit-scrollbar {
+    display: none;
+    }
+    
+    /* Hide scrollbar for IE, Edge, and Firefox */
+    .menu-item-info h3 {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    }
+    
 .menu-item-info .description {
 text-align: center;
 width: 90%;
@@ -334,7 +356,8 @@ height: 50px;
 border-radius: 5px;
 position: absolute;
 bottom: 10vh;
-margin-left: 35vw;
+right: 0;
+margin-right: 5vw;
 cursor: pointer;
 }
 
@@ -342,8 +365,9 @@ cursor: pointer;
 width: 10vw;
 height: 50px;
 display: block;
+border: 3px solid #1f1f1f;
+color: #1f1f1f;
 background-color: aliceblue;
-box-shadow: 0 0 10px aliceblue;
 }
 
 .item-popup {
