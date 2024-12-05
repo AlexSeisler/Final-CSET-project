@@ -88,7 +88,7 @@ var defaultItems = [
     categories: ["Appetizer", "For the Table"],
     description: "Crispy fried brussels sprouts, Thai chili sauce, bacon, onion frizzles.",
     price: "17.00",
-    image: "..images/sprouts.jpeg"
+    image: "https://cdn.apartmenttherapy.info/image/upload/v1701723838/k/Photo/Recipes/2023-12-chili-crisp-brussels-sprouts/chili-crisp-brussels-sprouts-466.jpg"
 },
 {
     name: "Pickle Cheese Curds",
