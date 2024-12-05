@@ -446,12 +446,18 @@ function displayMenuItems() {
 function itemDisplay(item, menuItemsContainer) {
     const itemCard = document.createElement('div');
     itemCard.classList.add('menu-item-card');
+    let h3Class = '';
+    if (item.name.length > 11){
+        h3Class = 'anim'
+    }
     itemCard.innerHTML = `
         <div class="menu-item-image">
             <img src="${item.image}" alt="${item.name}" />
         </div>
         <div class="menu-item-info">
-            <h3>${item.name}</h3>
+            <div class='title-scroll'>
+                <h3 class=${h3Class}>${item.name}</h3>
+            </div>
             <p>${item.description}</p>
             <p><strong>Price:</strong> $${item.price}</p>
         </div>
