@@ -124,17 +124,8 @@ document.addEventListener("DOMContentLoaded", () => {
     doc.save('receipt.pdf');
   });
 
-  currentOrderBtn.addEventListener("click", () => {
-    currentOrderSection.style.display = "block";
-    pastOrdersSection.style.display = "none";
-  });
-
-  pastOrdersBtn.addEventListener("click", () => {
-    currentOrderSection.style.display = "none";
-    pastOrdersSection.style.display = "block";
-  });
-
   backToMain.addEventListener("click", () => {
     window.location.assign('../../layouts/mainpage.html')
+    localStorage.setItem('cart', JSON.stringify({}));
   });
 });
