@@ -24,6 +24,17 @@
         width: 80%;
         height: 100px;
         background-color: rgb(156, 139, 110);
+        font-family: 'langdon';
+        text-transform: lowercase;
+        font-size: 300%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #1f1f1f;
+        z-index: 1;
+        color: white;
+        border-top-left-radius: 2vw;
+        border-bottom-right-radius: 2vw;
     }
     .cart-items{
         margin-top: 5vh;
@@ -33,7 +44,7 @@
         border-top: 5px solid rgb(156, 139, 110);
         background-color: #1f1f1f;
         z-index: 1;
-
+        color: white;
     }
     /* Hide scrollbar for Chrome, Safari and Opera */
     .cart-items::-webkit-scrollbar {
