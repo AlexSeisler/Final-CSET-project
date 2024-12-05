@@ -51,9 +51,7 @@ function handleSubmit() {
             rating : userRating,
             message : review
         }
-        alert('Review' + review1.name + review1.rating + review1.message)
         reviews.push(review1);
-        alert('Reviews' + reviews)
         localStorage.setItem('reviews', JSON.stringify(reviews));
 
         // Reset styles after submitting
