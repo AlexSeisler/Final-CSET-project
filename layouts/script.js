@@ -6,7 +6,7 @@ localStorage.setItem('loggedIn', false)
 var defaultItems = [
  // WOOD FIRED PIZZAS
  {
-    name: "#1 Plain Cheese",
+    name: "#1 Pizza - Plain Cheese",
     categories: ["Wood Fired Pizzas"],
     description: "Red sauce, mozzarella.",
     price: "15.00",
@@ -77,7 +77,7 @@ var defaultItems = [
     image: "https://www.buythiscookthat.com/wp-content/uploads/2019/09/Bacon-Brisket-Fries-22.jpg"
 },
 {
-    name: "Crispy Pork Belly",
+    name: "Crispy Pork Belly Bao Buns",
     categories: ["Appetizer", "For the Table"],
     description: "Teriyaki glaze, fresh jalapeño, pineapple, pickled red onion, sesame seed, cilantro.",
     price: "17.00",
@@ -91,7 +91,7 @@ var defaultItems = [
     image: "https://i.imgur.com/xMvHt0y.jpeg"
 },
 {
-    name: "Cheese Curds",
+    name: "Pickle Cheese Curds",
     categories: ["Appetizer", "For the Table"],
     description: "Fried pickle cheddar cheese curds, dill ranch.",
     price: "13.00",
@@ -105,7 +105,7 @@ var defaultItems = [
     image: "https://d2s742iet3d3t1.cloudfront.net/restaurants/restaurant-87296000000000000/menu/items/1/item-600000003401326621_1676409562.jpg?size=medium"
 },
 {
-    name: "Sweet Fries",
+    name: "Sweet Potato Fries",
     categories: ["Appetizer", "Dessert", "For the Table"],
     description: "Cinnamon sugar coated, served with maple bacon aioli.",
     price: "9.00",
@@ -203,14 +203,14 @@ var defaultItems = [
     image: "https://i.imgur.com/O2PhQRf.jpeg"
 },
 {
-    name: "Jerk Chicken",
+    name: "Jerk Chicken Sandwich",
     categories: ["Handhelds", "Entree"],
     description: "Hand-breaded fried chicken breast, Jamaican jerk sauce, fried plantain, scallions.",
     price: "18.00",
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTBwZ9JPgmlCZPt_3rsMK5D1pAb9bgEcvbQQ&s"
 },
 {
-    name: "Pulled Pork",
+    name: "Pulled Pork Sandwich",
     categories: ["Handhelds", "Entree"],
     description: "BBQ-tossed beer-braised pork, pickles, onion frizzles, brioche bun.",
     price: "17.00",
@@ -224,7 +224,7 @@ var defaultItems = [
     image: "https://d2s742iet3d3t1.cloudfront.net/restaurants/restaurant-87296000000000000/menu/items/9/item-600000015367944859_1687804432.jpg?size=medium"
 },
 {
-    name: "Fig & Brie",
+    name: "Fig & Brie Sandwich",
     categories: ["Handhelds", "Entree", "Vegetarian"],
     description: "Fig jam, creamy brie cheese, sliced granny smith apples, caramelized red onions, arugula, rustic sourdough.",
     price: "16.00",
@@ -262,21 +262,21 @@ var defaultItems = [
 },
 // FRESH SHUCKED OYSTERS
 {
-    name: "Oyster (1 Piece)",
+    name: "Fresh Shucked Oyster (1 Piece)",
     categories: ["Oysters", "Appetizer", "Seafood"],
     description: "Freshly shucked oyster served with your choice of condiments.",
     price: "3.00",
     image: "https://rosannaetc.com/wp-content/uploads/2024/01/Serving-Fresh-Oysters-At-Home-15.jpg"
 },
 {
-    name: "Fresh Oysters",
+    name: "Half Dozen Fresh Shucked Oysters ",
     categories: ["Oysters", "Appetizer", "Seafood"],
     description: "Half a dozen freshly shucked oysters served with your choice of condiments.",
     price: "16.00",
     image: "https://rosannaetc.com/wp-content/uploads/2024/01/Serving-Fresh-Oysters-At-Home-15.jpg"
 },
 {
-    name: "Fresh Oysters",
+    name: "Full Dozen Fresh Shucked Oysters",
     categories: ["Oysters", "Appetizer", "Seafood"],
     description: "A dozen freshly shucked oysters served with your choice of condiments.",
     price: "32.00",
@@ -308,7 +308,7 @@ var defaultItems = [
 
 // DESSERT
 {
-    name: "Dessert Selection",
+    name: "Rotating Dessert Selection",
     categories: ["Dessert"],
     description: "Chef's choice rotating dessert selection. Ask your server for today's special.",
     price: "9.00",
@@ -399,14 +399,14 @@ var defaultItems = [
     image: "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/espresso-martini-f099531.jpg"
 },
 {
-    name: "Spiced Rum",
+    name: "Spiced Rum Hot Apple Cider",
     categories: ["Drinks"],
     description: "Warm spiced rum with hot apple cider.",
     price: "11.00",
     image: "https://thehealthfulideas.com/wp-content/uploads/2020/10/Spiced-Rum-Apple-Cider-Cocktail-4.jpg"
 },
 {
-    name: "Bourbon Irish",
+    name: "Bourbon Irish Cream Hot Cocoa",
     categories: ["Drinks"],
     description: "Rich bourbon and Irish cream blended with hot cocoa.",
     price: "12.00",
