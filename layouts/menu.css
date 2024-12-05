@@ -278,6 +278,7 @@ justify-content: flex-start;
 align-items: center;
 background-color: rgb(254, 227, 212);
 border-radius: 50px;
+position:relative;
 }
 
 .menu-item-card .menu-item-image {
@@ -300,47 +301,102 @@ width: 100%;
 height: 27%;
 font-family: 'Edu AU VIC WA NT Pre';
 }
-
-.menu-item-info h3 {
-display: block;
-background-color: rgba(31, 21, 1, 0.7);
-min-height: 70px;
-max-height: 70px;
-width: 100%;
-text-align: center;
-color: white;
-font-family: 'Ubuntu';
-font-weight: 300;
-font-size: 50px;
-overflow-y:scroll;
+@keyframes scrollDownUp{
+    0% {
+        top: 0%;
+    }
+    90%{
+        top: -170%;
+    }
+    100%{
+        top: 0%;
+    }
 }
+.menu-item-info .title-scroll {
+    display: block;
+    background-color: rgba(31, 21, 1, 0.7);
+    min-height: 70px;
+    max-height: 70px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-family: 'Ubuntu';
+    overflow-y:scroll;
+    position: relative;
+        h3{
+        position: absolute;
+        font-weight: 300;
+        font-size: 50px;
+        width: 100%;
+        text-align: center;
+        }
+        .anim{
+        animation: scrollDownUp 10s ease-in-out 2s infinite;
+        }
+}
+
     /* Hide scrollbar for Chrome, Safari, and Opera */
-    .menu-item-info h3::-webkit-scrollbar {
+    .menu-item-info .title-scroll::-webkit-scrollbar {
     display: none;
     }
     
     /* Hide scrollbar for IE, Edge, and Firefox */
-    .menu-item-info h3 {
+    .menu-item-info .title-scroll {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    }
+@keyframes scrollDownUp1{
+    0% {
+        top: 0%;
+    }
+    90%{
+        top: -60%;
+    }
+    100%{
+        top: 0%;
+    }
+}
+.menu-item-info .description-scroll {
+text-align: center;
+min-height: 60px;
+max-height: 60px;
+overflow-x: scroll;
+width: 90%;
+position: relative;
+font-size: 16px;
+.anim{
+    position: absolute;
+    animation: scrollDownUp1 7s ease-in-out 0s infinite;
+}
+.anim1{
+    position: absolute;
+    animation: scrollDownUp 7s ease-in-out 0s infinite;
+}
+}
+ /* Hide scrollbar for Chrome, Safari, and Opera */
+ .menu-item-info .description-scroll::-webkit-scrollbar {
+    display: none;
+    }
+    
+    /* Hide scrollbar for IE, Edge, and Firefox */
+    .menu-item-info .description-scroll {
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
     }
     
-.menu-item-info .description {
-text-align: center;
-width: 90%;
-}
-
 .menu-item-info strong {
 font-family: 'Ubuntu';
 font-size: 1.2em;
 }
 
 .menu-item-card .add-to-cart {
-height: 13%;
+height: 10%;
 width: 100%;
 display: flex;
 justify-content: center;
 align-items: center;
+position: absolute;
+bottom: 0;
 }
 
 .menu-item-card .add-to-cart-button {
