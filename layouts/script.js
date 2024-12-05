@@ -1,4 +1,6 @@
-
+/*
+sprouts, pizza 7, preztel, steak fires, monte cristo, fig brie sandhwich fix these pictures
+*/
 if (!localStorage.getItem('loggedIn')){
 localStorage.setItem('loggedIn', false)
   }
@@ -708,7 +710,28 @@ function updateCartDisplay2() {
         cartContainer.innerHTML += `<p>Your cart is empty.</p>`;
     }
 }
+function updateCartDisplay4() { 
+    const cart = JSON.parse(localStorage.getItem('cart')) || {}; // Load cart from local storage
+    let cartContainer = document.getElementById('cartContainer')
+    // Iterate through cart items and create elements
+    Object.values(cart).forEach(cartItem => {
+        const itemDiv = document.createElement('div');
+        itemDiv.classList.add('cart-item'); // Add a styling class
 
+        itemDiv.innerHTML = `
+                <h4 >${cartItem.name}</h4>
+                    <p>Price: $${(cartItem.price * cartItem.quantity).toFixed(2)}</p>
+                    <p>Quantity: ${cartItem.quantity}</p>
+        `;
+
+        cartContainer.appendChild(itemDiv); // Append each cart item to the container
+    });
+
+    // Handle empty cart scenario
+    if (Object.keys(cart).length === 0) {
+        cartContainer.innerHTML += `<p>Your cart is empty.</p>`;
+    }
+}
 function updateCartQuantity(itemName, quantity) {
     const cart = JSON.parse(localStorage.getItem('cart')) || {}; // Load cart from local storage
 
@@ -779,7 +802,7 @@ function checkSelection() {
         window.location.href = '../Payment page/index.html';
     } else if (Cash.checked) {
         // Redirect to cash payment page
-        window.location.href = '../receipt page/index.html';
+        window.location.href = '../Payment page/receipt page/index.html';
     } else {
         // Redirect to an error or notification page
         alert('Please select a payment method.');
