@@ -277,6 +277,9 @@ textarea {
     justify-content: center;
     align-items: center;
 }
+#submit{
+    padding: 30px;
+}
 #submit-rating{
     background-color: #007BFF;
     color: white;
