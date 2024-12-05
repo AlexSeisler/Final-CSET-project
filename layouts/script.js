@@ -6,7 +6,7 @@ localStorage.setItem('loggedIn', false)
 var defaultItems = [
  // WOOD FIRED PIZZAS
  {
-    name: "#1 Pizza - Plain Cheese",
+    name: "#1 Plain Cheese",
     categories: ["Wood Fired Pizzas"],
     description: "Red sauce, mozzarella.",
     price: "15.00",
@@ -77,7 +77,7 @@ var defaultItems = [
     image: "https://www.buythiscookthat.com/wp-content/uploads/2019/09/Bacon-Brisket-Fries-22.jpg"
 },
 {
-    name: "Crispy Pork Belly Bao Buns",
+    name: "Crispy Pork Belly",
     categories: ["Appetizer", "For the Table"],
     description: "Teriyaki glaze, fresh jalapeño, pineapple, pickled red onion, sesame seed, cilantro.",
     price: "17.00",
@@ -91,7 +91,7 @@ var defaultItems = [
     image: "https://i.imgur.com/xMvHt0y.jpeg"
 },
 {
-    name: "Pickle Cheese Curds",
+    name: "Cheese Curds",
     categories: ["Appetizer", "For the Table"],
     description: "Fried pickle cheddar cheese curds, dill ranch.",
     price: "13.00",
@@ -105,7 +105,7 @@ var defaultItems = [
     image: "https://d2s742iet3d3t1.cloudfront.net/restaurants/restaurant-87296000000000000/menu/items/1/item-600000003401326621_1676409562.jpg?size=medium"
 },
 {
-    name: "Sweet Potato Fries",
+    name: "Sweet Fries",
     categories: ["Appetizer", "Dessert", "For the Table"],
     description: "Cinnamon sugar coated, served with maple bacon aioli.",
     price: "9.00",
@@ -140,14 +140,14 @@ var defaultItems = [
     name: "Soup of the Day",
     categories: ["Soup", "Appetizer"],
     description: "Chef's choice daily soup selection.",
-    price: "Market Price",
+    price: "4.00",
     image: "https://cdn.apartmenttherapy.info/image/upload/f_jpg,q_auto:eco,c_fill,g_auto,w_1500,ar_1:1/k%2FPhoto%2FRecipes%2F2024-09-vegetable-soup%2Fvegetable-soup-104"
 },
 {
     name: "Tomato Bisque",
     categories: ["Soup", "Appetizer", "Vegetarian"],
     description: "Herbed tomato cream, parmesan crisp, basil.",
-    price: "6.00 (cup) / 11.00 (bowl)",
+    price: "6.00",
     image: "https://smackofflavor.com/wp-content/uploads/2020/09/Creamy-Tomato-Bisque-4.jpg"
 },
 // MAINS
@@ -203,14 +203,14 @@ var defaultItems = [
     image: "https://i.imgur.com/O2PhQRf.jpeg"
 },
 {
-    name: "Jerk Chicken Sandwich",
+    name: "Jerk Chicken",
     categories: ["Handhelds", "Entree"],
     description: "Hand-breaded fried chicken breast, Jamaican jerk sauce, fried plantain, scallions.",
     price: "18.00",
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTBwZ9JPgmlCZPt_3rsMK5D1pAb9bgEcvbQQ&s"
 },
 {
-    name: "Pulled Pork Sandwich",
+    name: "Pulled Pork",
     categories: ["Handhelds", "Entree"],
     description: "BBQ-tossed beer-braised pork, pickles, onion frizzles, brioche bun.",
     price: "17.00",
@@ -224,7 +224,7 @@ var defaultItems = [
     image: "https://d2s742iet3d3t1.cloudfront.net/restaurants/restaurant-87296000000000000/menu/items/9/item-600000015367944859_1687804432.jpg?size=medium"
 },
 {
-    name: "Fig & Brie Sandwich",
+    name: "Fig & Brie",
     categories: ["Handhelds", "Entree", "Vegetarian"],
     description: "Fig jam, creamy brie cheese, sliced granny smith apples, caramelized red onions, arugula, rustic sourdough.",
     price: "16.00",
@@ -262,21 +262,21 @@ var defaultItems = [
 },
 // FRESH SHUCKED OYSTERS
 {
-    name: "Fresh Shucked Oyster (1 Piece)",
+    name: "Oyster (1 Piece)",
     categories: ["Oysters", "Appetizer", "Seafood"],
     description: "Freshly shucked oyster served with your choice of condiments.",
     price: "3.00",
     image: "https://rosannaetc.com/wp-content/uploads/2024/01/Serving-Fresh-Oysters-At-Home-15.jpg"
 },
 {
-    name: "Half Dozen Fresh Shucked Oysters",
+    name: "Fresh Oysters",
     categories: ["Oysters", "Appetizer", "Seafood"],
     description: "Half a dozen freshly shucked oysters served with your choice of condiments.",
     price: "16.00",
     image: "https://rosannaetc.com/wp-content/uploads/2024/01/Serving-Fresh-Oysters-At-Home-15.jpg"
 },
 {
-    name: "Dozen Fresh Shucked Oysters",
+    name: "Fresh Oysters",
     categories: ["Oysters", "Appetizer", "Seafood"],
     description: "A dozen freshly shucked oysters served with your choice of condiments.",
     price: "32.00",
@@ -308,10 +308,10 @@ var defaultItems = [
 
 // DESSERT
 {
-    name: "Rotating Dessert Selection",
+    name: "Dessert Selection",
     categories: ["Dessert"],
     description: "Chef's choice rotating dessert selection. Ask your server for today's special.",
-    price: "Market Price",
+    price: "9.00",
     image: "https://media-cdn.tripadvisor.com/media/photo-s/1a/74/15/03/always-so-many-cakes.jpg"
 },
 {
@@ -334,13 +334,6 @@ var defaultItems = [
     description: "Orange vodka, triple sec, fresh orange juice, simple syrup, lemon-lime soda, club soda.",
     price: "12.00",
     image: "https://www.howsweeteats.com/wp-content/uploads/2018/06/orange-crush-I-howsweeteats.com-13.jpg"
-},
-{
-    name: "Crush - Blood Orange",
-    categories: ["Drinks"],
-    description: "Orange vodka, triple sec, blood orange juice, simple syrup, lemon-lime soda, club soda.",
-    price: "13.00",
-    image: "https://www.brigeeski.com/wp-content/uploads/2020/06/IMG_4587-1024x683.jpeg"
 },
 {
     name: "Crush - Grapefruit",
@@ -406,14 +399,14 @@ var defaultItems = [
     image: "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/espresso-martini-f099531.jpg"
 },
 {
-    name: "Spiced Rum Hot Apple Cider",
+    name: "Spiced Rum",
     categories: ["Drinks"],
     description: "Warm spiced rum with hot apple cider.",
     price: "11.00",
     image: "https://thehealthfulideas.com/wp-content/uploads/2020/10/Spiced-Rum-Apple-Cider-Cocktail-4.jpg"
 },
 {
-    name: "Bourbon Irish Cream Hot Cocoa",
+    name: "Bourbon Irish",
     categories: ["Drinks"],
     description: "Rich bourbon and Irish cream blended with hot cocoa.",
     price: "12.00",

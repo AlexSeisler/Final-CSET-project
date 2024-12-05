@@ -27,7 +27,7 @@
                 
                 <div class="add-new-card">
                     <div class="add-new-title">Add New Item</div>
-                    <input type="text" id="item-name" placeholder="Item Name">
+                    <input type="text" id="item-name" placeholder="Item Name" maxlength="18">
                     <select id="item-cat">
                         <option value="Entree">Entree</option>
                             <option value="Appetizer">Appetizer</option>
@@ -44,7 +44,7 @@
                             <option value="Salad">Salad</option>
                             <option value="Soup">Soup</option>
                     </select>
-                    <textarea id="item-description" placeholder="Item Description"></textarea>
+                    <textarea id="item-description" placeholder="Item Description" maxlength="50"></textarea>
                     <input type="number" id="item-price" placeholder="Price">
                     <input type="text" id="item-image" placeholder="Image URL">
                     <button id="add-item-button">ADD</button>
@@ -58,7 +58,7 @@
                         </select>
                 
                         <label for="edit-item-description">New Description:</label>
-                        <textarea id="edit-item-description" rows="3" placeholder="Enter new description"></textarea>
+                        <textarea id="edit-item-description" rows="3" placeholder="Enter new description" maxlength="50"></textarea>
                 
                         <label for="edit-item-price">New Price ($):</label>
                         <input type="number" id="edit-item-price" placeholder="Enter new price" step="0.01">
