@@ -221,7 +221,7 @@ var defaultItems = [
     categories: ["Handhelds", "Entree"],
     description: "Smoked brisket, provolone, caramelized onion, horseradish aioli, pressed roll, stout au jus.",
     price: "18.00",
-    image: "https://example.com/french-dip.jpg"
+    image: "https://d2s742iet3d3t1.cloudfront.net/restaurants/restaurant-87296000000000000/menu/items/9/item-600000015367944859_1687804432.jpg?size=medium"
 },
 {
     name: "Fig & Brie Sandwich",
@@ -237,28 +237,28 @@ var defaultItems = [
     categories: ["Appetizer", "Wings"],
     description: "Choice of sauce: Old Bay Dry Rub, Garlic Parmesan, BBQ, Blackberry Stout BBQ, Korean BBQ, Mild, Hot, Thai Chili, Spicy Garlic Parmesan, Hot Honey, Jamaican Jerk, Mango Habanero, Five Finger Death.",
     price: "10.00",
-    image: "https://example.com/6-bone-in-wings.jpg"
+    image: "https://d2s742iet3d3t1.cloudfront.net/restaurants/restaurant-87296000000000000/menu/items/3/item-600000003401326613_1681929196.jpg?size=medium"
 },
 {
     name: "12 Bone-In Wings",
     categories: ["Appetizer", "Wings"],
     description: "Choice of sauce: Old Bay Dry Rub, Garlic Parmesan, BBQ, Blackberry Stout BBQ, Korean BBQ, Mild, Hot, Thai Chili, Spicy Garlic Parmesan, Hot Honey, Jamaican Jerk, Mango Habanero, Five Finger Death.",
     price: "18.00",
-    image: "https://example.com/12-bone-in-wings.jpg"
+    image: "https://d2s742iet3d3t1.cloudfront.net/restaurants/restaurant-87296000000000000/menu/items/3/item-600000003401326613_1681929196.jpg?size=medium"
 },
 {
     name: "Boneless Wings",
     categories: ["Appetizer", "Wings"],
     description: "Choice of sauce: Old Bay Dry Rub, Garlic Parmesan, BBQ, Blackberry Stout BBQ, Korean BBQ, Mild, Hot, Thai Chili, Spicy Garlic Parmesan, Hot Honey, Jamaican Jerk, Mango Habanero, Five Finger Death.",
     price: "10.00",
-    image: "https://example.com/boneless-wings.jpg"
+    image: "https://d2s742iet3d3t1.cloudfront.net/restaurants/restaurant-87296000000000000/menu/items/6/item-600000020644271956_1720733921.jpg?size=medium"
 },
 {
     name: "Veggie Wings",
     categories: ["Appetizer", "Wings", "Vegetarian"],
     description: "Cauliflower bites tossed in your choice of sauce.",
     price: "9.00",
-    image: "https://example.com/veggie-wings.jpg"
+    image: "https://d2s742iet3d3t1.cloudfront.net/restaurants/restaurant-87296000000000000/menu/items/4/item-600000015444188404_1720733846.jpg?size=medium"
 },
 // FRESH SHUCKED OYSTERS
 {
@@ -266,21 +266,21 @@ var defaultItems = [
     categories: ["Oysters", "Appetizer", "Seafood"],
     description: "Freshly shucked oyster served with your choice of condiments.",
     price: "3.00",
-    image: "https://example.com/fresh-oysters.jpg"
+    image: "https://rosannaetc.com/wp-content/uploads/2024/01/Serving-Fresh-Oysters-At-Home-15.jpg"
 },
 {
     name: "Half Dozen Fresh Shucked Oysters",
     categories: ["Oysters", "Appetizer", "Seafood"],
     description: "Half a dozen freshly shucked oysters served with your choice of condiments.",
     price: "16.00",
-    image: "https://example.com/half-dozen-oysters.jpg"
+    image: "https://rosannaetc.com/wp-content/uploads/2024/01/Serving-Fresh-Oysters-At-Home-15.jpg"
 },
 {
     name: "Dozen Fresh Shucked Oysters",
     categories: ["Oysters", "Appetizer", "Seafood"],
     description: "A dozen freshly shucked oysters served with your choice of condiments.",
     price: "32.00",
-    image: "https://example.com/dozen-oysters.jpg"
+    image: "https://rosannaetc.com/wp-content/uploads/2024/01/Serving-Fresh-Oysters-At-Home-15.jpg"
 },
 
 // KIDS
@@ -289,21 +289,21 @@ var defaultItems = [
     categories: ["Kids", "Entree"],
     description: "Simple burger served with applesauce. Substitute fries for +2.",
     price: "9.00",
-    image: "https://example.com/kids-burger.jpg"
+    image: "https://popmenucloud.com/cdn-cgi/image/width=1920,height=1920,format=auto,fit=scale-down/agjrnksq/9634aa19-cec4-4dc4-95ce-b792a93a4b00.jpg"
 },
 {
     name: "Chicken Nuggets",
     categories: ["Kids", "Entree"],
     description: "Crispy chicken nuggets served with applesauce. Substitute fries for +2.",
     price: "9.00",
-    image: "https://example.com/chicken-nuggets.jpg"
+    image: "https://easychickenrecipes.com/wp-content/uploads/2020/08/air-fryer-chicken-nuggets-recipe-3-of-7-500x375.jpg"
 },
 {
     name: "Mac & Cheese",
     categories: ["Kids", "Entree", "Vegetarian"],
     description: "Classic creamy mac and cheese served with applesauce. Substitute fries for +2.",
     price: "7.00",
-    image: "https://example.com/mac-and-cheese.jpg"
+    image: "https://mykidslickthebowl.com/wp-content/uploads/2020/06/healthy-mac-n-cheese-1-of-2020-4.jpg"
 },
 
 // DESSERT
@@ -312,112 +312,112 @@ var defaultItems = [
     categories: ["Dessert"],
     description: "Chef's choice rotating dessert selection. Ask your server for today's special.",
     price: "Market Price",
-    image: "https://example.com/rotating-dessert.jpg"
+    image: "https://media-cdn.tripadvisor.com/media/photo-s/1a/74/15/03/always-so-many-cakes.jpg"
 },
 {
     name: "Adult Slushie",
     categories: ["Drinks"],
     description: "Rotating flavor slushie for adults.",
     price: "11.00",
-    image: "https://example.com/adult-slushie.jpg"
+    image: "https://www.alamedamagazine.com/wp-content/uploads/2021/05/F-Slushies-eb7fc103.jpeg"
 },
 {
     name: "Citywide",
     categories: ["Drinks"],
     description: "Sprenger’s famous Red Rose Ale with a shot of Burley Bourbon.",
     price: "7.00",
-    image: "https://example.com/citywide.jpg"
+    image: "https://images.squarespace-cdn.com/content/v1/5b68767bd274cb571b091c6c/1648174469659-OSHX95MRSY8AS7D1CB95/Citywide.jpg?format=1500w"
 },
 {
     name: "Crush - Orange",
     categories: ["Drinks"],
     description: "Orange vodka, triple sec, fresh orange juice, simple syrup, lemon-lime soda, club soda.",
     price: "12.00",
-    image: "https://example.com/orange-crush.jpg"
+    image: "https://www.howsweeteats.com/wp-content/uploads/2018/06/orange-crush-I-howsweeteats.com-13.jpg"
 },
 {
     name: "Crush - Blood Orange",
     categories: ["Drinks"],
     description: "Orange vodka, triple sec, blood orange juice, simple syrup, lemon-lime soda, club soda.",
     price: "13.00",
-    image: "https://example.com/blood-orange-crush.jpg"
+    image: "https://www.brigeeski.com/wp-content/uploads/2020/06/IMG_4587-1024x683.jpeg"
 },
 {
     name: "Crush - Grapefruit",
     categories: ["Drinks"],
     description: "Grapefruit vodka, triple sec, grapefruit juice, simple syrup, lemon-lime soda, club soda.",
     price: "12.00",
-    image: "https://example.com/grapefruit-crush.jpg"
+    image: "https://admin.cheerstothehost.com/wp-content/uploads/2020/09/grapefruit-crush.jpg"
 },
 {
     name: "Crush - Creamsicle",
     categories: ["Drinks"],
     description: "Orange vodka, vanilla vodka, cream, fresh orange juice, simple syrup, lemon-lime soda, club soda.",
     price: "13.00",
-    image: "https://example.com/creamsicle-crush.jpg"
+    image: "https://www.tasty-lowcarb.com/wp-content/uploads/2018/09/Verical-One-Glass-Very-Close-3-4-f18-98.jpg"
 },
 {
     name: "Joel's Mule",
     categories: ["Drinks"],
     description: "Barrel-aged Bluecoat gin, lime, ginger beer, Peychaud’s bitters.",
     price: "14.00",
-    image: "https://example.com/joels-mule.jpg"
+    image: "https://i0.wp.com/sweetiepieandcupcakes.com/wp-content/uploads/2019/06/Moscow-Mule-Recipe.jpg?fit=586%2C822&ssl=1"
 },
 {
     name: "Captain Prick",
     categories: ["Drinks"],
     description: "Jalapeno-infused tequila, triple sec, prickly pear, lime, lemon, chili threads.",
     price: "13.00",
-    image: "https://example.com/captain-prick.jpg"
+    image: "https://thaicaliente.com/wp-content/uploads/2022/05/Spicy-Skinny-Margarita-2.jpg"
 },
 {
     name: "Churnt",
     categories: ["Drinks"],
     description: "Hidden Still bourbon, apple brandy, apple butter, demerara syrup, apple cider, orange bitters, smoked rosemary.",
     price: "13.00",
-    image: "https://example.com/churnt.jpg"
+    image: "https://thegandmkitchen.com/wp-content/uploads/2022/11/featured-image-71.jpg"
 },
 {
     name: "Punkin",
     categories: ["Drinks"],
     description: "Maggie’s Farm pumpkin spice coffee liqueur, Holla vanilla vodka, cream, pumpkin syrup, pumpkin spice vodka boba.",
     price: "14.00",
-    image: "https://example.com/punkin.jpg"
+    image: "https://www.thefitpeach.com/wp-content/uploads/2021/10/Cozy-Maple-Pumpkin-Bourbon-Cocktail-with-Apple-Cider-9.jpg"
 },
 {
     name: "Smashberry",
     categories: ["Drinks"],
     description: "Stoll & Wolfe blended whiskey, blackberry, honey, lemon, muddled mint, club soda.",
     price: "14.00",
-    image: "https://example.com/smashberry.jpg"
+    image: "https://liquidkitchen.com/wp-content/uploads/2017/04/Kathy-Casey-Monin-Cocktail-Image-2017-WEB-300x300.jpg"
 },
 {
     name: "Bluetini",
     categories: ["Drinks"],
     description: "Blueberry vodka, triple sec, blueberry syrup, yuzu.",
     price: "14.00",
-    image: "https://example.com/bluetini.jpg"
+    image: "https://www.mainespirits.com/sites/default/files/styles/recipe_-_large_image_style/public/wild-blueberry-martini.jpg?itok=XJmQ_MMH"
 },
 {
     name: "Espresso Martini",
     categories: ["Drinks"],
     description: "A rich and indulgent espresso martini.",
     price: "14.00",
-    image: "https://example.com/espresso-martini.jpg"
+    image: "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/espresso-martini-f099531.jpg"
 },
 {
     name: "Spiced Rum Hot Apple Cider",
     categories: ["Drinks"],
     description: "Warm spiced rum with hot apple cider.",
     price: "11.00",
-    image: "https://example.com/spiced-rum-cider.jpg"
+    image: "https://thehealthfulideas.com/wp-content/uploads/2020/10/Spiced-Rum-Apple-Cider-Cocktail-4.jpg"
 },
 {
     name: "Bourbon Irish Cream Hot Cocoa",
     categories: ["Drinks"],
     description: "Rich bourbon and Irish cream blended with hot cocoa.",
     price: "12.00",
-    image: "https://example.com/bourbon-irish-cocoa.jpg"
+    image: "https://www.missallieskitchen.com/wp-content/uploads/2023/11/Spiked-Hot-Chocolate-6474.jpg"
 }
 ];
 
@@ -925,8 +925,13 @@ function setCart(){
     if(users[loggedIn].cart != undefined){
         localStorage.setItem('cart', users[loggedIn].cart);
     }
-    if (localStorage.getItem('tempCart') != null){
-        let tempCart = localStorage.getItem('tempCart');
-        localStorage.setItem('cart', tempCart);
+    if (localStorage.getItem('tempCart')!= null){
+        tempCart = localStorage.getItem('tempCart')
+        if (tempCart == 'false'){
+            return
+        }
+        else{
+            localStorage.setItem('cart', tempCart);
+        }
     }
 }
