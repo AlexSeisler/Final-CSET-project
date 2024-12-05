@@ -186,3 +186,23 @@
         .payment-button:hover{
             cursor: pointer;
         }
+.cart-item{
+    display:flex;
+    background-color:antiquewhite;
+    gap:10px;
+    border-radius: 10px;
+    padding:10px;
+    margin:20px;
+}
+.cart-item-image img{
+    height:100px;
+    width:100px;
+    object-fit:cover;
+    border-radius:10px;
+}
+.cart-item-info h4{
+    font-size:22px;
+}
+.cart-item-info p{
+    font-size:20px;
+}
