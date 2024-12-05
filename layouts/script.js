@@ -657,8 +657,10 @@ function updateCartDisplay1() {
             </div>
             <div class="cart-item-info">
                 <h4 >${cartItem.name}</h4>
-                <p>Price: $${(cartItem.price * cartItem.quantity).toFixed(2)}</p>
-                <p>Quantity: ${cartItem.quantity}</p>
+                <div class="price-quantity">
+                    <p>Price: $${(cartItem.price * cartItem.quantity).toFixed(2)}</p>
+                    <p>Quantity: ${cartItem.quantity}</p>
+                </div>
             </div>
         `;
 
