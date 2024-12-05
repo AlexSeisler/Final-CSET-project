@@ -17,49 +17,49 @@ var defaultItems = [
     categories: ["Wood Fired Pizzas"],
     description: "Red sauce, fresh mozzarella, sliced tomato, balsamic, basil.",
     price: "16.00",
-    image: "https://example.com/pizza-2.jpg"
+    image: "https://www.killingthyme.net/wp-content/uploads/2020/06/Caprese-Pizza-500x375.jpg"
 },
 {
     name: "#3 Pizza",
     categories: ["Wood Fired Pizzas"],
     description: "Red sauce, mozzarella, bacon, pepperoni, hot honey drizzle, grated parmesan.",
     price: "17.00",
-    image: "https://example.com/pizza-3.jpg"
+    image: "https://popmenucloud.com/cdn-cgi/image/width=1920,height=1920,format=auto,fit=scale-down/rshepivg/b1cc09ed-c5f3-45f9-b211-c131f253865b.jpg"
 },
 {
     name: "#4 Pizza",
     categories: ["Wood Fired Pizzas", "Vegetarian"],
     description: "Ricotta, mozzarella, mushroom, spinach, fire-roasted tomatoes, grated parmesan, pesto drizzle.",
     price: "17.00",
-    image: "https://example.com/pizza-4.jpg"
+    image: "https://img.cdn4dd.com/p/fit=cover,width=1200,height=1200,format=auto,quality=90/media/photosV2/60d2d8c1-82c4-4f2b-92d2-faae1ecae7e5-retina-large.JPG"
 },
 {
     name: "#5 Pizza",
     categories: ["Wood Fired Pizzas"],
     description: "Garlic oil, fresh mozzarella, prosciutto, caramelized onion, arugula, balsamic drizzle, grated parmesan.",
     price: "18.00",
-    image: "https://example.com/pizza-5.jpg"
+    image: "https://d2s742iet3d3t1.cloudfront.net/restaurants/restaurant-87296000000000000/menu/items/9/item-600000003401343449_1681929310.jpg?size=medium"
 },
 {
     name: "#6 Pizza",
     categories: ["Wood Fired Pizzas"],
     description: "Red sauce, mozzarella, sausage, green pepper, red onion.",
     price: "17.00",
-    image: "https://example.com/pizza-6.jpg"
+    image: "https://d2s742iet3d3t1.cloudfront.net/restaurants/restaurant-87296000000000000/menu/items/5/item-600000003401343445_1721274839.jpg?size=medium"
 },
 {
     name: "#7 Pizza",
     categories: ["Wood Fired Pizzas"],
     description: "Dill ranch, mozzarella, dill pickle, bacon.",
     price: "16.00",
-    image: "https://example.com/pizza-7.jpg"
+    image: "https://i.imgur.com/NnTdy9c.jpeg"
 },
 {
     name: "Calzone",
     categories: ["Wood Fired Pizzas"],
     description: "Ricotta, mozzarella, ham, garlic butter crust, side red sauce.",
     price: "18.00",
-    image: "https://example.com/calzone.jpg"
+    image: "https://kendellkreations.com/wp-content/uploads/2023/01/8316B66D-010D-4623-8B96-5B3D87C64C85-scaled-540x720.jpg"
 },
 // FOR THE TABLE
 {
@@ -67,56 +67,49 @@ var defaultItems = [
     categories: ["Appetizer", "For the Table"],
     description: "White cheddar sauce, grain mustard, honey mustard.",
     price: "11.00",
-    image: "https://example.com/bavarian-pretzel.jpg"
+    image: "https://i.imgur.com/YA3wDIz.jpeg"
 },
 {
     name: "Loaded Fries",
     categories: ["Appetizer", "For the Table"],
     description: "French fries, brisket, colby jack, white cheddar cheese sauce, traditional BBQ, scallions.",
     price: "17.00",
-    image: "https://example.com/loaded-fries.jpg"
+    image: "https://www.buythiscookthat.com/wp-content/uploads/2019/09/Bacon-Brisket-Fries-22.jpg"
 },
 {
-    name: "Crispy Pork Belly",
+    name: "Crispy Pork Belly Bao Buns",
     categories: ["Appetizer", "For the Table"],
     description: "Teriyaki glaze, fresh jalapeño, pineapple, pickled red onion, sesame seed, cilantro.",
     price: "17.00",
-    image: "https://example.com/crispy-pork-belly.jpg"
+    image: "https://www.unileverfoodsolutions.us/dam/global-ufs/mcos/nam/photography/MultipleBrands/ufs-2023-photoshoot/pork-belly-bao-buns/PorkBellyBao2.jpg"
 },
 {
     name: "Sprouts",
     categories: ["Appetizer", "For the Table"],
     description: "Crispy fried brussels sprouts, Thai chili sauce, bacon, onion frizzles.",
     price: "17.00",
-    image: "https://example.com/brussels-sprouts.jpg"
-},
-{
-    name: "Fried Bao Buns",
-    categories: ["Appetizer", "For the Table"],
-    description: "Crispy fried bao buns with unique fillings.",
-    price: "15.00",
-    image: "https://example.com/bao-buns.jpg"
+    image: "https://i.imgur.com/xMvHt0y.jpeg"
 },
 {
     name: "Pickle Cheese Curds",
     categories: ["Appetizer", "For the Table"],
     description: "Fried pickle cheddar cheese curds, dill ranch.",
     price: "13.00",
-    image: "https://example.com/pickle-cheese-curds.jpg"
+    image: "https://www.adashofmegnut.com/wp-content/uploads/2023/03/Gluten-Free-Cheese-Curds-2-500x500.jpg"
 },
 {
     name: "Nachos",
     categories: ["Appetizer", "For the Table"],
     description: "Tri-color tortilla chips, colby jack, white cheddar sauce, jalapeno, pico, sour cream, scallions.",
     price: "14.00",
-    image: "https://example.com/nachos.jpg"
+    image: "https://d2s742iet3d3t1.cloudfront.net/restaurants/restaurant-87296000000000000/menu/items/1/item-600000003401326621_1676409562.jpg?size=medium"
 },
 {
     name: "Sweet Potato Fries",
     categories: ["Appetizer", "Dessert", "For the Table"],
     description: "Cinnamon sugar coated, served with maple bacon aioli.",
     price: "9.00",
-    image: "https://example.com/sweet-potato-fries.jpg"
+    image: "https://peanutbutterandjilly.com/wp-content/uploads/2020/11/IMG_6679-1.jpg"
 },
 
 // SALADS
@@ -125,37 +118,37 @@ var defaultItems = [
     categories: ["Salad", "Entree", "Vegetarian"],
     description: "Mixed greens, cherry tomatoes, cucumber, onion, mozzarella, crouton.",
     price: "13.00",
-    image: "https://example.com/house-salad.jpg"
+    image: "https://d2s742iet3d3t1.cloudfront.net/restaurants/restaurant-87296000000000000/menu/items/7/item-600000003401333177_1721274980.jpg?size=medium"
 },
 {
     name: "Caesar Salad",
     categories: ["Salad", "Entree", "Vegetarian"],
     description: "Romaine, parmesan, crouton, Caesar dressing.",
     price: "14.00",
-    image: "https://example.com/caesar-salad.jpg"
+    image: "https://d2s742iet3d3t1.cloudfront.net/restaurants/restaurant-87296000000000000/menu/items/1/item-600000003401333181_1721275017.jpg?size=medium"
 },
 {
     name: "Winter Salad",
     categories: ["Salad", "Entree", "Vegetarian"],
     description: "Mixed greens, granny smith apples, candied pecans, bleu cheese, dried cranberries.",
     price: "15.00",
-    image: "https://example.com/winter-salad.jpg"
+    image: "https://twokooksinthekitchen.com/wp-content/uploads/2019/12/IMG_9340-4.webp"
 },
 
 // SOUP
 {
     name: "Soup of the Day",
     categories: ["Soup", "Appetizer"],
-    description: "Chef's choice daily soup selection. *<em>Estimated Price Shown</em>",
-    price: "10.00",
-    image: "https://example.com/soup-of-the-day.jpg"
+    description: "Chef's choice daily soup selection.",
+    price: "Market Price",
+    image: "https://cdn.apartmenttherapy.info/image/upload/f_jpg,q_auto:eco,c_fill,g_auto,w_1500,ar_1:1/k%2FPhoto%2FRecipes%2F2024-09-vegetable-soup%2Fvegetable-soup-104"
 },
 {
     name: "Tomato Bisque",
     categories: ["Soup", "Appetizer", "Vegetarian"],
     description: "Herbed tomato cream, parmesan crisp, basil.",
     price: "6.00 (cup) / 11.00 (bowl)",
-    image: "https://example.com/tomato-bisque.jpg"
+    image: "https://smackofflavor.com/wp-content/uploads/2020/09/Creamy-Tomato-Bisque-4.jpg"
 },
 // MAINS
 {
@@ -163,28 +156,28 @@ var defaultItems = [
     categories: ["Entree", "Mains", "Vegetarian"],
     description: "Three-cheese tortellini, asiago sage cream sauce, crispy kale.",
     price: "21.00",
-    image: "https://example.com/tortellini.jpg"
+    image: "https://cdn.apartmenttherapy.info/image/upload/f_jpg,q_auto:eco,c_fill,g_auto,w_1500,ar_1:1/k%2FPhoto%2FRecipes%2F2022-03_Tortellni-Alfredo%2F2022-03-08_ATK-6858"
 },
 {
     name: "Fish & Chips",
     categories: ["Entree", "Mains"],
     description: "Beer-battered haddock, fries, slaw, tartar, lemon wheels.",
     price: "23.00",
-    image: "https://example.com/fish-and-chips.jpg"
+    image: "https://i0.wp.com/travelandmunchies.com/wp-content/uploads/2022/12/IMG_9513-scaled.jpg?fit=2560%2C1828&ssl=1"
 },
 {
     name: "Steak Frites",
     categories: ["Entree", "Mains"],
     description: "10oz stockyard sirloin, compound butter, demi-glace, garlic parmesan fries.",
     price: "25.00",
-    image: "https://example.com/steak-frites.jpg"
+    image: "https://i.imgur.com/cnnjDhH.jpeg"
 },
 {
     name: "Butchery Platter",
     categories: ["Entree", "Mains"],
     description: "Beer-braised pulled pork, smoked brisket, mac & cheese, southern green beans, chow chow, slider rolls, choice of BBQ sauce: traditional, Korean, or blackberry stout.",
     price: "24.00",
-    image: "https://example.com/butchery-platter.jpg"
+    image: "https://d2s742iet3d3t1.cloudfront.net/restaurants/restaurant-87296000000000000/menu/items/1/item-600000025968204791_1721275076.jpg?size=medium"
 },
 
 // HANDHELDS
@@ -193,35 +186,35 @@ var defaultItems = [
     categories: ["Handhelds", "Entree"],
     description: "Blend of ribeye, chuck & brisket 4oz smashed patty, American cheese, butter lettuce, tomato, onion, smash sauce, brioche bun. Add-ons: extra patty +4, fried egg +2, bacon +2, jalapeño +1, pickle +1, onion frizzles +2, veg patty +3.",
     price: "13.00",
-    image: "https://example.com/smashburger.jpg"
+    image: "https://d2s742iet3d3t1.cloudfront.net/restaurants/restaurant-87296000000000000/menu/items/5/item-600000003401354755_1681928130.jpg?size=medium"
 },
 {
     name: "Cheesesteak",
     categories: ["Handhelds", "Entree"],
     description: "Shaved ribeye, caramelized onion, hoagie roll, choice of cheese: cheese sauce, American, cheddar, Swiss, provolone, pepperjack.",
     price: "17.00",
-    image: "https://example.com/cheesesteak.jpg"
+    image: "https://d2s742iet3d3t1.cloudfront.net/restaurants/restaurant-87296000000000000/menu/items/7/item-600000003401354757_1676409665.jpg?size=medium"
 },
 {
     name: "Monte Cristo",
     categories: ["Handhelds", "Entree"],
     description: "Ham, turkey, Swiss, blackberry dijon, maple bacon aioli, brioche French toast, powdered sugar dust, maple syrup.",
     price: "18.00",
-    image: "https://example.com/monte-cristo.jpg"
+    image: "https://i.imgur.com/O2PhQRf.jpeg"
 },
 {
     name: "Jerk Chicken Sandwich",
     categories: ["Handhelds", "Entree"],
     description: "Hand-breaded fried chicken breast, Jamaican jerk sauce, fried plantain, scallions.",
     price: "18.00",
-    image: "https://example.com/jerk-chicken-sandwich.jpg"
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTBwZ9JPgmlCZPt_3rsMK5D1pAb9bgEcvbQQ&s"
 },
 {
     name: "Pulled Pork Sandwich",
     categories: ["Handhelds", "Entree"],
     description: "BBQ-tossed beer-braised pork, pickles, onion frizzles, brioche bun.",
     price: "17.00",
-    image: "https://example.com/pulled-pork.jpg"
+    image: "https://media.istockphoto.com/id/1440143909/photo/pulled-pork-sandwich-and-fries.jpg?s=612x612&w=0&k=20&c=DS9jpBfoqVAwKNybJKMBQbrW5Vla2UvRnbmJlGZ7QLA="
 },
 {
     name: "French Dip",
@@ -235,7 +228,7 @@ var defaultItems = [
     categories: ["Handhelds", "Entree", "Vegetarian"],
     description: "Fig jam, creamy brie cheese, sliced granny smith apples, caramelized red onions, arugula, rustic sourdough.",
     price: "16.00",
-    image: "https://example.com/fig-and-brie.jpg"
+    image: "https://i.imgur.com/Dt7iXwI.jpeg"
 },
 
 // WINGS
@@ -317,8 +310,8 @@ var defaultItems = [
 {
     name: "Rotating Dessert Selection",
     categories: ["Dessert"],
-    description: "Chef's choice rotating dessert selection. Ask your server for today's special. *<em>Estimated Price Shown</em>",
-    price: "15.00",
+    description: "Chef's choice rotating dessert selection. Ask your server for today's special.",
+    price: "Market Price",
     image: "https://example.com/rotating-dessert.jpg"
 },
 {
@@ -673,7 +666,7 @@ var USDollar = new Intl.NumberFormat('en-US', {
     currency: 'USD',
   });
 function updateCartDisplay2() { 
-    const cart = JSON.parse(localStorage.getItem('cart')) || {}; // Load cart from local storages
+    const cart = JSON.parse(localStorage.getItem('cart')) || {}; // Load cart from local storage
     let cartContainer = document.getElementById('receipt-table')
     // Iterate through cart items and create elements
     Object.values(cart).forEach(cartItem => {
@@ -774,7 +767,7 @@ function checkSelection() {
         window.location.href = '../Payment page/index.html';
     } else if (Cash.checked) {
         // Redirect to cash payment page
-        window.location.href = '../Payment page/receipt page/index.html';
+        window.location.href = '../receipt page/index.html';
     } else {
         // Redirect to an error or notification page
         alert('Please select a payment method.');
@@ -932,13 +925,8 @@ function setCart(){
     if(users[loggedIn].cart != undefined){
         localStorage.setItem('cart', users[loggedIn].cart);
     }
-    if (localStorage.getItem('tempCart')!= null){
-        tempCart = localStorage.getItem('tempCart')
-        if (tempCart == 'false'){
-            return
-        }
-        else{
-            localStorage.setItem('cart', tempCart);
-        }
+    if (localStorage.getItem('tempCart') != null){
+        let tempCart = localStorage.getItem('tempCart');
+        localStorage.setItem('cart', tempCart);
     }
 }
