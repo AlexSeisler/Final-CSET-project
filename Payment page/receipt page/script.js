@@ -40,35 +40,30 @@ document.addEventListener("DOMContentLoaded", () => {
   userNameElement.textContent = savedUsername;
   updated = false;
   refreshStatusBtn.addEventListener("click", () => {
+        if (currentStatusIndex < statuses.length) {
+          currentStatus = statuses[currentStatusIndex];
+          orderStatus.textContent = currentStatus.status;
+        }
+        percent = 100*(currentWaitTime/30);
+        percent = Math.round(percent);
+        console.log(percent-100);
+        progressBar.style.backgroundColor = currentStatus.progress === 100 ? "#007bff" : "#28a745";
+        progressBar.style.width = `${Math.abs(percent-100)}%`
+      
       if (currentWaitTime === 0 && updated == true) {
         return
       }
     // Update wait time logic
     waitTimeElement.textContent = `Wait time: ${currentWaitTime} minutes`;
-    const interval = setInterval(() => {
-      if (currentWaitTime === 30) {
-        currentWaitTime = 25; // Change to 25 minutes
+    let interval = setInterval(() => {
+      if (currentWaitTime > 0) {
+        currentWaitTime--;
       }
-      else if (currentWaitTime === 25) {
-        currentWaitTime = 20; 
-        progressBar.style.width = '20%'
-      }
-      else if (currentWaitTime === 20) {
-        currentWaitTime = 15; 
-        progressBar.style.width = '40%'
-      }
-      else if (currentWaitTime === 15) {
-        currentWaitTime = 10; 
-        progressBar.style.width = '60%'
+      if (currentWaitTime/30 < 0.5){
         currentStatusIndex++
       }
-      else if (currentWaitTime === 10) {
-        currentWaitTime = 5; 
-        progressBar.style.width = '80%'
-      }
-       else if (currentWaitTime === 5) {
+      if (currentWaitTime <= 0) {
         currentWaitTime = 0; // Change to 0 minutes
-        progressBar.style.width = '100%'
         currentStatusIndex++
         updated = true;
       }
@@ -82,7 +77,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       waitTimeElement.textContent = `Wait time: ${currentWaitTime} minutes`;
 
-    }, 300000);//waits for literally 5 minutes
+    }, 30000);//waits for literally 5 minutes
+    interval = 0;
     console.log(interval)
 
     
