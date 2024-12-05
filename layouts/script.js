@@ -1,6 +1,4 @@
-/*
-sprouts, pizza 7, preztel, steak fires, monte cristo, fig brie sandhwich fix these pictures
-*/
+
 if (!localStorage.getItem('loggedIn')){
 localStorage.setItem('loggedIn', false)
   }
@@ -54,7 +52,7 @@ var defaultItems = [
     categories: ["Wood Fired Pizzas"],
     description: "Dill ranch, mozzarella, dill pickle, bacon.",
     price: "16.00",
-    image: "https://i.imgur.com/NnTdy9c.jpeg"
+    image: "../images/7pizza.jpeg"
 },
 {
     name: "Calzone",
@@ -69,7 +67,7 @@ var defaultItems = [
     categories: ["Appetizer", "For the Table"],
     description: "White cheddar sauce, grain mustard, honey mustard.",
     price: "11.00",
-    image: "https://i.imgur.com/YA3wDIz.jpeg"
+    image: "../images/pretzel.jpeg"
 },
 {
     name: "Loaded Fries",
@@ -90,7 +88,7 @@ var defaultItems = [
     categories: ["Appetizer", "For the Table"],
     description: "Crispy fried brussels sprouts, Thai chili sauce, bacon, onion frizzles.",
     price: "17.00",
-    image: "https://i.imgur.com/xMvHt0y.jpeg"
+    image: "https://cdn.apartmenttherapy.info/image/upload/v1701723838/k/Photo/Recipes/2023-12-chili-crisp-brussels-sprouts/chili-crisp-brussels-sprouts-466.jpg"
 },
 {
     name: "Pickle Cheese Curds",
@@ -172,7 +170,7 @@ var defaultItems = [
     categories: ["Entree", "Mains"],
     description: "10oz stockyard sirloin, compound butter, demi-glace, garlic parmesan fries.",
     price: "25.00",
-    image: "https://i.imgur.com/cnnjDhH.jpeg"
+    image: "../images/steak.jpeg"
 },
 {
     name: "Butchery Platter",
@@ -202,7 +200,7 @@ var defaultItems = [
     categories: ["Handhelds", "Entree"],
     description: "Ham, turkey, Swiss, blackberry dijon, maple bacon aioli, brioche French toast, powdered sugar dust, maple syrup.",
     price: "18.00",
-    image: "https://i.imgur.com/O2PhQRf.jpeg"
+    image: "../images/monte.jpeg"
 },
 {
     name: "Jerk Chicken Sandwich",
@@ -230,7 +228,7 @@ var defaultItems = [
     categories: ["Handhelds", "Entree", "Vegetarian"],
     description: "Fig jam, creamy brie cheese, sliced granny smith apples, caramelized red onions, arugula, rustic sourdough.",
     price: "16.00",
-    image: "https://i.imgur.com/Dt7iXwI.jpeg"
+    image: "../images/fig.jpeg"
 },
 
 // WINGS
@@ -582,13 +580,30 @@ function filterItemsByCategory(category) {
         filteredItems.forEach(item => {
             const itemCard = document.createElement('div');
             itemCard.classList.add('menu-item-card');
+            let h3Class = '';
+            if (item.name.length > 10){
+                h3Class = 'anim'
+            }
+            
+            let desClass = '';
+            if (item.description.length > 45){
+                desClass = 'anim'
+            }
+            if (item.description.length > 65){
+                desClass = 'anim1'
+            }
+            
             itemCard.innerHTML = `
                 <div class="menu-item-image">
                     <img src="${item.image}" alt="${item.name}" />
                 </div>
                 <div class="menu-item-info">
-                    <h3>${item.name}</h3>
-                    <p>${item.description}</p>
+                    <div class='title-scroll'>
+                        <h3 class=${h3Class}>${item.name}</h3>
+                    </div>
+                    <div class='description-scroll'>
+                    <p class=${desClass}>${item.description}</p>
+                    </div>
                     <p><strong>Price:</strong> $${item.price}</p>
                 </div>
                 <div class="add-to-cart">
@@ -710,28 +725,7 @@ function updateCartDisplay2() {
         cartContainer.innerHTML += `<p>Your cart is empty.</p>`;
     }
 }
-function updateCartDisplay4() { 
-    const cart = JSON.parse(localStorage.getItem('cart')) || {}; // Load cart from local storage
-    let cartContainer = document.getElementById('cartContainer')
-    // Iterate through cart items and create elements
-    Object.values(cart).forEach(cartItem => {
-        const itemDiv = document.createElement('div');
-        itemDiv.classList.add('cart-item'); // Add a styling class
 
-        itemDiv.innerHTML = `
-                <h4 >${cartItem.name}</h4>
-                    <p>Price: $${(cartItem.price * cartItem.quantity).toFixed(2)}</p>
-                    <p>Quantity: ${cartItem.quantity}</p>
-        `;
-
-        cartContainer.appendChild(itemDiv); // Append each cart item to the container
-    });
-
-    // Handle empty cart scenario
-    if (Object.keys(cart).length === 0) {
-        cartContainer.innerHTML += `<p>Your cart is empty.</p>`;
-    }
-}
 function updateCartQuantity(itemName, quantity) {
     const cart = JSON.parse(localStorage.getItem('cart')) || {}; // Load cart from local storage
 
